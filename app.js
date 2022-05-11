@@ -6,15 +6,16 @@ class CryptoExchange{
   }
 
   async currencies(){
-    const currencies = await fetch("https://api.coinranking.com/v2/reference-currencies", {
+    const currencies = await fetch("https://api.coinranking.com/v2/coins", {
       headers: {
-        // "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": "*",
         "x-access-token": `${token}`,
-        // "Authorization": `token ${token}`
+        "Authorization": `token ${token}`
       }
     });
-    const data = await currencies.json();
-    console.log(data);
+    const response = await currencies.json();
+    console.log(response.data.coins);
+
   }
 }
 

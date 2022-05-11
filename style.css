@@ -1,0 +1,65 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header{
+  background-color: rgb(1, 183, 244);
+  height: 100%;
+}
+.header-container{
+  display: flex;
+  align-items: center;
+
+}
+header img{
+  width: 50px; height: 50px;
+  display: flex;
+  align-self: center;
+}
+.logo{
+  display: flex; 
+  align-items: center;
+  flex-basis: 30%;
+  height: 100%;
+  background-color: yellow;
+}
+.logo a{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-decoration: none;
+}
+figcaption{
+  color: rgb(111, 51, 51);
+  font-size: 1.5rem;
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  flex-basis: 70%;
+  background-color: red;
+}
+
+nav ul{
+  display: flex;
+  /* align-items: center; */
+  /* margin: auto; */
+  float: right;
+  margin-left: auto;
+  flex-direction: row;
+  gap: 15px;
+}
+
+nav ul li{
+  display: flex;
+  align-content: center;
+  justify-self: center;
+  list-style: none;
+}
+nav ul li a{
+  text-decoration: none;
+  color: white;
+}
