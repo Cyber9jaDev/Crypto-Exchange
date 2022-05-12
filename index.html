@@ -12,7 +12,7 @@
 </head>
 <body>
   <header>
-    <div class="container-fluid d-flex align-items-center">
+    <div class="header container-fluid">
       <div class="logo">
         <a href="#">
           <img src="/icon.png" alt="home-icon">
@@ -22,14 +22,27 @@
     
       <nav>
         <ul>
-          <li><a href="#">Cryptocurrencies</a></li>
+          <li><a href="#cryptocurrencies">Cryptocurrencies</a></li>
           <li><a href="#">Exchanges</a></li>
           <li><a href="#">Markets</a></li>
           <li><a href="#">Latest News</a></li>
         </ul>
       </nav>
+
+      <div class="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </div>
   </header>
+
+  <section class="bg-dark text-white py-3" id="cryptocurrencies">
+    <div class="container-lg d-flex flex-column justify-content-between align-items-center">
+      <h2>Cryptocurrency Price List</h2>
+      
+    </div>
+  </section>
 
   <script src="/app.js"></script>
 </body>

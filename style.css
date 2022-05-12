@@ -2,16 +2,26 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+.mobile-menu{
+  display: none;
 }
 
 header{
-  background-color: rgb(1, 183, 244);
-  height: 100%;
+  background-color: rgb(50, 139, 169);
+  min-height: 70px;
 }
+
+.header{
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
 .header-container{
   display: flex;
   align-items: center;
-
 }
 header img{
   width: 50px; height: 50px;
@@ -22,44 +32,100 @@ header img{
   display: flex; 
   align-items: center;
   flex-basis: 30%;
-  height: 100%;
-  background-color: yellow;
 }
 .logo a{
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 100%;
   text-decoration: none;
 }
 figcaption{
-  color: rgb(111, 51, 51);
-  font-size: 1.5rem;
+  color: rgb(142, 15, 15);
+  font-size: 1.8rem;
+  padding-left: 10px;
+  font-weight: 600;
 }
-
 nav{
   display: flex;
-  align-items: center;
   flex-basis: 70%;
-  background-color: red;
+  padding-right: 30px;
 }
 
 nav ul{
   display: flex;
-  /* align-items: center; */
-  /* margin: auto; */
-  float: right;
+  margin: 0;
   margin-left: auto;
   flex-direction: row;
-  gap: 15px;
+  gap: 20px;
 }
 
 nav ul li{
   display: flex;
-  align-content: center;
-  justify-self: center;
   list-style: none;
 }
 nav ul li a{
   text-decoration: none;
-  color: white;
+  color: rgb(249, 247, 247);
+  font-size: 1.2rem;
+}
+
+nav ul li a:hover{
+  color: rgb(142, 15, 15);
+}
+
+
+@media screen and (max-width: 700px) {
+
+  .header{
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  header img{
+    width: 40px; height: 40px;
+  }
+  .logo{
+    flex-basis: 50%;
+  }
+  figcaption{
+    font-size: 1.6rem;
+  }
+  .mobile-menu{
+    cursor: pointer;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+    flex-basis: 50%;
+  }
+  .mobile-menu .bar{
+    background-color: white;
+    width: 25px;
+    height: 2px;
+    display: flex;
+    margin: 3px;
+  }
+
+  nav{
+    display: block;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    background-color: rgb(50, 139, 169);
+  }
+  
+  nav ul{
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li a{
+    font-size: 0.9rem;
+  }
+  
 }
