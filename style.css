@@ -76,7 +76,6 @@ nav ul li a:hover{
 
 
 @media screen and (max-width: 700px) {
-
   .header{
     display: flex;
     align-items: center;
@@ -87,45 +86,68 @@ nav ul li a:hover{
     width: 40px; height: 40px;
   }
   .logo{
-    flex-basis: 50%;
+    flex-basis: 80%;
   }
   figcaption{
     font-size: 1.6rem;
   }
   .mobile-menu{
-    cursor: pointer;
-    background-color: red;
     display: flex;
-    flex-direction: column;
-    align-items:flex-end;
-    flex-basis: 50%;
+    flex-basis: 20%;
+    justify-content: end;
   }
-  .mobile-menu .bar{
+  .hamburger{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+  }
+  .bar{
     background-color: white;
-    width: 25px;
+    width: 23px;
     height: 2px;
     display: flex;
     margin: 3px;
   }
-
   nav{
-    display: block;
+    display: none;
     left: 0;
     width: 100%;
     position: absolute;
     top: 100%;
     background-color: rgb(50, 139, 169);
   }
-  
   nav ul{
     gap: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px 0 20px 0;
   }
-
   nav ul li a{
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-weight: 600;
   }
-  
+  nav.active{
+    display: block;
+  }
+  .mobile-menu.active .bar:nth-child(2){
+    opacity: 0;
+  }
+  .mobile-menu.active .bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+  }
+  .mobile-menu.active .bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+@media screen and (max-width: 580px){
+  figcaption{
+    font-size: 1.3rem;
+  }
 }
