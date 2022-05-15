@@ -43,23 +43,49 @@
     <div class="container-lg">
       <h2 class="text-center">Cryptocurrency Price List</h2>
 
-      <div class="table">
+      <div class="table favorite">
         <div class="tableHead">
           <div class="tableRow">
-            <div class="coinDiv">Coins</div>
-            <div class="priceDiv">Price</div>
-            <div class="marketCapDiv">Market Cap</div>
-            <div class="hourDiv">24h</div>
+            <span class="tokenDiv">FAVORITES</span>
+            <span class="priceDiv">PRICE</span>
+            <span class="marketCapDiv">MARKET CAP</span>
+            <span class="hourDiv">24H</span>
           </div>
         </div>
         <div class="tableBody">
           <div class="tableRow">
-            <div class="tokenDiv token">
-              <i class="fa-solid fa-star"></i>
-              <span class="token-icon"><i class="fa-brands fa-ethereum"></i></span>
-              <div class="token-data d-flex flex-column">
+            <div class="tokenDiv token d-flex align-items-center">
+              <i class="fa-solid fa-star pe-2"></i>
+              <span class="token-icon px-4"><i class="fa-brands fa-ethereum"></i></span>
+              <div class="token-data d-flex flex-column px-4 justify-content-between">
                 <span class="token-name">Ethereum</span>
-                <small class="token-symbol">ETH</small>
+                <small class="token-symbol py-2">ETH</small>
+              </div>
+            </div>
+            <div class="priceDiv price">Price</div>
+            <div class="marketCapDiv marketCap">Market Cap</div>
+            <div class="hourDiv hour">24h</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="table">
+        <div class="tableHead">
+          <div class="tableRow">
+            <span class="tokenDiv">ALL COINS</span>
+            <span class="priceDiv">PRICE</span>
+            <span class="marketCapDiv">MARKET CAP</span>
+            <span class="hourDiv">24H</span>
+          </div>
+        </div>
+        <div class="tableBody">
+          <div class="tableRow">
+            <div class="tokenDiv token d-flex align-items-center">
+              <i class="fa-solid fa-star pe-2"></i>
+              <span class="token-icon px-4"><i class="fa-brands fa-ethereum"></i></span>
+              <div class="token-data d-flex flex-column px-4">
+                <span class="token-name">Ethereum</span>
+                <small class="token-symbol py-2">ETH</small>
               </div>
             </div>
             <div class="priceDiv price">Price</div>
@@ -69,66 +95,6 @@
         </div>
       </div>
       
-      <!-- table -->
-      <!-- <table class="table"> -->
-        <!-- <thead>
-          <tr>
-            <th scope="col">All Coins</th>
-            <th scope="col">Price </th>
-            <th scope="col">Market Cap</th>
-            <th scope="col">7D</th>
-          </tr>
-        </thead> -->
-        <!-- <tbody> -->
-          <!-- <tr> -->
-            <!-- <th scope="row"><i class="fa-solid fa-star"></i></th> -->
-            <!-- <td class="d-flex flex-row align-items-center">
-              <span class="favorite"><i class="fa-solid fa-star"></i></span>
-              <span class="d-flex flex-row align-items-center">
-                <span class="token-icon"><i class="fa-brands fa-ethereum"></i></span>
-                <span class="token d-flex flex-column">
-                  <span class="token-name">Ethereum</span>
-                  <span class="token-symbol">ETH</span>
-                </span>
-              </span>
-            </td> -->
-            
-            <!-- <td class="d-flex flex-column">
-              <div>
-                <div class="dollar"><i class="fa-solid fa-dollar-sign"></i></div>
-                <div class="token-price">2133</div>
-              </div>
-              <div>
-                <div class="dollar"><i class="fa-solid fa-dollar-sign"></i></div>
-                <div class="market-cap">4344</div>
-              </div>
-            </td> -->
-
-            <!-- <td class="d-flex flex-column">
-              <div>
-                <div class="dollar"><i class="fa-solid fa-dollar-sign"></i></div>
-                <div class="token-price">2133</div>
-              </div>
-              <div>
-                <div class="dollar"><i class="fa-solid fa-dollar-sign"></i></div>
-                <div class="market-cap">4344</div>
-              </div>
-            </td> -->
-            
-            <!-- <td class="d-flex flex-column">
-              <div>
-                <div class="dollar"><i class="fa-solid fa-dollar-sign"></i></div>
-                <div class="token-price">2133</div>
-              </div>
-              <div>
-                <div class="dollar"><i class="fa-solid fa-dollar-sign"></i></div>
-                <div class="market-cap">4344</div>
-              </div>
-            </td> -->
-          <!-- </tr> -->
-          
-        <!-- </tbody> -->
-      <!-- </table> -->
     </div>
   </section>
 

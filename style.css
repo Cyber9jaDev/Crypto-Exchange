@@ -74,14 +74,17 @@ nav ul li a:hover{
   color: rgb(142, 15, 15);
 }
 
-.table{
+.table, .favorite{
   color: white;
   display: flex;
   flex-direction: column;
+  border-bottom: white 2px solid;
 }
 .tableRow{
   display: flex;
+  align-items: center;
   cursor: pointer;
+  justify-content: center;
 }
 .tokenDiv{
   display: flex; 
