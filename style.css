@@ -88,14 +88,26 @@ nav ul li a:hover{
 }
 .tokenDiv{
   display: flex; 
-  flex-basis: 50%;
+  flex-basis: 40%;
 }
 .priceDiv, .marketCapDiv{
   display: flex;
-  flex-basis: 20%;
+  align-items: center;
+  flex-basis: 25%;
 }
 .hourDiv{
   flex-basis: 10%;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.change{
+  color: rgb(12, 194, 12);
+}
+.changeRed{
+  color: red;
+}
+.table img{
+  width: 30px; height: 30px;
 }
 
 
