@@ -39,6 +39,10 @@ class CryptoExchange{
     console.log(response.data.coins);
 
   }
+  
+  table(){
+
+  }
 }
 
 new CryptoExchange();

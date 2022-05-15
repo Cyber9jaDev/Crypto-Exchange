@@ -25,7 +25,7 @@
           <li><a href="#cryptocurrencies">Cryptocurrencies</a></li>
           <li><a href="#">Exchanges</a></li>
           <li><a href="#">Markets</a></li>
-          <li><a href="#">Latest News</a></li>
+          <li class="last"><a href="#">Latest News</a></li>
         </ul>
       </nav>
 
@@ -40,9 +40,95 @@
   </header>
 
   <section class="bg-dark text-white py-3" id="cryptocurrencies">
-    <div class="container-lg d-flex flex-column justify-content-between align-items-center">
-      <h2>Cryptocurrency Price List</h2>
+    <div class="container-lg">
+      <h2 class="text-center">Cryptocurrency Price List</h2>
+
+      <div class="table">
+        <div class="tableHead">
+          <div class="tableRow">
+            <div class="coinDiv">Coins</div>
+            <div class="priceDiv">Price</div>
+            <div class="marketCapDiv">Market Cap</div>
+            <div class="hourDiv">24h</div>
+          </div>
+        </div>
+        <div class="tableBody">
+          <div class="tableRow">
+            <div class="tokenDiv token">
+              <i class="fa-solid fa-star"></i>
+              <span class="token-icon"><i class="fa-brands fa-ethereum"></i></span>
+              <div class="token-data d-flex flex-column">
+                <span class="token-name">Ethereum</span>
+                <small class="token-symbol">ETH</small>
+              </div>
+            </div>
+            <div class="priceDiv price">Price</div>
+            <div class="marketCapDiv marketCap">Market Cap</div>
+            <div class="hourDiv hour">24h</div>
+          </div>
+        </div>
+      </div>
       
+      <!-- table -->
+      <!-- <table class="table"> -->
+        <!-- <thead>
+          <tr>
+            <th scope="col">All Coins</th>
+            <th scope="col">Price </th>
+            <th scope="col">Market Cap</th>
+            <th scope="col">7D</th>
+          </tr>
+        </thead> -->
+        <!-- <tbody> -->
+          <!-- <tr> -->
+            <!-- <th scope="row"><i class="fa-solid fa-star"></i></th> -->
+            <!-- <td class="d-flex flex-row align-items-center">
+              <span class="favorite"><i class="fa-solid fa-star"></i></span>
+              <span class="d-flex flex-row align-items-center">
+                <span class="token-icon"><i class="fa-brands fa-ethereum"></i></span>
+                <span class="token d-flex flex-column">
+                  <span class="token-name">Ethereum</span>
+                  <span class="token-symbol">ETH</span>
+                </span>
+              </span>
+            </td> -->
+            
+            <!-- <td class="d-flex flex-column">
+              <div>
+                <div class="dollar"><i class="fa-solid fa-dollar-sign"></i></div>
+                <div class="token-price">2133</div>
+              </div>
+              <div>
+                <div class="dollar"><i class="fa-solid fa-dollar-sign"></i></div>
+                <div class="market-cap">4344</div>
+              </div>
+            </td> -->
+
+            <!-- <td class="d-flex flex-column">
+              <div>
+                <div class="dollar"><i class="fa-solid fa-dollar-sign"></i></div>
+                <div class="token-price">2133</div>
+              </div>
+              <div>
+                <div class="dollar"><i class="fa-solid fa-dollar-sign"></i></div>
+                <div class="market-cap">4344</div>
+              </div>
+            </td> -->
+            
+            <!-- <td class="d-flex flex-column">
+              <div>
+                <div class="dollar"><i class="fa-solid fa-dollar-sign"></i></div>
+                <div class="token-price">2133</div>
+              </div>
+              <div>
+                <div class="dollar"><i class="fa-solid fa-dollar-sign"></i></div>
+                <div class="market-cap">4344</div>
+              </div>
+            </td> -->
+          <!-- </tr> -->
+          
+        <!-- </tbody> -->
+      <!-- </table> -->
     </div>
   </section>
 

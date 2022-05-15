@@ -74,6 +74,27 @@ nav ul li a:hover{
   color: rgb(142, 15, 15);
 }
 
+.table{
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.tableRow{
+  display: flex;
+  cursor: pointer;
+}
+.tokenDiv{
+  display: flex; 
+  flex-basis: 50%;
+}
+.priceDiv, .marketCapDiv{
+  display: flex;
+  flex-basis: 20%;
+}
+.hourDiv{
+  flex-basis: 10%;
+}
+
 
 @media screen and (max-width: 700px) {
   .header{
@@ -115,7 +136,7 @@ nav ul li a:hover{
   }
   nav{
     display: none;
-    left: 0;
+    right: 0;
     width: 100%;
     position: absolute;
     top: 100%;
@@ -124,13 +145,24 @@ nav ul li a:hover{
   nav ul{
     gap: 10px;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 10px 0 20px 0;
+  }
+  nav ul li{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px rgb(3, 24, 26) solid;
+    padding: 10px 0;
+  }
+  .last{
+    border: none;
   }
   nav ul li a{
     font-size: 1rem;
     font-weight: 600;
+    color: rgb(218, 208, 208);
   }
   nav.active{
     display: block;
