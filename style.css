@@ -7,7 +7,9 @@
 .mobile-menu{
   display: none;
 }
-
+#cryptocurrencies{
+  background-color: rgb(44, 41, 41);
+}
 header{
   background-color: rgb(50, 139, 169);
   min-height: 70px;
@@ -196,5 +198,9 @@ nav ul li a:hover{
 @media screen and (max-width: 580px){
   figcaption{
     font-size: 1.3rem;
+  }
+
+  header img{
+    width: 25px; height: 25px;
   }
 }

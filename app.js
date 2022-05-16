@@ -41,29 +41,49 @@ class CryptoExchange{
     CryptoExchange.rowData(response.data.coins);
   }
 
+  static formatPrice(price){
+    price = parseFloat(price);
+    return price.toFixed(4);
+  }
+
   static changeColorToRed(change, row){
+    change = parseFloat(change);
     const changeColor = row.querySelector(".change");
     changeColor.style.color = "red";
+  }
+
+  static formatMarketCap(marketCap){
+    marketCap = parseInt(marketCap);
+    const formatter = new Intl.NumberFormat("en", {
+      style: "decimal",
+      useGrouping: true,
+      notation: "compact"
+    });
+    return formatter.format(marketCap);
   }
   
   static rowData(coins){
     coins.forEach(coin => {
       let {name, symbol, price, marketCap, change, iconUrl} = coin;
-      change = parseFloat(change);
       const row = document.createElement("div");
       row.classList.add("tableRow");
 
+      marketCap = this.formatMarketCap(marketCap);    // Format marketCap
+      price = this.formatPrice(price);                // Format price
+
       row.innerHTML = CryptoExchange.tableRow(name, symbol, price, marketCap, change, iconUrl);
-      tableBody.appendChild(row);
+      tableBody.appendChild(row); 
 
       // Change color if it is less than zero
       if(change < 0){
         this.changeColorToRed(change, row);
       }
+      // 
+
       
     });
   }
-
+  
   static tableRow(name, symbol, price, marketCap, change, iconUrl){
     return `
       <div class="tokenDiv token d-flex align-items-center">
