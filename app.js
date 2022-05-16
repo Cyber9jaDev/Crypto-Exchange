@@ -9,7 +9,8 @@ class CryptoExchange{
   constructor(){
     mobileMenu.addEventListener("click", this.mobileMenu);
     this.mobileMenuLinks();
-    CryptoExchange.currencies();
+    window.addEventListener("DOMContentLoaded", CryptoExchange.currencies);
+    // CryptoExchange.currencies();
   }
 
   // Show and hide hamburger menu
@@ -39,16 +40,27 @@ class CryptoExchange{
     const response = await currencies.json();
     CryptoExchange.rowData(response.data.coins);
   }
+
+  static changeColorToRed(change, row){
+    const changeColor = row.querySelector(".change");
+    changeColor.style.color = "red";
+  }
   
   static rowData(coins){
     coins.forEach(coin => {
       let {name, symbol, price, marketCap, change, iconUrl} = coin;
       change = parseFloat(change);
-      if(change < 0) document.querySelector("body").style.color = "red";
       const row = document.createElement("div");
       row.classList.add("tableRow");
+
       row.innerHTML = CryptoExchange.tableRow(name, symbol, price, marketCap, change, iconUrl);
       tableBody.appendChild(row);
+
+      // Change color if it is less than zero
+      if(change < 0){
+        this.changeColorToRed(change, row);
+      }
+      
     });
   }
 
