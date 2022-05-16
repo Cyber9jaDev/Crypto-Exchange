@@ -46,10 +46,17 @@ class CryptoExchange{
     return price.toFixed(4);
   }
 
-  static changeColorToRed(change, row){
+  static changeColor(change, row){
     change = parseFloat(change);
-    const changeColor = row.querySelector(".change");
-    changeColor.style.color = "red";
+    if(change < 0){
+      const changeColor = row.querySelector(".change");
+      changeColor.style.backgroundColor = "red";
+    }
+    else{
+      const changeColor = row.querySelector(".change");
+      changeColor.style.backgroundColor = "green";
+    }
+
   }
 
   static formatMarketCap(marketCap){
@@ -73,23 +80,19 @@ class CryptoExchange{
 
       row.innerHTML = CryptoExchange.tableRow(name, symbol, price, marketCap, change, iconUrl);
       tableBody.appendChild(row); 
-
-      // Change color if it is less than zero
-      if(change < 0){
-        this.changeColorToRed(change, row);
-      }
-      // 
-
       
+      this.changeColor(change, row);
+      // if(change < 0)  this.changeColorToRed(change, row);  // Change color if it is less than zero
+            
     });
   }
   
   static tableRow(name, symbol, price, marketCap, change, iconUrl){
     return `
       <div class="tokenDiv token d-flex align-items-center">
-        <i class="fa-solid fa-star pe-2"></i>
-        <span class="token-icon px-4"><img src="${iconUrl}" alt="iconImage"></span>
-        <div class="token-data d-flex flex-column px-4">
+        <i class="fa-solid fa-star star"></i>
+        <span class="token-icon"><img src="${iconUrl}" alt="iconImage"></span>
+        <div class="token-data d-flex flex-column">
           <span class="token-name">${name}</span>
           <small class="token-symbol py-2">${symbol}</small>
         </div>

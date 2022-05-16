@@ -25,8 +25,13 @@ header{
   display: flex;
   align-items: center;
 }
+
+/* .token-icon{
+  width: 70px;
+  height: 70px;
+} */
 header img{
-  width: 50px; height: 50px;
+  width: 100px; height: 100px;
   display: flex;
   align-self: center;
 }
@@ -92,26 +97,44 @@ nav ul li a:hover{
   display: flex; 
   flex-basis: 40%;
 }
-.priceDiv, .marketCapDiv{
+.priceDiv{
   display: flex;
   align-items: center;
-  flex-basis: 25%;
+  flex-basis: 30%;
+}
+.marketCapDiv{
+  display: flex;
+  align-items: center;
+  flex-basis: 20%;
 }
 .hourDiv{
   flex-basis: 10%;
-  word-wrap: break-word;
-  word-break: break-all;
+  text-align: center;
 }
 .change{
-  color: rgb(12, 194, 12);
-}
-.changeRed{
-  color: red;
+  background-color: green;
+  text-align: center;
 }
 .table img{
   width: 30px; height: 30px;
 }
 
+.token{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.star{
+  flex-basis: 20%;
+}
+.token-icon{
+  flex-basis: 30%;
+}
+.token-data{
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+}
 
 @media screen and (max-width: 700px) {
   .header{
