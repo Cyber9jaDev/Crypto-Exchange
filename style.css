@@ -96,6 +96,7 @@ nav ul li a:hover{
 .tokenDiv{
   display: flex; 
   flex-basis: 40%;
+  
 }
 .priceDiv{
   display: flex;
@@ -150,7 +151,7 @@ nav ul li a:hover{
     flex-basis: 80%;
   }
   figcaption{
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
   .mobile-menu{
     display: flex;
@@ -216,13 +217,18 @@ nav ul li a:hover{
   .mobile-menu.active .bar:nth-child(3){
     transform: translateY(-8px) rotate(-45deg);
   }
+  #cryptocurrencies h2{
+    font-size: 1.5rem
+  }
 }
 
-@media screen and (max-width: 580px){
+@media screen and (max-width: 560px){
   figcaption{
-    font-size: 1.3rem;
+    font-size: 1.7rem;
   }
-
+  .tokenDiv, .priceDiv , .marketCapDiv, .hourDiv{
+    font-size: 0.85rem;
+  }
   header img{
     width: 25px; height: 25px;
   }

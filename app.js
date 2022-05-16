@@ -10,7 +10,6 @@ class CryptoExchange{
     mobileMenu.addEventListener("click", this.mobileMenu);
     this.mobileMenuLinks();
     window.addEventListener("DOMContentLoaded", CryptoExchange.currencies);
-    // CryptoExchange.currencies();
   }
 
   // Show and hide hamburger menu
@@ -43,7 +42,13 @@ class CryptoExchange{
 
   static formatPrice(price){
     price = parseFloat(price);
-    return price.toFixed(4);
+    const formatter = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      useGrouping: true,
+      notation: "standard"
+    });
+    return formatter.format(price);
   }
 
   static changeColor(change, row){
@@ -97,7 +102,7 @@ class CryptoExchange{
           <small class="token-symbol py-2">${symbol}</small>
         </div>
       </div>
-      <div class="priceDiv price"><i class="fa-solid fa-dollar-sign"></i>${price}</div>
+      <div class="priceDiv price">${price}</div>
       <div class="marketCapDiv marketCap">${marketCap}</div>
       <div class="hourDiv change">${change}%</div>
     `;
