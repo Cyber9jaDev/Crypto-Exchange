@@ -96,7 +96,6 @@ nav ul li a:hover{
 .tokenDiv{
   display: flex; 
   flex-basis: 40%;
-  
 }
 .priceDiv{
   display: flex;
@@ -106,14 +105,15 @@ nav ul li a:hover{
 .marketCapDiv{
   display: flex;
   align-items: center;
-  flex-basis: 20%;
+  flex-basis: 15%;
 }
 .hourDiv{
-  flex-basis: 10%;
+  flex-basis: 15%;
   text-align: center;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 .change{
-  background-color: green;
   text-align: center;
 }
 .table img{
@@ -123,7 +123,7 @@ nav ul li a:hover{
 .token{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 .star{
   flex-basis: 20%;
@@ -135,6 +135,10 @@ nav ul li a:hover{
   flex-basis: 50%;
   display: flex;
   flex-direction: column;
+}
+/* MARKET STATISTICS */
+#market-statistics{
+  background-color: rgb(248, 245, 245);
 }
 
 @media screen and (max-width: 700px) {
@@ -230,6 +234,6 @@ nav ul li a:hover{
     font-size: 0.85rem;
   }
   header img{
-    width: 25px; height: 25px;
+    width: 31px; height: 31px;
   }
 }

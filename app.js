@@ -37,7 +37,12 @@ class CryptoExchange{
       }
     });
     const response = await currencies.json();
+    console.log(response.data);
+
     CryptoExchange.rowData(response.data.coins);
+    CryptoExchange.marketStatistics(response.data.stats);
+    
+
   }
 
   static formatPrice(price){
@@ -51,7 +56,7 @@ class CryptoExchange{
     return formatter.format(price);
   }
 
-  static changeColor(change, row){
+  static formatChangeColor(change, row){
     change = parseFloat(change);
     if(change < 0){
       const changeColor = row.querySelector(".change");
@@ -82,13 +87,11 @@ class CryptoExchange{
 
       marketCap = this.formatMarketCap(marketCap);    // Format marketCap
       price = this.formatPrice(price);                // Format price
-
+    
       row.innerHTML = CryptoExchange.tableRow(name, symbol, price, marketCap, change, iconUrl);
       tableBody.appendChild(row); 
-      
-      this.changeColor(change, row);
-      // if(change < 0)  this.changeColorToRed(change, row);  // Change color if it is less than zero
-            
+
+      this.formatChangeColor(change, row);
     });
   }
   
@@ -106,6 +109,10 @@ class CryptoExchange{
       <div class="marketCapDiv marketCap">${marketCap}</div>
       <div class="hourDiv change">${change}%</div>
     `;
+  }
+
+  static marketStatistics(){
+    // let {}
   }
 
 }
