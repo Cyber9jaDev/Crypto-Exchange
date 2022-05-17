@@ -136,9 +136,34 @@ nav ul li a:hover{
   display: flex;
   flex-direction: column;
 }
+
 /* MARKET STATISTICS */
 #market-statistics{
   background-color: rgb(248, 245, 245);
+}
+
+#market-statistics article{
+  display: flex;
+}
+
+#market-statistics main div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+#market-statistics main div i{
+  flex-basis: 10%;
+  font-size: 1.5rem;
+  color: blue;
+}
+#market-statistics main div span{
+  flex-basis: 40%;
+}
+#market-statistics main div small{
+  flex-basis: 50%;
+  text-align: end;
 }
 
 @media screen and (max-width: 700px) {

@@ -37,12 +37,8 @@ class CryptoExchange{
       }
     });
     const response = await currencies.json();
-    console.log(response.data);
-
     CryptoExchange.rowData(response.data.coins);
-    CryptoExchange.marketStatistics(response.data.stats);
-    
-
+    CryptoExchange.marketStatistics(response.data.stats);    
   }
 
   static formatPrice(price){
@@ -111,8 +107,30 @@ class CryptoExchange{
     `;
   }
 
-  static marketStatistics(){
-    // let {}
+  static marketStatisticsHTML(){
+    return `
+      <div class="container-lg">
+      <div class="row">
+        <div class="col-sm-6">
+          <article>
+            <h2 class="">Cryptocurrency Market Statistics</h2>
+            <p>An overview of the complete cryptocurrency market, including the number of cryptocurrencies, the total market cap, and trading volume.</p>
+          </article>
+        </div>
+        <div class="col-sm-6">
+          <article>
+            <h2 class="">Cryptocurrency Market Statistics</h2>
+            <p>An overview of the complete cryptocurrency market, including the number of cryptocurrencies, the total market cap, and trading volume.</p>
+          </article>
+      </div>
+    `;
+  }
+
+  static marketStatistics(stats){
+    let {total, total24hVolume, totalCoins, totalExchanges, totalMarketCap, totalMarkets} = stats;
+    
+    // Format 'total24hVolume and 'totalMarketCap'"
+    console.log(total24hVolume);
   }
 
 }
