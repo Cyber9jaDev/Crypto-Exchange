@@ -139,7 +139,7 @@ nav ul li a:hover{
 
 /* MARKET STATISTICS */
 #market-statistics{
-  background-color: rgb(248, 245, 245);
+  background-color: #ffff;
 }
 
 #market-statistics article{
@@ -154,16 +154,31 @@ nav ul li a:hover{
 }
 
 #market-statistics main div i{
-  flex-basis: 10%;
+  flex-basis: 15%;
   font-size: 1.5rem;
   color: blue;
 }
 #market-statistics main div span{
-  flex-basis: 40%;
+  flex-basis: 35%;
 }
 #market-statistics main div small{
   flex-basis: 50%;
   text-align: end;
+}
+.fa-whatsapp{
+  color: #25D366;
+  font-size: 3rem;
+}
+.whatsapp-page article a{
+  padding: 8px;
+  align-self: center;
+  width: 70%;
+  background-color: white; 
+  border-radius: 10px;
+}
+.whatsapp-page article a span{
+  color: #25D366;
+  font-size: 1.2rem;
 }
 
 @media screen and (max-width: 700px) {
@@ -246,8 +261,20 @@ nav ul li a:hover{
   .mobile-menu.active .bar:nth-child(3){
     transform: translateY(-8px) rotate(-45deg);
   }
-  #cryptocurrencies h2{
+  #cryptocurrencies h2, .whatsapp-page h2{
     font-size: 1.5rem
+  }
+  .fa-whatsapp{
+    font-size: 2rem;
+  }
+  .whatsapp-page article a{
+    padding: 6px;
+    align-self: center;
+    width: 45%;
+    background-color: white; 
+  }
+  .whatsapp-page article a span{
+    font-size: 1rem;
   }
 }
 

@@ -62,7 +62,6 @@ class CryptoExchange{
       const changeColor = row.querySelector(".change");
       changeColor.style.backgroundColor = "green";
     }
-
   }
 
   static formatMarketCap(marketCap){
@@ -73,6 +72,17 @@ class CryptoExchange{
       notation: "compact"
     });
     return formatter.format(marketCap);
+  }
+
+  static formatItem(item){
+    item = parseFloat(item);
+    const formatter = new Intl.NumberFormat("en", {
+      style: "currency",
+      currency: "USD",
+      useGrouping: true,
+      notation: "compact"
+    });
+    return formatter.format(item);
   }
   
   static rowData(coins){
@@ -107,32 +117,65 @@ class CryptoExchange{
     `;
   }
 
-  static marketStatisticsHTML(){
+  static marketStatisticsHTML(stats, total24hVolume, totalMarketCap){
     return `
       <div class="container-lg">
-      <div class="row">
-        <div class="col-sm-6">
-          <article>
-            <h2 class="">Cryptocurrency Market Statistics</h2>
-            <p>An overview of the complete cryptocurrency market, including the number of cryptocurrencies, the total market cap, and trading volume.</p>
-          </article>
+        <div class="row">
+          <div class="col-sm-6">
+            <article class="d-flex flex-column">
+              <h2 class="">Cryptocurrency Market Statistics</h2>
+              <p>An overview of the complete cryptocurrency market, including the number of cryptocurrencies, the total market cap, and trading volume.</p>
+              <a href="#" class="d-flex align-items-center text-decoration-none">More Statistics<i class="fa-solid fa-circle-arrow-right"></i></a>
+            </article>
+            <main class="d-fex flex-column justify-content-between">
+              <div>
+                <i class="fa-solid fa-droplet"></i>
+                <span>24h Volume</span>
+                <small>${total24hVolume}</small>
+              </div>
+              <div>
+                <i class="fa-solid fa-coins"></i>
+                <span>All Coins</span>
+                <small>${stats.totalCoins}</small>
+              </div>
+              <div>
+                <i class="fa-brands fa-stack-exchange"></i>
+                <span>All Crypto Exchanges</span>
+                <small>${stats.totalExchanges}</small>
+              </div>
+              <div>
+                <i class="fa-solid fa-money-bill-trend-up"></i>
+                <span>Total Market Cap</span>
+                <small>${totalMarketCap}</small>
+              </div>
+              <div>
+                <i class="fa-solid fa-money-bill-wheat"></i>
+                <span>Total Markets</span>
+                <small>${stats.totalMarkets}</small>
+              </div>
+            </main>
+          </div>
+          <div class="col-sm-6 whatsapp-page">
+            <article class="d-flex flex-column text-white bg-secondary text-center justify-content-between py-4">
+              <i class="fab fa-whatsapp"></i>
+              <h2 class="">View Crypto Prices on Whatsapp</h2>
+              <p>Instant price updates. 10,000+ cryptocurrencies. Share with friends.</p>
+              <a href="https://wa.me/message/E74FVDHIDFUSA1" class="d-flex flex-row align-items-center justify-content-center text-decoration-none text-white">
+                <i class="fab fa-whatsapp me-2"></i>
+                <span>Visit Whatsapp Page</span>
+              </a>
+            </article>
+          </div>
         </div>
-        <div class="col-sm-6">
-          <article>
-            <h2 class="">Cryptocurrency Market Statistics</h2>
-            <p>An overview of the complete cryptocurrency market, including the number of cryptocurrencies, the total market cap, and trading volume.</p>
-          </article>
       </div>
     `;
   }
 
   static marketStatistics(stats){
-    let {total, total24hVolume, totalCoins, totalExchanges, totalMarketCap, totalMarkets} = stats;
-    
-    // Format 'total24hVolume and 'totalMarketCap'"
-    console.log(total24hVolume);
+    let {total24hVolume,  totalMarketCap} = stats;
+    const section = document.getElementById('market-statistics');
+    section.innerHTML = this.marketStatisticsHTML(stats, this.formatItem(total24hVolume), totalMarketCap = this.formatItem(totalMarketCap));
   }
-
 }
 
 new CryptoExchange();
