@@ -200,6 +200,12 @@ class CryptoExchange{
     const section = document.getElementById('market-statistics');
     section.innerHTML = this.marketStatisticsHTML(stats, this.formatItem(total24hVolume), totalMarketCap = this.formatItem(totalMarketCap));
   }
+
+  static footerDate(){
+    const d = new Date();
+    const year = d.getFullYear();
+    footerDate.innerText = year;
+  }
 }
 
 new CryptoExchange();

@@ -181,6 +181,10 @@ nav ul li a:hover{
   font-size: 1.2rem;
 }
 
+footer{
+  background: rgb(70, 70, 218);
+}
+
 @media screen and (max-width: 700px) {
   .header{
     display: flex;
