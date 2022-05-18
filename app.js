@@ -28,18 +28,42 @@ class CryptoExchange{
     });
   }
 
-  static async currencies(){
-    const currencies = await fetch("https://api.coinranking.com/v2/coins", {
+  static checkResponseAndParse(response){
+    if(!response.ok) throw new Error(response.status);
+    return response.json();
+  }
+
+  static currencies(){
+    fetch("https://api.coinranking.com/v2/coins", {
       headers: {
         "Access-Control-Allow-Origin": "*",
         "x-access-token": `${token}`,
         "Authorization": `token ${token}`
       }
+    })
+    .then(CryptoExchange.checkResponseAndParse)
+    .then((response) => {
+      CryptoExchange.rowData(response.data.coins);
+      CryptoExchange.marketStatistics(response.data.stats);
+    })
+    .catch((err) => {
+      return err;
     });
-    const response = await currencies.json();
-    CryptoExchange.rowData(response.data.coins);
-    CryptoExchange.marketStatistics(response.data.stats);    
   }
+
+  // static async currencies(){
+
+  //   const currencies = await fetch("https://api.coinranking.com/v2/coins", {
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "*",
+  //       "x-access-token": `${token}`,
+  //       "Authorization": `token ${token}`
+  //     }
+  //   });
+  //   const response = await currencies.json();
+  //   CryptoExchange.rowData(response.data.coins);
+  //   CryptoExchange.marketStatistics(response.data.stats);    
+  // }
 
   static formatPrice(price){
     price = parseFloat(price);
