@@ -1,4 +1,4 @@
-const token = "coinranking64cde228d1852cd27131b0dba9371a17bc09d58764fbe1ae";
+const token = "64cde228d1852cd27131b0dba9371a17bc09d58764fbe1ae";
 // const key = "089571e0-34b3-4e34-bd4a-0860a8f6f41a";
 const key = "1259e9ce38ccf1d5";
 const mobileMenu = document.querySelector(".mobile-menu");
