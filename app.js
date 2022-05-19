@@ -34,6 +34,7 @@ class CryptoExchange{
     axios.get("https://api.coinranking.com/v2/coins", {
       headers: {
         'x-access-token': token,
+        'Access-Control-Allow-Origin': '*'
       },
     })
     .then((res) => {
