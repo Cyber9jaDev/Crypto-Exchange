@@ -5,11 +5,6 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const nav =  document.querySelector("nav");
 const links = document.querySelectorAll("nav ul li");
 const tableBody = document.querySelector(".tableBody");
-const url = new URL('https://api.coinranking.com/v2/coins');
-const queryString = new URLSearchParams({
-  'X-Access-Token': token,
-});
-
 
 class CryptoExchange{
 
@@ -36,7 +31,11 @@ class CryptoExchange{
   }
 
   static currencies(){
-    axios.get(`${url}?${queryString}`)
+    axios.get("https://api.coinranking.com/v2/coins", {
+      headers: {
+        'x-access-token': token,
+      },
+    })
     .then((res) => {
       console.log(res);
       CryptoExchange.rowData(res.data.data.coins);
