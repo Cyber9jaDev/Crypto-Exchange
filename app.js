@@ -34,7 +34,7 @@ class CryptoExchange{
   // }
 
   // static currencies(){
-  //   fetch("https://api.coinranking.com/v2/coins", {
+  //   axios.get("https://api.coinranking.com/v2/coins", {
   //     // method: 'POST', // *GET, POST, PUT, DELETE, etc.
   //     // mode: 'cors', // no-cors, *cors, same-origin
   //     // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -44,7 +44,7 @@ class CryptoExchange{
   //     'x-access-token': `${token}`,
   //     },
   //   })
-  //   .then(CryptoExchange.checkResponseAndParse)
+  //   // .then(CryptoExchange.checkResponseAndParse)
   //   .then((response) => {
   //     console.log("response");
   //     console.log(response);
@@ -56,21 +56,44 @@ class CryptoExchange{
   //   });
   // }
 
+  // static async currencies(){
+  //   const currencies = await fetch("https://api.coinranking.com/v2/coins", {
+  //     // method: 'GET', // *GET, POST, PUT, DELETE, etc.
+  //     mode: 'cors' , // no-cors, *cors, same-origin
+  //     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+  //     credentials:'same-origin' , // include, *same-origin, omit
+  //     headers: {
+  //     // 'Access-Control-Allow-Origin': "*",
+  //     'Content-Type': 'application/json',
+  //     'x-access-token': `${token}`,
+  //     },
+  //   });
+  //   const response = await currencies.json();
+  //   console.log(response);
+  //   CryptoExchange.rowData(response.data.coins);
+  //   CryptoExchange.marketStatistics(response.data.stats);    
+  // }
+
   static async currencies(){
-    const currencies = await fetch("https://api.coinranking.com/v2/coins", {
-      // method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      mode: 'no-cors' , // no-cors, *cors, same-origin
+    axios.get("https://api.coinranking.com/v2/coins", {
+      // method: 'GET', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors' , // no-cors, *cors, same-origin
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
       credentials:'same-origin' , // include, *same-origin, omit
       headers: {
+      // 'Access-Control-Allow-Origin': "*",
       'Content-Type': 'application/json',
       'x-access-token': `${token}`,
       },
+    })
+    .then((response) => {
+      console.log(response.data.data.coins);
+      CryptoExchange.rowData(response.data.data.coins);
+      CryptoExchange.marketStatistics(response.data.data.stats);    
+    })
+    .catch((err) => {
+      return err;
     });
-    const response = await currencies.json();
-    console.log(response);
-    CryptoExchange.rowData(response.data.coins);
-    CryptoExchange.marketStatistics(response.data.stats);    
   }
 
   static formatPrice(price){
