@@ -77,11 +77,11 @@ class CryptoExchange{
   static async currencies(){
     axios.get("https://api.coinranking.com/v2/coins", {
       // method: 'GET', // *GET, POST, PUT, DELETE, etc.
-      mode: 'cors' , // no-cors, *cors, same-origin
+      mode: 'same-origin' , // no-cors, *cors, same-origin
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
       credentials:'same-origin' , // include, *same-origin, omit
       headers: {
-      // 'Access-Control-Allow-Origin': "*",
+      'Access-Control-Allow-Origin': "*",
       'Content-Type': 'application/json',
       'x-access-token': `${token}`,
       },
