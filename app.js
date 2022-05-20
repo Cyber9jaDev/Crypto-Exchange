@@ -29,48 +29,6 @@ class CryptoExchange{
     });
   }
 
-  // static currencies(){
-  //   axios.get("https://api.coinranking.com/v2/coins", {
-  //     headers: {
-  //       'x-access-token': token,
-  //       'Access-Control-Allow-Origin': '*'
-  //     },
-  //   })
-  //   .then((res) => {
-  //     console.log(res);
-  //     CryptoExchange.rowData(res.data.data.coins);
-  //     CryptoExchange.marketStatistics(res.data.data.stats);
-  //   })
-  //   .catch((err) => {
-  //     return err;
-  //   });
-  // }
-
-  static async currencies(){
-    fetch(`${proxyUrl}${baseUrl}`, {
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json',
-        'x-access-token': `${apiKey}`,
-        'Access-Control-Allow-Origin': "*",
-      },
-    })
-    .then((response) => {
-      if(!response.ok) throw new Error (response.status);
-      return response.json();
-    })
-    .then((data) => {
-      CryptoExchange.rowData(data.data.coins);
-      CryptoExchange.marketStatistics(data.data.stats);    
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-    // console.log(response);
-    // CryptoExchange.rowData(response.data.coins);
-    // CryptoExchange.marketStatistics(response.data.stats);    
-  }
-
   // static async currencies(){
   //   const currencies = await fetch(`${proxyUrl}${baseUrl}`, {
   //     method: "GET",
@@ -81,26 +39,27 @@ class CryptoExchange{
   //     },
   //   });
   //   const response = await currencies.json();
-  //   console.log(response);
   //   CryptoExchange.rowData(response.data.coins);
   //   CryptoExchange.marketStatistics(response.data.stats);    
   // }
 
-  // static async currencies(){
-  //   axios.get(`https://api.coinranking.com/v2/coins`, {
-  //     headers: {
-  //       'x-messari-api-key': `${key}`,
-  //     },
-  //   })
-  //   .then((response) => {
-  //     console.log(response);
-  //     CryptoExchange.rowData(response.data.data.coins);
-  //     CryptoExchange.marketStatistics(response.data.data.stats);    
-  //   })
-  //   .catch((err) => {
-  //     return err;
-  //   });
-  // }
+  static async currencies(){
+    axios.get(`https://api.coinranking.com/v2/coins`, {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': "*",
+        'x-access-token': `${apiKey}`,
+      },
+    })
+    .then((response) => {
+      CryptoExchange.rowData(response.data.data.coins);
+      CryptoExchange.marketStatistics(response.data.data.stats);    
+    })
+    .catch((err) => {
+      return err;
+    });
+  }
 
   static formatPrice(price){
     price = parseFloat(price);
