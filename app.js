@@ -29,37 +29,37 @@ class CryptoExchange{
     });
   }
 
-  // static async currencies(){
-  //   const currencies = await fetch(`${proxyUrl}${baseUrl}`, {
-  //     method: "GET",
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Access-Control-Allow-Origin': "*",
-  //       'x-access-token': `${apiKey}`,
-  //     },
-  //   });
-  //   const response = await currencies.json();
-  //   CryptoExchange.rowData(response.data.coins);
-  //   CryptoExchange.marketStatistics(response.data.stats);    
-  // }
-
   static async currencies(){
-    axios.get(`https://api.coinranking.com/v2/coins`, {
+    const currencies = await fetch(`${proxyUrl}${baseUrl}`, {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': "*",
         'x-access-token': `${apiKey}`,
       },
-    })
-    .then((response) => {
-      CryptoExchange.rowData(response.data.data.coins);
-      CryptoExchange.marketStatistics(response.data.data.stats);    
-    })
-    .catch((err) => {
-      return err;
     });
+    const response = await currencies.json();
+    CryptoExchange.rowData(response.data.coins);
+    CryptoExchange.marketStatistics(response.data.stats);    
   }
+
+  // static async currencies(){
+  //   axios.get(`https://api.coinranking.com/v2/coins`, {
+  //     method: "GET",
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Access-Control-Allow-Origin': "*",
+  //       'x-access-token': `${apiKey}`,
+  //     },
+  //   })
+  //   .then((response) => {
+  //     CryptoExchange.rowData(response.data.data.coins);
+  //     CryptoExchange.marketStatistics(response.data.data.stats);    
+  //   })
+  //   .catch((err) => {
+  //     return err;
+  //   });
+  // }
 
   static formatPrice(price){
     price = parseFloat(price);
