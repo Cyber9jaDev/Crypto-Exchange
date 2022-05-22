@@ -322,11 +322,6 @@ footer{
     font-size: 1rem;
   }
 
-  .newsBox{
-    margin: 0;
-    min-width: 100%;
-    /* height: 300px; */
-  }
 }
 
 @media screen and (max-width: 560px){
@@ -338,6 +333,12 @@ footer{
   }
   header img{
     width: 31px; height: 31px;
+  }
+
+  .newsBox{
+    margin: 0;
+    min-width: 100%;
+    /* height: 300px; */
   }
 
 }
