@@ -27,10 +27,6 @@ header{
   align-items: center;
 }
 
-/* .token-icon{
-  width: 70px;
-  height: 70px;
-} */
 header img{
   width: 100px; height: 100px;
   display: flex;
@@ -202,10 +198,12 @@ nav ul li a:hover{
   flex: wrap;
 }
 
-.newsContainer .row .newsBox{
+.newsBox{
+  border-radius: 5px;
   margin: 10px 4px;
   max-width: 31%;
   height: 300px;
+  /* background-color: blue; */
 }
 
 .newsBox article{
@@ -215,7 +213,6 @@ nav ul li a:hover{
 
 .newsBox article figure{
   display: flex;
-  /* align-items: center; */
   flex-direction: row;
   margin: 10px 0;
 }
@@ -232,10 +229,26 @@ nav ul li a:hover{
   font-weight: bold;
   word-break: break-word;
 }
+.newsBox article figure figcaption a{
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 
 footer{
   background: rgb(70, 70, 218);
 }
+
+/* ********************* MEDIA QUERIES *********************** */
+@media screen and (max-width: 968px){
+  .newsBox{
+    margin: 5px 3px;
+    max-width: 48%;
+    height: 300px;  
+  }
+}
+
 
 /* ********************* MEDIA QUERIES *********************** */
 @media screen and (max-width: 700px) {

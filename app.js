@@ -7,13 +7,12 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const nav =  document.querySelector("nav");
 const links = document.querySelectorAll("nav ul li");
 const tableBody = document.querySelector(".tableBody");
-
 class CryptoExchange{
   constructor(){
     window.addEventListener("DOMContentLoaded", this.mobileMenuLinks);
     mobileMenu.addEventListener("click", this.mobileMenu);
     window.addEventListener("DOMContentLoaded", CryptoExchange.currencies);
-    this.news();
+    CryptoExchange.news();
   }
 
   // Show and hide hamburger menu
@@ -188,12 +187,38 @@ class CryptoExchange{
     footerDate.innerText = year;
   }
 
-  async news(){
-    const news = await fetch(`https://newsapi.org/v2/everything?q=crypto&apiKey=${newsAPIKey}`);
-    const response = await (news.json());
-    console.log(response);
+  static newsHTML(article){
+    return `
+      <div class="newsBox bg-secondary">
+        <a href="${article.url}" class="d-flex flex-column text-decoration-none">
+          <article>
+            <figure>
+              <img src=${article.urlToImage} alt="">
+              <figcaption>${article.description}</figcaption>
+            </figure>
+          </article>
+        </a>
+      </div>
+      
+      
+    `;
   }
 
+  static async news(){
+    const news = await fetch(`https://newsapi.org/v2/everything?q=crypto&apiKey=${newsAPIKey}`);
+    const response = await (news.json());
+    CryptoExchange.loadNews(response.articles);
+  }
+
+  static loadNews(articles){
+    const row = document.getElementById("newsRow");
+
+    articles.map((article) => {
+      row.innerHTML += CryptoExchange.newsHTML(article);
+    });
+    
+    newsContainer.append(row);
+  }
   
 
 
