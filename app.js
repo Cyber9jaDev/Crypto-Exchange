@@ -1,6 +1,8 @@
 const apiKey = "coinranking64cde228d1852cd27131b0dba9371a17bc09d58764fbe1ae";
 const proxyUrl = "https://corsanywhere.herokuapp.com/";
 const baseUrl = "https://api.coinranking.com/v2/coins";
+const newsAPIKey = "a67dac3a0bb6433880752099ce23ae70";
+const newsAPIBaseUrl = "";
 const mobileMenu = document.querySelector(".mobile-menu");
 const nav =  document.querySelector("nav");
 const links = document.querySelectorAll("nav ul li");
@@ -11,6 +13,7 @@ class CryptoExchange{
     mobileMenu.addEventListener("click", this.mobileMenu);
     this.mobileMenuLinks();
     window.addEventListener("DOMContentLoaded", CryptoExchange.currencies);
+    this.news();
   }
 
   // Show and hide hamburger menu
@@ -42,24 +45,6 @@ class CryptoExchange{
     CryptoExchange.rowData(response.data.coins);
     CryptoExchange.marketStatistics(response.data.stats);    
   }
-
-  // static async currencies(){
-  //   axios.get(`https://api.coinranking.com/v2/coins`, {
-  //     method: "GET",
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Access-Control-Allow-Origin': "*",
-  //       'x-access-token': `${apiKey}`,
-  //     },
-  //   })
-  //   .then((response) => {
-  //     CryptoExchange.rowData(response.data.data.coins);
-  //     CryptoExchange.marketStatistics(response.data.data.stats);    
-  //   })
-  //   .catch((err) => {
-  //     return err;
-  //   });
-  // }
 
   static formatPrice(price){
     price = parseFloat(price);
@@ -201,6 +186,12 @@ class CryptoExchange{
     const d = new Date();
     const year = d.getFullYear();
     footerDate.innerText = year;
+  }
+
+  async news(){
+    const news = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${newsAPIKey}`);
+    const response = await (news.json());
+    console.log(response);
   }
 }
 
