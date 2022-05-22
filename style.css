@@ -7,9 +7,24 @@
 .mobile-menu{
   display: none;
 }
-#cryptocurrencies{
-  background-color: rgb(44, 41, 41);
+#cryptocurrencies, #cryptonews{
+  background-color: rgb(16, 15, 15);
 }
+#moreNews{
+  cursor: pointer;
+}
+
+.newsContainer .row .c{
+  background-color: red;
+  margin: 10px 0;
+}
+.newsContainer img{
+  max-width: 100px;
+  max-height: 100px;
+}
+
+
+
 header{
   background-color: rgb(50, 139, 169);
   min-height: 70px;
@@ -181,10 +196,15 @@ nav ul li a:hover{
   font-size: 1.2rem;
 }
 
+/* CRYPTOCURRENCY NEWS */
+#cryptonews{
+
+}
 footer{
   background: rgb(70, 70, 218);
 }
 
+/* MEDIA QUERIES */
 @media screen and (max-width: 700px) {
   .header{
     display: flex;

@@ -10,8 +10,8 @@ const tableBody = document.querySelector(".tableBody");
 
 class CryptoExchange{
   constructor(){
+    window.addEventListener("DOMContentLoaded", this.mobileMenuLinks);
     mobileMenu.addEventListener("click", this.mobileMenu);
-    this.mobileMenuLinks();
     window.addEventListener("DOMContentLoaded", CryptoExchange.currencies);
     this.news();
   }
@@ -189,10 +189,14 @@ class CryptoExchange{
   }
 
   async news(){
-    const news = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${newsAPIKey}`);
+    const news = await fetch(`https://newsapi.org/v2/everything?q=crypto&apiKey=${newsAPIKey}`);
     const response = await (news.json());
     console.log(response);
   }
+
+  
+
+
 }
 
 new CryptoExchange();
