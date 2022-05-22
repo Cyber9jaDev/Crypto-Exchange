@@ -215,13 +215,22 @@ nav ul li a:hover{
 
 .newsBox article figure{
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: row;
   margin: 10px 0;
 }
+
+.newsBox figure img{
+  max-width: 100px;
+  max-height: 100px;
+}
+
 .newsBox article figure figcaption{
   word-wrap: break-word;
-  word-break: break-all;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  word-break: break-word;
 }
 
 footer{
@@ -339,8 +348,16 @@ footer{
   }
 
   .newsBox{
-    /* margin: 0; */
     min-width: 100%;
+    padding: 40px;
   }
 
+  .newsBox article figure figcaption{
+    font-size: 1rem;
+  }
+
+  .newsBox figure img{
+    max-width: 100px;
+    max-height: 100px;
+  }
 }
