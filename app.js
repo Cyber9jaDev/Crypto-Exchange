@@ -3,6 +3,8 @@ const proxyUrl = "https://corsanywhere.herokuapp.com/";
 const baseUrl = "https://api.coinranking.com/v2/coins";
 const newsAPIKey = "a67dac3a0bb6433880752099ce23ae70";
 const newsAPIBaseUrl = `https://newsapi.org/v2/everything?q=crypto&apiKey=${newsAPIKey}`;
+const gnewsAPI = "a69f28a224477acd6b1ef8298221b3f8";
+const gnewsBaseUrl= `https://gnews.io/api/v4/search?q=crypto&token=${gnewsAPI}`;
 const mobileMenu = document.querySelector(".mobile-menu");
 const nav =  document.querySelector("nav");
 const links = document.querySelectorAll("nav ul li");
@@ -193,8 +195,8 @@ class CryptoExchange{
         <a href="${article.url}" class="d-flex flex-column text-decoration-none">
           <article>
             <figure>
-              <img src=${article.urlToImage} alt="">
-              <figcaption>${article.description}</figcaption>
+              <img src=${article.image} alt="">
+              <figcaption>${article.title}</figcaption>
             </figure>
           </article>
         </a>
@@ -205,8 +207,9 @@ class CryptoExchange{
   }
 
   static async news(){
-    const news = await fetch(`${proxyUrl}${newsAPIBaseUrl}`);
+    const news = await fetch(`${proxyUrl}${gnewsBaseUrl}`);
     const response = await (news.json());
+    // console.log(response);
     CryptoExchange.loadNews(response.articles);
   }
 
