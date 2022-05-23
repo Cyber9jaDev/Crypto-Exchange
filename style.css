@@ -186,23 +186,22 @@ nav ul li a:hover{
 }
 .newsContainer{
   overflow: hidden;
-  /* padding: 0 40px; */
-}
-.newsContainer img{
-  max-width: 50px;
-  max-height: 50px;
 }
 
 .newsContainer .row{
   display: flex;
   flex: wrap;
+  margin-left: 2px;
 }
 
 .newsBox{
   border-radius: 5px;
   margin: 10px 4px;
+  padding: 20px;
   max-width: 31%;
-  /* height: 300px; */
+  max-height: 300px;
+  background-color: rgb(0, 0, 0);
+  box-shadow: -1px -1px 1px 1px white, 1px 1px 1px 1px white;
 }
 
 .newsBox article{
@@ -215,32 +214,57 @@ nav ul li a:hover{
   flex-direction: row;
   margin: 10px 0;
 }
+.newsBox article figure img{
+  width: 150px;
+  height: 100px;
+}
 
 .newsBox article figure figcaption{
   word-wrap: break-word;
   color: white;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: bolder;
   word-break: break-word;
 }
+
 .newsBox a{
   color: white;
   text-decoration: none;
   cursor: pointer;
-  text-align: justify;
+  /* text-align: justify; */
 }
 
 footer{
   background: rgb(70, 70, 218);
 }
+/* ********************* MEDIA QUERIES *********************** */
+@media only screen and (max-width: 1200px){
+  .newsBox{
+    margin: 10px;
+    max-width: 45%;
+    height: 300px;  
+  }
+}
+
 
 /* ********************* MEDIA QUERIES *********************** */
-@media screen and (max-width: 968px){
+@media only screen and (max-width: 968px){
   .newsBox{
     margin: 5px 3px;
     max-width: 48%;
     height: 300px;  
   }
+
+  nav ul li a{
+    font-size: 1rem;
+  }
+  
+
+  /* .newsBox article figure img{
+    width: 120px;
+    height: 90px;
+  } */
 }
 
 
@@ -340,6 +364,10 @@ footer{
   .whatsapp-page article a span{
     font-size: 1rem;
   }
+  .newsBox{
+    min-width: 95%;
+    padding: 20px;
+  }
 
 }
 
@@ -354,17 +382,8 @@ footer{
     width: 31px; height: 31px;
   }
 
-  .newsBox{
-    min-width: 100%;
-    padding: 40px;
-  }
-
   .newsBox article figure figcaption{
     font-size: 1rem;
   }
 
-  .newsBox figure img{
-    max-width: 100px;
-    max-height: 100px;
-  }
 }
