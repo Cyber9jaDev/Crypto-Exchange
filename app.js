@@ -2,7 +2,7 @@ const apiKey = "coinranking64cde228d1852cd27131b0dba9371a17bc09d58764fbe1ae";
 const proxyUrl = "https://corsanywhere.herokuapp.com/";
 const baseUrl = "https://api.coinranking.com/v2/coins";
 const newsAPIKey = "a67dac3a0bb6433880752099ce23ae70";
-const newsAPIBaseUrl = "";
+const newsAPIBaseUrl = `https://newsapi.org/v2/everything?q=crypto&apiKey=${newsAPIKey}`;
 const mobileMenu = document.querySelector(".mobile-menu");
 const nav =  document.querySelector("nav");
 const links = document.querySelectorAll("nav ul li");
@@ -205,7 +205,7 @@ class CryptoExchange{
   }
 
   static async news(){
-    const news = await fetch(`https://newsapi.org/v2/everything?q=crypto&apiKey=${newsAPIKey}`);
+    const news = await fetch(`${proxyUrl}${newsAPIBaseUrl}`);
     const response = await (news.json());
     CryptoExchange.loadNews(response.articles);
   }
