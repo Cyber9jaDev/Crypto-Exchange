@@ -179,6 +179,9 @@ nav ul li a:hover{
 }
 
 /* CRYPTOCURRENCY NEWS */
+#news{
+  background-color: rgb(38, 37, 37);
+}
 
 #moreNews{
   cursor: pointer;
@@ -221,8 +224,8 @@ nav ul li a:hover{
 
 .newsBox article figure figcaption{
   word-wrap: break-word;
-  color: white;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+  color: rgb(105, 105, 227);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1rem;
   font-weight: bolder;
   word-break: break-word;
@@ -247,7 +250,6 @@ footer{
   }
 }
 
-
 /* ********************* MEDIA QUERIES *********************** */
 @media only screen and (max-width: 968px){
   .newsBox{
@@ -260,11 +262,6 @@ footer{
     font-size: 1rem;
   }
   
-
-  /* .newsBox article figure img{
-    width: 120px;
-    height: 90px;
-  } */
 }
 
 
@@ -366,6 +363,7 @@ footer{
   }
   .newsBox{
     min-width: 95%;
+    height: 230px;
     padding: 20px;
   }
 
