@@ -195,7 +195,7 @@ class CryptoExchange{
         <a href="${article.url}" class="d-flex flex-column">
           <article>
             <figure>
-              <img src=${article.image} alt="">
+              <img src=${article.image_url} alt="">
               <figcaption>${article.title}</figcaption>
             </figure>
           </article>
@@ -206,10 +206,10 @@ class CryptoExchange{
   }
 
   static async news(){
-    const news = await fetch(`${proxyUrl}${gnewsBaseUrl}`);
+    const news = await fetch(` https://api.thenewsapi.com/v1/news/top?api_token=Ub3cAEupNqcEwLRVLHCsT61U6olhiCMoGhiLuRzc&locale=us&limit=5&search=crypto`);
     const response = await (news.json());
     console.log(response);
-    CryptoExchange.loadNews(response.articles);
+    CryptoExchange.loadNews(response.data);
   }
 
   static formatDescription(description){

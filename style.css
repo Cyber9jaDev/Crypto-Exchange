@@ -202,8 +202,7 @@ nav ul li a:hover{
   border-radius: 5px;
   margin: 10px 4px;
   max-width: 31%;
-  height: 300px;
-  /* background-color: blue; */
+  /* height: 300px; */
 }
 
 .newsBox article{
@@ -215,11 +214,6 @@ nav ul li a:hover{
   display: flex;
   flex-direction: row;
   margin: 10px 0;
-}
-
-.newsBox figure img{
-  /* width: 400px; */
-  /* height: 200px; */
 }
 
 .newsBox article figure figcaption{
