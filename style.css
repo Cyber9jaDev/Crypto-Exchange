@@ -122,6 +122,7 @@ nav ul li a:hover{
   align-items: center;
   justify-content: space-between;
 }
+
 .star{
   flex-basis: 20%;
 }
@@ -162,17 +163,22 @@ nav ul li a:hover{
   flex-basis: 50%;
   text-align: end;
 }
-.fa-whatsapp{
+.whatsapp-1{
   color: #25D366;
-  font-size: 3rem;
+  font-size: 4rem;
 }
+.whatsapp-2{
+  color: #25D366;
+  font-size: 1.5rem;
+}
+
 .whatsapp-page article a{
-  padding: 8px;
+  padding: 5px 10px;
   align-self: center;
-  width: 70%;
   background-color: white; 
-  border-radius: 10px;
+  border-radius: 4px;
 }
+
 .whatsapp-page article a span{
   color: #25D366;
   font-size: 1.2rem;
@@ -204,7 +210,7 @@ nav ul li a:hover{
   max-width: 31%;
   max-height: 300px;
   background-color: rgb(0, 0, 0);
-  box-shadow: -1px -1px 1px 1px white, 1px 1px 1px 1px white;
+  box-shadow: -1px -1px 5px 1px white, 1px 1px 5px 1px white;
 }
 
 .newsBox article{
@@ -240,6 +246,7 @@ nav ul li a:hover{
 
 footer{
   background: rgb(70, 70, 218);
+  padding: 10px 0;
 }
 /* ********************* MEDIA QUERIES *********************** */
 @media only screen and (max-width: 1200px){
@@ -347,24 +354,18 @@ footer{
     transform: translateY(-8px) rotate(-45deg);
   }
   #cryptocurrencies h2, .whatsapp-page h2{
-    font-size: 1.5rem
+    font-size: 1.3rem
   }
-  .fa-whatsapp{
-    font-size: 2rem;
+
+  .whatsapp-page article p, .whatsapp-page article a span{
+    font-size: 0.9rem;
   }
-  .whatsapp-page article a{
-    padding: 6px;
-    align-self: center;
-    width: 45%;
-    background-color: white; 
-  }
-  .whatsapp-page article a span{
-    font-size: 1rem;
-  }
+  
   .newsBox{
     min-width: 95%;
     height: 230px;
     padding: 20px;
+    margin: 10px 0;
   }
   .newsBox article figure figcaption{
     font-size: 1.05rem;

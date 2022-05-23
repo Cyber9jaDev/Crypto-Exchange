@@ -164,13 +164,13 @@ class CryptoExchange{
             </main>
           </div>
           <div class="col-sm-6 whatsapp-page">
-            <article class="d-flex flex-column text-white bg-secondary text-center justify-content-between py-4">
-              <i class="fab fa-whatsapp"></i>
+            <article class="d-flex flex-column text-white bg-dark text-center justify-content-between py-4">
+              <i class="fab fa-whatsapp whatsapp-1"></i>
               <h2 class="">View Crypto Prices on Whatsapp</h2>
               <p>Instant price updates. 10,000+ cryptocurrencies. Share with friends.</p>
               <a href="https://wa.me/message/E74FVDHIDFUSA1" class="d-flex flex-row align-items-center justify-content-center text-decoration-none text-white">
-                <i class="fab fa-whatsapp me-2"></i>
-                <span>Visit Whatsapp Page</span>
+                <i class="fab fa-whatsapp whatsapp-2 me-2"></i>
+                <span>Click Here</span>
               </a>
             </article>
           </div>
