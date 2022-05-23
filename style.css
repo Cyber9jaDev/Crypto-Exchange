@@ -7,7 +7,7 @@
 .mobile-menu{
   display: none;
 }
-#cryptocurrencies, #news{
+#cryptocurrencies{
   background-color: rgb(16, 15, 15);
 }
 
@@ -45,7 +45,7 @@ header{
   align-self: center;
 }
 .logo a figcaption{
-  color: rgb(191, 176, 176);
+  color: rgb(239, 65, 65);
   font-size: 1.8rem;
   padding-left: 10px;
   font-weight: 600;
