@@ -46,7 +46,7 @@ header{
   align-self: center;
 }
 .logo figcaption{
-  color: rgb(142, 15, 15);
+  color: rgb(191, 176, 176);
   font-size: 1.8rem;
   padding-left: 10px;
   font-weight: 600;
@@ -271,7 +271,6 @@ footer{
   }
   
 }
-
 
 /* ********************* MEDIA QUERIES *********************** */
 @media screen and (max-width: 700px) {
