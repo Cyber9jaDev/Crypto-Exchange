@@ -218,8 +218,8 @@ nav ul li a:hover{
 }
 
 .newsBox figure img{
-  max-width: 100px;
-  max-height: 100px;
+  /* width: 400px; */
+  /* height: 200px; */
 }
 
 .newsBox article figure figcaption{
@@ -229,12 +229,12 @@ nav ul li a:hover{
   font-weight: bold;
   word-break: break-word;
 }
-.newsBox article figure figcaption a{
-  color: inherit;
+.newsBox a{
+  color: white;
   text-decoration: none;
   cursor: pointer;
+  text-align: justify;
 }
-
 
 footer{
   background: rgb(70, 70, 218);

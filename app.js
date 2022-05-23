@@ -189,35 +189,39 @@ class CryptoExchange{
     footerDate.innerText = year;
   }
 
-  static newsHTML(article){
+  static newsHTML(article, description){
     return `
       <div class="newsBox bg-secondary">
-        <a href="${article.url}" class="d-flex flex-column text-decoration-none">
+        <a href="${article.url}" class="d-flex flex-column">
           <article>
             <figure>
               <img src=${article.image} alt="">
               <figcaption>${article.title}</figcaption>
             </figure>
           </article>
+          <p class="articleDescription">${description}</p>
         </a>
       </div>
-      
-      
     `;
   }
 
   static async news(){
     const news = await fetch(`${proxyUrl}${gnewsBaseUrl}`);
     const response = await (news.json());
-    // console.log(response);
+    console.log(response);
     CryptoExchange.loadNews(response.articles);
+  }
+
+  static formatDescription(description){
+    if(description.length > 200)   description = description.substring(0, 200) + "...";
+    return description;
   }
 
   static loadNews(articles){
     const row = document.getElementById("newsRow");
-
     articles.map((article) => {
-      row.innerHTML += CryptoExchange.newsHTML(article);
+      let description = article.description;
+      row.innerHTML += CryptoExchange.newsHTML(article, this.formatDescription(description));
     });
     
     newsContainer.append(row);
