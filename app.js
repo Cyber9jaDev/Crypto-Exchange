@@ -9,13 +9,14 @@ const theNewsAPIToken = "7WOHFbPY1tVxE04jDyhq30YV8OJlg8ekDglAOn0S";
 const mobileMenu = document.querySelector(".mobile-menu");
 const nav =  document.querySelector("nav");
 const links = document.querySelectorAll("nav ul li");
-const tableBody = document.querySelector(".tableBody");
+const tableBody = document.getElementById("tableBody");
 class CryptoExchange{
   constructor(){
     window.addEventListener("DOMContentLoaded", this.mobileMenuLinks);
     mobileMenu.addEventListener("click", this.mobileMenu);
     window.addEventListener("DOMContentLoaded", CryptoExchange.currencies);
     CryptoExchange.news();
+    tableBody.addEventListener("click", this.favorite);
   }
 
   // Show and hide hamburger menu
@@ -210,7 +211,6 @@ class CryptoExchange{
   static async news(){
     const news = await fetch(` https://api.thenewsapi.com/v1/news/top?api_token=${theNewsAPIToken}&locale=us&limit=5&search=crypto`);
     const response = await (news.json());
-    console.log(response.data);
     CryptoExchange.loadNews(response.data);
   }
 
@@ -229,7 +229,14 @@ class CryptoExchange{
     newsContainer.append(row);
   }
   
-
+  favorite(e){
+    if(e.target.classList.contains("star")){
+      console.log("Clicked");
+    }
+    else{
+      console.log("Not Clicked");
+    }
+  }
 
 }
 
