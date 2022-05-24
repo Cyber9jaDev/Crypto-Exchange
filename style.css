@@ -30,7 +30,7 @@ header{
 .logo{
   display: flex; 
   align-items: center;
-  flex-basis: 30%;
+  flex-basis: 45%;
 }
 .logo a{
   display: flex;
@@ -46,14 +46,14 @@ header{
 }
 .logo a figcaption{
   color: rgb(239, 65, 65);
-  font-size: 1.8rem;
+  font-size: 2.35rem;
   padding-left: 10px;
   font-weight: 600;
 }
 nav{
   display: flex;
-  flex-basis: 70%;
-  padding-right: 30px;
+  flex-basis: 55%;
+  /* padding-right: 30px; */
 }
 
 nav ul{
@@ -232,7 +232,7 @@ nav ul li a:hover{
   word-wrap: break-word;
   color: rgb(105, 105, 227);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: bolder;
   word-break: break-word;
   margin-left: 10px;
@@ -244,16 +244,29 @@ nav ul li a:hover{
   cursor: pointer;
 }
 
+.newsBox a p {
+  font-size: 0.8rem;
+}
+
+
 footer{
   background: rgb(70, 70, 218);
   padding: 7px 0;
 }
 /* ********************* MEDIA QUERIES *********************** */
 @media only screen and (max-width: 1200px){
+  .logo a figcaption{
+    font-size: 2.1rem;
+  }
+
   .newsBox{
     margin: 10px;
     max-width: 45%;
     height: 300px;  
+  }
+
+  nav ul li a{
+    font-size: 1.05rem;
   }
 }
 
@@ -264,9 +277,16 @@ footer{
     max-width: 48%;
     height: 300px;  
   }
+  .logo a img{
+    width: 70px; height: 70px;
+  }
 
+  .logo a figcaption{
+    font-size: 1.41rem;
+  }
+  
   nav ul li a{
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   
 }
@@ -304,6 +324,7 @@ footer{
     cursor: pointer;
     width: 35px;
     height: 35px;
+    background-color: rgb(195, 186, 186)
   }
   .bar{
     background-color: white;
@@ -363,8 +384,8 @@ footer{
   }
 
   .newsBox{
-    min-width: 95%;
-    height: 230px;
+    min-width: 97%;
+    min-height: 200px;
     padding: 20px;
     margin: 10px 0;
   }

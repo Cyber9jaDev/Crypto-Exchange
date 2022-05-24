@@ -5,7 +5,7 @@ const newsAPIKey = "a67dac3a0bb6433880752099ce23ae70";
 const newsAPIBaseUrl = `https://newsapi.org/v2/everything?q=crypto&apiKey=${newsAPIKey}`;
 const gnewsAPI = "a69f28a224477acd6b1ef8298221b3f8";
 const gnewsBaseUrl= `https://gnews.io/api/v4/search?q=crypto&token=${gnewsAPI}`;
-const theNewsAPIToken = "Ub3cAEupNqcEwLRVLHCsT61U6olhiCMoGhiLuRzc"
+const theNewsAPIToken = "7WOHFbPY1tVxE04jDyhq30YV8OJlg8ekDglAOn0S";
 const mobileMenu = document.querySelector(".mobile-menu");
 const nav =  document.querySelector("nav");
 const links = document.querySelectorAll("nav ul li");
@@ -80,8 +80,7 @@ class CryptoExchange{
     });
     return formatter.format(marketCap);
   }
-  
-  
+   
   static formatItem(item){
     item = parseFloat(item);
     const formatter = new Intl.NumberFormat("en", {
@@ -202,6 +201,7 @@ class CryptoExchange{
             </figure>
           </article>
           <p class="articleDescription">${description}</p>
+          <p class="source text-secondary">Source: <small class="text-white">${article.source}</small></p>
         </a>
       </div>
     `;
@@ -210,6 +210,7 @@ class CryptoExchange{
   static async news(){
     const news = await fetch(` https://api.thenewsapi.com/v1/news/top?api_token=${theNewsAPIToken}&locale=us&limit=5&search=crypto`);
     const response = await (news.json());
+    console.log(response.data);
     CryptoExchange.loadNews(response.data);
   }
 
