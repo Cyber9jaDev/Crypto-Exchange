@@ -125,6 +125,7 @@ nav ul li a:hover{
 
 .star{
   flex-basis: 20%;
+  color: rgb(131, 127, 127);
 }
 .token-icon{
   flex-basis: 30%;

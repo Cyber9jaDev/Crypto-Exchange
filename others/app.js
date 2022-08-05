@@ -5,7 +5,7 @@ const newsAPIKey = "a67dac3a0bb6433880752099ce23ae70";
 const newsAPIBaseUrl = `https://newsapi.org/v2/everything?q=crypto&apiKey=${newsAPIKey}`;
 const gnewsAPI = "a69f28a224477acd6b1ef8298221b3f8";
 const gnewsBaseUrl= `https://gnews.io/api/v4/search?q=crypto&token=${gnewsAPI}`;
-const theNewsAPIToken = "7WOHFbPY1tVxE04jDyhq30YV8OJlg8ekDglAOn0S";
+const theNewsAPIToken = "Ub3cAEupNqcEwLRVLHCsT61U6olhiCMoGhiLuRzc";
 const mobileMenu = document.querySelector(".mobile-menu");
 const nav =  document.querySelector("nav");
 const links = document.querySelectorAll("nav ul li");
@@ -231,10 +231,16 @@ class CryptoExchange{
   
   favorite(e){
     if(e.target.classList.contains("star")){
-      console.log("Clicked");
+      const parent = e.target.parentElement.parentElement;
+      [...parent.children].map((item) => {
+        console.log(typeof item);
+        localStorage.setItem("market", JSON.stringify(item));
+        console.log("Gooder");
+      });
     }
+
     else{
-      console.log("Not Clicked");
+      return;
     }
   }
 
