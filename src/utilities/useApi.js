@@ -6,7 +6,8 @@ const useApi = (endpoint) => {
   const key = 'coinranking64cde228d1852cd27131b0dba9371a17bc09d58764fbe1ae';
   
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState(null);
+  const [coins, setCoins] = useState(null);
+  const [stats, setStats] = useState(null);
 
   const headers =  {
     method: 'GET',
@@ -20,7 +21,8 @@ const useApi = (endpoint) => {
       const response = await fetch(`${cors_api_host}${baseUrl}${endpoint}`, headers); 
       const data =  await response.json();
       setLoading(false);
-      setData(data);
+      setCoins(data?.data?.coins);
+      setStats(data?.data?.stats)
     } catch (error) {
       return new Error(`Error: ${error}`)
     }
@@ -30,7 +32,7 @@ const useApi = (endpoint) => {
     fetchApi();
   }, [])
   
-  return { loading, data }
+  return { loading, coins, stats }
 }
 
 export default useApi;

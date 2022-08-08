@@ -6,3 +6,5 @@ export { default as News } from '../pages/News';
 export { default as Footer } from './Footer';
 export { default as Markets } from '../pages/Markets';
 export { default as IndexPage } from './IndexPage';
+export { default as Signup } from '../pages/Signup';
+export { default as SingleCurrency } from '../pages/SingleCurrency';

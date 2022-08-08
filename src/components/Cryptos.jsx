@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useApi from '../utilities/useApi';
 import Crypto from '../components/Crypto';
 import './styles/cryptolist.css';
+import { Link } from 'react-router-dom';
 
 const Cryptos = () => {
-  const { loading, data } = useApi('coins');
+  const { loading, coins, stats } = useApi('coins');
+
+  
   return (
     <section>
       <div className="container-fluid">
@@ -19,12 +22,12 @@ const Cryptos = () => {
               change = {'24h'}
             />
           </div>
-
+ 
           <div className="coins-information-container">
             {
               loading ? <div>Loading</div>
                 :
-              data?.data?.coins.map(coin => 
+              coins.slice(0, 21).map(coin => 
                 <Crypto
                   key={coin.uuid}
                   coin={coin}
@@ -32,8 +35,12 @@ const Cryptos = () => {
               )
             }
           </div>
-
         </div>
+
+        <div className="load-more-wrapper">
+          <Link to='/cryptocurrencies' className="load-more">Load more</Link>
+        </div>
+      
       </div>
     </section>
   )

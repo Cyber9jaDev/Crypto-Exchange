@@ -6,4 +6,4 @@ const Cryptocurrencies = () => {
   )
 }
 
-export default Cryptocurrencies
+export default Cryptocurrencies;
