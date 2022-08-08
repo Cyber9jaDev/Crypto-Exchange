@@ -28,7 +28,7 @@ const useApi = (endpoint) => {
 
   useEffect(() => {
     fetchApi();
-  }, [0])
+  }, [])
   
   return { loading, data }
 }
