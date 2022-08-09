@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import useApi from '../utilities/useApi';
 import Crypto from '../components/Crypto';
 import './styles/cryptolist.css';
@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom';
 
 const Cryptos = () => {
   const { loading, coins, stats } = useApi('coins');
-
   
+  // const { loading, coins : tokens} = useApi('coins');
+  // console.log(tokens);
+
   return (
     <section>
       <div className="container-fluid">

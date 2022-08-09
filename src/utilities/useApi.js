@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 const useApi = (endpoint) => {
   const baseUrl = 'https://api.coinranking.com/v2/';
@@ -6,31 +6,34 @@ const useApi = (endpoint) => {
   const key = 'coinranking64cde228d1852cd27131b0dba9371a17bc09d58764fbe1ae';
   
   const [loading, setLoading] = useState(true);
-  const [coins, setCoins] = useState(null);
-  const [stats, setStats] = useState(null);
+  const [coins, setCoins] = useState([]);
+  const [stats, setStats] = useState({});
 
-  const headers =  {
+  const headers = useMemo(() => ({
     method: 'GET',
     headers: {
       'x-access-token': `${key}`,
     }
-  }
+  }), [])
 
-  const fetchApi = async () => {
-    try {
+  const fetchApi = useCallback(async () => {
+    try{
       const response = await fetch(`${cors_api_host}${baseUrl}${endpoint}`, headers); 
       const data =  await response.json();
       setLoading(false);
       setCoins(data?.data?.coins);
       setStats(data?.data?.stats)
-    } catch (error) {
-      return new Error(`Error: ${error}`)
     }
-  }
+    catch(error){
+      setLoading(false);
+      return new Error(`Error: ${error}`)
+    }}, 
+    [endpoint, headers]
+  )
 
   useEffect(() => {
     fetchApi();
-  }, [])
+  }, [fetchApi])
   
   return { loading, coins, stats }
 }

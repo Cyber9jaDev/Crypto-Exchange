@@ -22,7 +22,7 @@ const Crypto = ({ coin, allCoins, price, marketCap, change, symbol }) => {
         </div>
       </div>
       <div className="price-wrapper">
-        <p className='price'>{price === undefined ? millify(formatPrice(coin?.price)) : 'Price'}</p>
+        <p className='price'>{price === undefined ? formatPrice(coin?.price) : 'Price'}</p>
       </div>
       <div className="market-cap-wrapper">
         <p className='market-cap'>{marketCap === undefined ? (millify(coin?.marketCap)) : 'Market Cap'}</p>
