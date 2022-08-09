@@ -1,16 +1,16 @@
 import React, { useContext } from 'react';
-// import useApi from '../utilities/useApi';
 import Crypto from '../components/Crypto';
 import './styles/cryptolist.css';
 import { Link } from 'react-router-dom';
 import CryptoContext from './CryptoContext';
 
-const Cryptos = () => {
+const Cryptos = ({number, more, headerText}) => {
   const {coins, loading} = useContext(CryptoContext);
+
   return (
-    <section>
+    <section> 
       <div className="container-fluid">
-        <h2 className="coins-list-header"> Cryptocurrency Price List</h2>
+        <h2 className="coins-list-header"> { headerText === undefined ? 'Top 10 Cryptocurrency Price List' : headerText}</h2>
           
         <div className="coins-list-container">
           <div className="coins-header-row">
@@ -26,7 +26,7 @@ const Cryptos = () => {
             {
               loading ? <div>Loading</div>
                 :
-              coins.slice(0, 21).map(coin => 
+              coins.slice(0, number===undefined ? 10 : coins.length).map(coin => 
                 <Crypto
                   key={coin.uuid}
                   coin={coin}
@@ -37,7 +37,7 @@ const Cryptos = () => {
         </div>
 
         <div className="load-more-wrapper">
-          <Link to='/cryptocurrencies' className="load-more">Load more</Link>
+          { more===undefined ? <Link to='/cryptocurrencies' className="load-more">Load more</Link> : null}
         </div>
       
       </div>
