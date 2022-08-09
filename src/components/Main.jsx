@@ -6,11 +6,10 @@ import useApi from '../utilities/useApi';
 import CryptoContext from './CryptoContext';
 
 const Main = () => {  
-  const { loading, coins, stats } = useApi('coins');
-
+  const { loading, data } = useApi('coins');
   return (
     <>
-      <CryptoContext.Provider value={{coins, loading, stats}} >
+      <CryptoContext.Provider value={{loading, data}} >
         <Cryptos />
       </CryptoContext.Provider>
       <MarketStat />

@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import CryptoContext from './CryptoContext';
 
 const Cryptos = ({number, more, headerText}) => {
-  const {coins, loading} = useContext(CryptoContext);
-
+  const {loading, data} = useContext(CryptoContext);
+  
   return (
     <section> 
       <div className="container-fluid">
@@ -21,12 +21,12 @@ const Cryptos = ({number, more, headerText}) => {
               change = {'24h'}
             />
           </div>
- 
+
           <div className="coins-information-container">
             {
               loading ? <div>Loading</div>
                 :
-              coins.slice(0, number===undefined ? 10 : coins.length).map(coin => 
+              data?.coins.slice(0, number===undefined ? 10 : data?.coins.length).map(coin => 
                 <Crypto
                   key={coin.uuid}
                   coin={coin}
@@ -36,9 +36,11 @@ const Cryptos = ({number, more, headerText}) => {
           </div>
         </div>
 
-        <div className="load-more-wrapper">
-          { more===undefined ? <Link to='/cryptocurrencies' className="load-more">Load more</Link> : null}
-        </div>
+        { !loading && 
+          <div className="load-more-wrapper">
+            { more===undefined ? <Link to='/cryptocurrencies' className="load-more">Load more</Link> : null }
+          </div>
+        }
       
       </div>
     </section>

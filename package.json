@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.0",
     "cors-anywhere": "^0.4.4",
+    "dotenv": "^16.0.1",
     "millify": "^5.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",

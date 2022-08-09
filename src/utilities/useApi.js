@@ -3,16 +3,16 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 const useApi = (endpoint) => {
   const baseUrl = 'https://api.coinranking.com/v2/';
   const cors_api_host = "https://corsanywhere.herokuapp.com/";
-  const key = 'coinranking64cde228d1852cd27131b0dba9371a17bc09d58764fbe1ae';
   
   const [loading, setLoading] = useState(true);
-  const [coins, setCoins] = useState([]);
-  const [stats, setStats] = useState({});
+  // const [coins, setCoins] = useState([]);
+  // const [stats, setStats] = useState({});
+  const [data, setData] = useState({})
 
   const headers = useMemo(() => ({
     method: 'GET',
     headers: {
-      'x-access-token': `${key}`,
+      'x-access-token': `${process.env.REACT_APP_COINS_API_KEY}`,
     }
   }), [])
 
@@ -21,8 +21,9 @@ const useApi = (endpoint) => {
       const response = await fetch(`${cors_api_host}${baseUrl}${endpoint}`, headers); 
       const data =  await response.json();
       setLoading(false);
-      setCoins(data?.data?.coins);
-      setStats(data?.data?.stats)
+      // setCoins(data?.data?.coins);
+      // setStats(data?.data?.stats);
+      setData(data?.data);
     }
     catch(error){
       setLoading(false);
@@ -35,7 +36,7 @@ const useApi = (endpoint) => {
     fetchApi();
   }, [fetchApi]);
   
-  return { loading, coins, stats }
+  return { loading, data }
 };
 
 export default useApi;
