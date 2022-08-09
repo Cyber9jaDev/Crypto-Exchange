@@ -33,10 +33,10 @@ const useApi = (endpoint) => {
 
   useEffect(() => {
     fetchApi();
-  }, [fetchApi])
+  }, [fetchApi]);
   
   return { loading, coins, stats }
-}
+};
 
 export default useApi;
 

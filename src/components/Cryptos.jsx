@@ -1,15 +1,12 @@
-import React from 'react';
-import useApi from '../utilities/useApi';
+import React, { useContext } from 'react';
+// import useApi from '../utilities/useApi';
 import Crypto from '../components/Crypto';
 import './styles/cryptolist.css';
 import { Link } from 'react-router-dom';
+import CryptoContext from './CryptoContext';
 
 const Cryptos = () => {
-  const { loading, coins, stats } = useApi('coins');
-  
-  // const { loading, coins : tokens} = useApi('coins');
-  // console.log(tokens);
-
+  const {coins, loading} = useContext(CryptoContext);
   return (
     <section>
       <div className="container-fluid">
