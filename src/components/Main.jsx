@@ -4,9 +4,10 @@ import MarketStat from './MarketStat';
 import LatestNews from './LatestNews';
 import useApi from '../utilities/useApi';
 import CryptoContext from './CryptoContext';
+import useHeaders from '../utilities/useHeaders';
 
 const Main = () => {  
-  const { loading, data } = useApi('coins');
+  const { loading, data } = useApi('coins', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader );
   return (
     <>
       <CryptoContext.Provider value={{loading, data}} >

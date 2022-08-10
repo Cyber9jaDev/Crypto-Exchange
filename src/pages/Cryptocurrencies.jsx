@@ -3,16 +3,17 @@ import '../components/styles/cryptolist.css';
 import Cryptos from '../components/Cryptos';
 import CryptoContext from '../components/CryptoContext';
 import useApi from '../utilities/useApi';
+import useHeaders from '../utilities/useHeaders';
 
 const Cryptocurrencies = () => {
-  const {coins, loading, data} = useApi('coins');
-  console.log(data.coins);
+  const {coins, loading, data} = useApi('coins', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
+  
   return (
     <section>
       <CryptoContext.Provider value={{data, coins, loading}}>
         <Cryptos
           number={5}
-          headerText={'Crypto Currency Price List'}
+          headerText={'Cryptocurrency Prices by Market Cap'}
           more={null}
         />
       </CryptoContext.Provider>

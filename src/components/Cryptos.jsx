@@ -6,11 +6,11 @@ import CryptoContext from './CryptoContext';
 
 const Cryptos = ({number, more, headerText}) => {
   const {loading, data} = useContext(CryptoContext);
-  
+
   return (
     <section> 
       <div className="container-fluid">
-        <h2 className="coins-list-header"> { headerText === undefined ? 'Top 10 Cryptocurrency Price List' : headerText}</h2>
+        {!loading && <h2 className="coins-list-header"> { headerText === undefined ? 'Top 10 Cryptocurrency Price by Market Cap' : headerText}</h2>}
           
         <div className="coins-list-container">
           <div className="coins-header-row">
@@ -24,12 +24,13 @@ const Cryptos = ({number, more, headerText}) => {
 
           <div className="coins-information-container">
             {
-              loading ? <div>Loading</div>
+              loading ? null
                 :
               data?.coins.slice(0, number===undefined ? 10 : data?.coins.length).map(coin => 
                 <Crypto
                   key={coin.uuid}
                   coin={coin}
+                  loading={loading}
                 />
               )
             }
