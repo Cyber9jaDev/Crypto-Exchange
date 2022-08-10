@@ -6,11 +6,11 @@ import useApi from '../utilities/useApi';
 import useHeaders from '../utilities/useHeaders';
 
 const Cryptocurrencies = () => {
-  const {coins, loading, data} = useApi('coins', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
+  const {loading, data} = useApi('coins', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
   
   return (
     <section>
-      <CryptoContext.Provider value={{data, coins, loading}}>
+      <CryptoContext.Provider value={{data, loading}}>
         <Cryptos
           number={5}
           headerText={'Cryptocurrency Prices by Market Cap'}
