@@ -2,21 +2,30 @@ import React from 'react';
 import '../components/styles/cryptolist.css';
 import Cryptos from '../components/Cryptos';
 import CryptoContext from '../components/CryptoContext';
+import Crypto from '../components/Crypto';
 import useApi from '../utilities/useApi';
 import useHeaders from '../utilities/useHeaders';
+import Token from '../components/Token';
 
 const Cryptocurrencies = () => {
-  const {loading, data} = useApi('coins', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
-  
+  const {data, loading} = useApi('coins', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
+
   return (
     <section>
-      <CryptoContext.Provider value={{data, loading}}>
-        <Cryptos
-          number={5}
-          headerText={'Cryptocurrency Prices by Market Cap'}
-          more={null}
-        />
-      </CryptoContext.Provider>
+      <>
+        <h2 className="coins-list-header">Top 10 Cryptocurrency Price by Market Cap</h2>
+        <div className="coins-list-container">
+          <div className="coins-information-container">
+            { !loading && data?.coins.map(coin => 
+              <Token 
+                key={coin.uuid} 
+                coin={coin} 
+                loading={loading} 
+              />
+            )}
+          </div>
+        </div>
+      </>
     </section>
   )
 }

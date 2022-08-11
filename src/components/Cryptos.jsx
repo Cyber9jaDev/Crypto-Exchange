@@ -4,29 +4,29 @@ import './styles/cryptolist.css';
 import { Link } from 'react-router-dom';
 import CryptoContext from './CryptoContext';
 import LineChart from './LineChart';
-import CryptoTableHead from './CryptoTableHead';
+// import CryptoTableHead from './CryptoTableHead';
 import SelectChartDuration from './selectChartPeriod';
+import Token from './Token';
 
 
-const Cryptos = ({more}) => {
+const Cryptos = ({ more }) => {
   const {loading, data} = useContext(CryptoContext);
-
   return (
     <section> 
       <div className="container-fluid">
         {/* <CryptoTableHead /> */}
-        <h2 className="coins-list-header">{'Top 10 Cryptocurrency Price by Market Cap'}</h2>
+        <h2 className="coins-list-header">Top 10 Cryptocurrency Price by Market Cap</h2>
         
         <div className="coins-list-container">
 
           <div className="coins-header-row">
-          <div className='coins-row'>
-            <div className="all-coins">All Coins</div>
-            <div className="price-wrapper">
-              <p className='price'>Price</p>
-            </div>
-            <div className="market-cap-wrapper">
-              <p className='market-cap'>Market Cap</p>
+            <div className='coins-row'>
+              <div className="all-coins">All Coins</div>
+              <div className="price-wrapper">
+                <p className='price'>Price</p>
+              </div>
+              <div className="market-cap-wrapper">
+                <p className='market-cap'>Market Cap</p>
             </div>
             
             <div className="change-wrapper">
@@ -51,7 +51,7 @@ const Cryptos = ({more}) => {
             {
               loading ? null
                 :
-              data?.coins.slice(0, data?.coins.length).map(coin => 
+              data?.coins.slice(0, 10).map(coin => 
                 <Crypto
                   key={coin.uuid}
                   coin={coin}

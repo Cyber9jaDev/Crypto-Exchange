@@ -6,4 +6,4 @@ const CryptoTableHead = () => {
   )
 }
 
-export default CryptoTableHead
+export default CryptoTableHead;

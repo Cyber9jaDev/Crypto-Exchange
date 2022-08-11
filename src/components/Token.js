@@ -1,27 +1,13 @@
-import React, { useContext, useState } from 'react';
-import './styles/cryptolist.css';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
 import { formatPrice } from '../utilities/formatNumber';
-import CryptoContext from './CryptoContext';
 import LineChart from './LineChart';
-import SelectChartPeriod from './selectChartPeriod';
 
-
-
-const Crypto = ({ coin }) => {
-  const {loading} = useContext(CryptoContext);
-
-  const [chartPeriod, setChartPeriod] = useState({
-    period: '1h'
-  });
-
+const Token = ({ coin }) => {
   return (
-    <>
-      { !loading &&
-          
-          <div className='coins-row'>
+      <div className='coins-row'>
             <div className="all-coins">
               <div className="favorite-icon-wrapper">
                 <FontAwesomeIcon icon={faStar} className='favorite-icon' />
@@ -43,7 +29,7 @@ const Crypto = ({ coin }) => {
             
             <div className="change-wrapper">
               <div className="line-chart">
-                { <LineChart chartPeriod={chartPeriod} /> }
+                { <LineChart coinId={coin.uuid}   /> }
               </div>
               <p 
                 className='change' 
@@ -57,10 +43,7 @@ const Crypto = ({ coin }) => {
               </p>
             </div>
           </div>
-      }
-
-    </>
   )
 }
 
-export default Crypto; 
+export default Token
