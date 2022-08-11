@@ -5,7 +5,8 @@ export const formatPrice = (price) => {
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
-    notation:'standard'
+    notation: 'compact',
+
   })
 
   return formatter.format(price)

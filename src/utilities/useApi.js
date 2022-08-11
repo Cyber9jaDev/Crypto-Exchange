@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 
-const useApi = (endpoint, url, headers) => {
+
+const UseApi = (endpoint, url, headers) => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({})
 
@@ -24,4 +25,4 @@ const useApi = (endpoint, url, headers) => {
   return { loading, data }
 };
 
-export default useApi;
+export default UseApi;

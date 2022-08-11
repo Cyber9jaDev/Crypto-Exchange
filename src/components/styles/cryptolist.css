@@ -12,7 +12,7 @@
 
 .coins-row{
   display: grid;
-  grid-template-columns: 61% 13% 13% 13%;
+  grid-template-columns: 30% 20% 20% 30%;
   height: 80px;
   border-top: 1px solid #469B2C;
 }
@@ -60,6 +60,30 @@
   display: flex;
   flex-direction: column;
 }
+.coins-information-container .change-wrapper{
+  /* background-color: red; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+}
+.coins-information-container .change-wrapper .line-chart{
+  /* background-color: red; */
+  /* flex-basis: 50%; */
+  /* display: flex; */
+  /* align-items: center; */
+  height: auto;
+
+  width: 40%;
+}
+
+.coins-information-container .change-wrapper .change{
+  background-color: red;
+  padding-left: 10px;
+  /* flex-basis: 50%; */
+  width: 40%;
+  /* display: none; */
+}
 
 .change-wrapper > p, .price-wrapper > p, .market-cap-wrapper > p{
   margin: auto 0;
@@ -77,7 +101,7 @@
   width: 90%;
   margin: 40px auto;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   text-align: center;
 }
 
@@ -93,4 +117,6 @@
 
 .load-more:hover{
   color: white;
+  background: #2bae06;
+
 }

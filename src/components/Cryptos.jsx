@@ -3,6 +3,9 @@ import Crypto from '../components/Crypto';
 import './styles/cryptolist.css';
 import { Link } from 'react-router-dom';
 import CryptoContext from './CryptoContext';
+import LineChart from './LineChart';
+import CryptoTableHead from './CryptoTableHead';
+
 
 const Cryptos = ({number, more, headerText}) => {
   const {loading, data} = useContext(CryptoContext);
@@ -10,9 +13,11 @@ const Cryptos = ({number, more, headerText}) => {
   return (
     <section> 
       <div className="container-fluid">
+        {/* <CryptoTableHead /> */}
         {!loading && <h2 className="coins-list-header"> { headerText === undefined ? 'Top 10 Cryptocurrency Price by Market Cap' : headerText}</h2>}
           
         <div className="coins-list-container">
+
           <div className="coins-header-row">
             <Crypto
               allCoins = {'All Coins'}
@@ -28,6 +33,7 @@ const Cryptos = ({number, more, headerText}) => {
                 :
               data?.coins.slice(0, number===undefined ? 10 : data?.coins.length).map(coin => 
                 <Crypto
+                  
                   key={coin.uuid}
                   coin={coin}
                   loading={loading}

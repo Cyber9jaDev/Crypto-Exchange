@@ -4,10 +4,13 @@ import useHeaders from '../utilities/useHeaders';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
-const LatestNews = () => {
+const LineChart = ({ chartPeriod }) => {
   ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend );
-
-  const { loading, data : coin } = useApi('coin/Qwsogvtv82FCd/history?timePeriod=24h', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
+  
+  console.log(chartPeriod.period);
+  
+  const { loading, data : coin } = useApi(`coin/Qwsogvtv82FCd/history?timePeriod=${chartPeriod.period}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
+  
   if(loading) return;
 
   const coinPrice = [];
@@ -33,11 +36,11 @@ const LatestNews = () => {
         backgroundColor: 'rgb(0, 90, 226)',
         borderColor: 'rgb(0, 90, 226)',
         // tension: ,
-        showLine: true,
+        // showLine: false,
         pointBorderWidth: 1,
         drawBorder: true,
         radius: 0,
-        borderWidth: 3,
+        borderWidth: 1.2,
       }
     ]
   }
@@ -81,4 +84,4 @@ const LatestNews = () => {
   )
 }
 
-export default LatestNews;
+export default LineChart;

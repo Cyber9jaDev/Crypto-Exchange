@@ -1,15 +1,20 @@
-import millify from 'millify';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './styles/cryptolist.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { formatPrice } from '../utilities/formatNumber';
 import CryptoContext from './CryptoContext';
-
-
+import LineChart from './LineChart';
+import SelectChartPeriod from './selectChartPeriod';
 
 const Crypto = ({ coin, allCoins, price, marketCap, change, symbol }) => {
-    const {loading} = useContext(CryptoContext);
+  const {loading} = useContext(CryptoContext);
+
+  const [chartPeriod, setChartPeriod] = useState({
+    period: '1h'
+  });
+
+  // console.log(chartPeriod.period);
 
   return (
     <>
@@ -31,20 +36,38 @@ const Crypto = ({ coin, allCoins, price, marketCap, change, symbol }) => {
               <p className='price'>{price === undefined ? formatPrice(coin?.price) : 'Price'}</p>
             </div>
             <div className="market-cap-wrapper">
-              <p className='market-cap'>{marketCap === undefined ? (millify(coin?.marketCap)) : 'Market Cap'}</p>
+              <p className='market-cap'>{marketCap === undefined ? (formatPrice(coin?.marketCap)) : 'Market Cap'}</p>
             </div>
+            
             <div className="change-wrapper">
+              <div className="line-chart">
+                { change === undefined ? <LineChart chartPeriod={chartPeriod} /> : null }
+                {/* { <LineChart chartPeriod={chartPeriod} /> } */}
+
+              </div>
+              { change === undefined ? null :  <SelectChartPeriod chartPeriod={chartPeriod} setChartPeriod={setChartPeriod} />    }
+              {/* { <SelectChartPeriod chartPeriod={chartPeriod} setChartPeriod={setChartPeriod} />  } */}
+              
+              {/* <p 
+                className='change' 
+                style={
+                  {
+                    backgroundColor: change === undefined ? coin?.change >= 0 ? 'green': 'red' : 'inherit', 
+                    color: change === undefined ? 'white' : 'inherit'
+                  }
+                }
+                  >{change === undefined ? `${coin?.change}%` : null}
+              </p> */}
               <p 
                 className='change' 
                 style={
                   {
                     backgroundColor: change === undefined ? coin?.change >= 0 ? 'green': 'red' : 'inherit', 
-                    color: change===undefined ? 'white' : 'inherit'
+                    color: change === undefined ? 'white' : 'inherit'
                   }
                 }
-                  >{change === undefined ? `${coin?.change}%` : '24h'}
+                  >{change === undefined ? `${coin?.change}%` : null}
               </p>
-
             </div>
           </div>
       }
