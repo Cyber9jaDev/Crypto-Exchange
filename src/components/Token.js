@@ -29,7 +29,7 @@ const Token = ({ coin }) => {
             
             <div className="change-wrapper">
               <div className="line-chart">
-                { <LineChart coinId={coin.uuid}   /> }
+                { <LineChart coinId={coin.uuid} /> }
               </div>
               <p 
                 className='change' 
@@ -46,4 +46,4 @@ const Token = ({ coin }) => {
   )
 }
 
-export default Token
+export default Token;

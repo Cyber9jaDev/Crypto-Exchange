@@ -1,16 +1,14 @@
-import React, { useContext } from 'react';
-import Crypto from '../components/Crypto';
+import React from 'react';
 import './styles/cryptolist.css';
 import { Link } from 'react-router-dom';
-import CryptoContext from './CryptoContext';
-import LineChart from './LineChart';
-// import CryptoTableHead from './CryptoTableHead';
-import SelectChartDuration from './selectChartPeriod';
 import Token from './Token';
+import useApi from '../utilities/useApi';
+import useHeaders from '../utilities/useHeaders';
 
+const Cryptos = () => {
+  // const {loading, data} = useContext(CryptoContext);
+  const {data, loading} = useApi('coins', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
 
-const Cryptos = ({ more }) => {
-  const {loading, data} = useContext(CryptoContext);
   return (
     <section> 
       <div className="container-fluid">
@@ -52,7 +50,7 @@ const Cryptos = ({ more }) => {
               loading ? null
                 :
               data?.coins.slice(0, 10).map(coin => 
-                <Crypto
+                <Token
                   key={coin.uuid}
                   coin={coin}
                   loading={loading}
@@ -64,7 +62,7 @@ const Cryptos = ({ more }) => {
 
         { !loading && 
           <div className="load-more-wrapper">
-            { more===undefined ? <Link to='/cryptocurrencies' className="load-more">Load more</Link> : null }
+            { <Link to='/cryptocurrencies' className="load-more">Load more</Link> }
           </div>
         }
       

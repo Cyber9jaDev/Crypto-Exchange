@@ -4,9 +4,7 @@
 *{
   font-family: 'Inter', sans-serif;
 }
-.token{
-  
-}
+
 .coins-list-container{
   width: 90%;
   margin: 0 auto;
@@ -62,6 +60,11 @@
   display: flex;
   flex-direction: column;
 }
+.coins-information-container .coin-details .coin{
+  color: #000000;
+  text-decoration: none;
+}
+
 .coins-information-container .change-wrapper{
   /* background-color: red; */
   width: 100%;

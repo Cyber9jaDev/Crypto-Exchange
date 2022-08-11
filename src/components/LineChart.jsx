@@ -4,13 +4,11 @@ import useHeaders from '../utilities/useHeaders';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
-let count = 1;
+
 const LineChart = ({ coinId }) => {
   ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend );
   
-  console.log(count, coinId);
-  
-  const { loading, data : coin } = useApi(`coin/${coinId}/history?timePeriod=12h`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
+  const { loading, data : coin } = useApi(`coin/${coinId}/history?timePeriod=1y`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
   
   if(loading) return;
 
@@ -25,7 +23,6 @@ const LineChart = ({ coinId }) => {
 
   coinPrice.reverse();
   coinTimestamp.reverse();
-
 
   const data = {
     labels: coinTimestamp,
@@ -45,7 +42,6 @@ const LineChart = ({ coinId }) => {
       }
     ]
   }
-
 
   const options = {
     responsive: true,
@@ -78,7 +74,6 @@ const LineChart = ({ coinId }) => {
     },
   }
 
-  count = count + 1;
   return (
     <div>
       <Line options={ options } data={ data }  />
