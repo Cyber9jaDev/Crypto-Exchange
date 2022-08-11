@@ -10,9 +10,7 @@ import SelectChartPeriod from './selectChartPeriod';
 
 
 
-const Crypto = ({ coin }) => {
-  const {loading} = useContext(CryptoContext);
-
+const Crypto = ({ coin, loading }) => {
   const [chartPeriod, setChartPeriod] = useState({
     period: '1h'
   });

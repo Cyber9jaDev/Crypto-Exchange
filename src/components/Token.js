@@ -5,7 +5,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { formatPrice } from '../utilities/formatNumber';
 import LineChart from './LineChart';
 
-const Token = ({ coin }) => {
+const Token = ({ coin, chartPeriod }) => {
   return (
       <div className='coins-row'>
             <div className="all-coins">
@@ -29,7 +29,7 @@ const Token = ({ coin }) => {
             
             <div className="change-wrapper">
               <div className="line-chart">
-                { <LineChart coinId={coin.uuid} /> }
+                { <LineChart coinId={coin.uuid} chartPeriod={chartPeriod} /> }
               </div>
               <p 
                 className='change' 

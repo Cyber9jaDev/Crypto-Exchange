@@ -5,10 +5,10 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 import { Line } from 'react-chartjs-2';
 
 
-const LineChart = ({ coinId }) => {
+const LineChart = ({ coinId, chartPeriod }) => {
   ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend );
   
-  const { loading, data : coin } = useApi(`coin/${coinId}/history?timePeriod=1y`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
+  const { loading, data : coin } = useApi(`coin/${coinId}/history?timePeriod=${chartPeriod}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
   
   if(loading) return;
 

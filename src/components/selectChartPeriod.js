@@ -1,15 +1,14 @@
 import React from 'react';
 
-const SelectChartDuration = ({ chartPeriod, setChartPeriod}) => {
-  const changeChartDuration = (e) => {
-    setChartPeriod(prev => ({
-      ...prev,
-      period: e.target.value
-    }));
+const SelectChartDuration = ({ chartPeriod, setChartPeriod }) => {
+  const changeChartPeriod = (e) => {
+    setChartPeriod(() => e.target.value);
   }
 
+  console.log(chartPeriod);
+
   return (
-    <select onChange={changeChartDuration} value= {chartPeriod.period} name="chartPeriod" >
+    <select onChange={changeChartPeriod} value= {chartPeriod} name="chartPeriod" >
       <option value="1h">1h</option>
       <option value="3h">3h</option>
       <option value="12h">12h</option>

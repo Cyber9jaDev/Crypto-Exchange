@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../components/styles/cryptolist.css';
 import useApi from '../utilities/useApi';
 import useHeaders from '../utilities/useHeaders';
 import Token from '../components/Token';
+import SelectChartPeriod from '../components/SelectChartPeriod';
+import ChartPeriodContext from '../components/contexts/ChartPeriodContext';
 
 const Cryptocurrencies = () => {
   const {data, loading} = useApi('coins', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
+  const { chartPeriod, setChartPeriod} = useContext(ChartPeriodContext);
 
   return (
     <section>
@@ -24,30 +27,17 @@ const Cryptocurrencies = () => {
                 <div className="market-cap-wrapper">
                   <p className='market-cap'>Market Cap</p>
               </div>
+              <SelectChartPeriod chartPeriod={chartPeriod} setChartPeriod={setChartPeriod}  />
               
-              <div className="change-wrapper">
-                <select  value= '12h' name="chartPeriod" >
-                  <option value="1h">1h</option>
-                  <option value="3h">3h</option>
-                  <option value="12h">12h</option>
-                  <option value="24h">24h</option>
-                  <option value="7d">7d</option>
-                  <option value="30d">30d</option>
-                  <option value="3m">3m</option>
-                  <option value="1y">1y</option>
-                  <option value="3y">3y</option>
-                  <option value="5y">5y</option>
-                </select>
-              </div>
             </div>
-
           </div>
           <div className="coins-information-container">
             { !loading && data?.coins.map(coin => 
               <Token 
                 key={coin.uuid} 
                 coin={coin} 
-                loading={loading} 
+                loading={loading}
+                chartPeriod={chartPeriod}
               />
             )}
           </div>
