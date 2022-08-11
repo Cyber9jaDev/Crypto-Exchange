@@ -33,7 +33,7 @@ const Cryptocurrencies = () => {
           </div>
           <div className="coins-information-container">
             { !loading && data?.coins.map(coin => 
-              <Token 
+              <Token
                 key={coin.uuid} 
                 coin={coin} 
                 loading={loading}
