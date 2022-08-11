@@ -3,20 +3,11 @@ import useApi from '../utilities/useApi';
 import useHeaders from '../utilities/useHeaders';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-// import { faker } from '@faker-js/faker';
 
 const LatestNews = () => {
-  ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend
-  );
+  ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend );
+
   const { loading, data : coin } = useApi('coin/Qwsogvtv82FCd/history?timePeriod=1y', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
-  
   if(loading) return;
 
   const coinPrice = [];
@@ -25,8 +16,12 @@ const LatestNews = () => {
   coin?.history.forEach(coin => {
     if(coin.price === null || coin.timestamp === null ) return;
     coinPrice.push(coin.price);
-    coinTimestamp.push(new Date(coin.timestamp).toLocaleDateString());
+    coinTimestamp.push(new Date((coin.timestamp) * 1000).toLocaleDateString());
   });
+
+  coinPrice.reverse()
+  coinTimestamp.reverse();
+
 
   const data = {
     labels: coinTimestamp,
@@ -34,40 +29,51 @@ const LatestNews = () => {
       {
         label: 'Price in USD',
         data: coinPrice,
-        fill: true,
+        fill: false,
         backgroundColor: 'green',
         borderColor: 'green',
+        // tension: 0,
+        showLine: true,
+        drawBorder: false,
+        radius: 0.6,
+        borderWidth: 0.6,
+        pointRadius: 0,
       }
     ]
   }
 
+
   const options = {
-    // scales: {
-    //   yAxes: [
-    //     {
-    //       ticks: {
-    //         beginAtZero: true,
-    //       }
-    //     }
-    //   ]
-    // }
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          display: false,
+        },
+        grid: {
+          display: false,
+          drawTicks: false,
+        }
+      },
+      x: {
+        beginAtZero: true,
+        ticks: {
+          display: false,
+        },
+        grid: {
+          display: false,
+          drawTicks: false,
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+        
+    },
   }
-
-  // const options = {
-  //   responsive: true,
-  //   plugins: {
-  //     legend: {
-  //       position: 'top',
-  //     },
-  //     title: {
-  //       display: true,
-  //       text: 'Chart.js Line Chart',
-  //     },
-  //   },
-  //   // scales: {
-
-  //   // }
-  // }
 
   return (
     <div>
