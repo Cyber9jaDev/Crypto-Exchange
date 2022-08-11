@@ -1,11 +1,11 @@
 import React from 'react';
-import Cryptos from './Cryptos';
+import TopCryptoList from './TopCryptoList';
 import LatestNews from './LatestNews';
 
 const Main = () => {  
   return (
     <>
-      <Cryptos />
+      <TopCryptoList />
       <LatestNews />
     </>
   )

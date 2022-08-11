@@ -3,7 +3,7 @@ import '../components/styles/cryptolist.css';
 import useApi from '../utilities/useApi';
 import useHeaders from '../utilities/useHeaders';
 import Token from '../components/Token';
-import SelectChartPeriod from '../components/SelectChartPeriod';
+import SelectChartPeriod from '../components/selectChartPeriod';
 import ChartPeriodContext from '../components/contexts/ChartPeriodContext';
 
 const Cryptocurrencies = () => {

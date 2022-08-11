@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import RouterLink from "./Routes";
 import './App.css';
 import ChartPeriodContext from "./components/contexts/ChartPeriodContext";

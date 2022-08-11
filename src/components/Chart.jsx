@@ -7,10 +7,9 @@ import { Line } from 'react-chartjs-2';
 
 const LineChart = ({ coinId, chartPeriod }) => {
   ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend );
-  
   const { loading, data : coin } = useApi(`coin/${coinId}/history?timePeriod=${chartPeriod}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
   
-  if(loading) return;
+  if(loading) return;  
 
   const coinPrice = [];
   const coinTimestamp = [];
@@ -30,7 +29,7 @@ const LineChart = ({ coinId, chartPeriod }) => {
       {
         // label: 'Price in USD',
         data: coinPrice,
-        fill: false,
+        fill: true,
         backgroundColor: 'rgb(0, 90, 226)',
         borderColor: 'rgb(0, 90, 226)',
         // tension: ,

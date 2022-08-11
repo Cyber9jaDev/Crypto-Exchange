@@ -5,7 +5,7 @@ import Token from './Token';
 import useApi from '../utilities/useApi';
 import useHeaders from '../utilities/useHeaders';
 import ChartPeriodContext from './contexts/ChartPeriodContext';
-import SelectChartPeriod from './SelectChartPeriod';
+import SelectChartPeriod from './selectChartPeriod';
 
 const Cryptos = () => {
   const { chartPeriod, setChartPeriod } = useContext(ChartPeriodContext);

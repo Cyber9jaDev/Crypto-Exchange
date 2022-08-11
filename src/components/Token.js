@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { formatPrice } from '../utilities/formatNumber';
-import LineChart from './LineChart';
+import Chart from './Chart';
 
 const Token = ({ coin, chartPeriod }) => {
   return (
@@ -29,7 +29,7 @@ const Token = ({ coin, chartPeriod }) => {
             
             <div className="change-wrapper">
               <div className="line-chart">
-                { <LineChart coinId={coin.uuid} chartPeriod={chartPeriod} /> }
+                { <Chart coinId={coin.uuid} chartPeriod={chartPeriod} /> }
               </div>
               <p 
                 className='change' 
