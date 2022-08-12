@@ -34,10 +34,11 @@ const LineChart = ({ coinId, chartPeriod }) => {
         borderColor: 'rgb(0, 90, 226)',
         // tension: ,
         // showLine: false,
+        color: 'black',
         pointBorderWidth: 1,
         drawBorder: true,
         radius: 0,
-        borderWidth: 1.2,
+        borderWidth: 2,
       }
     ]
   }
@@ -53,6 +54,7 @@ const LineChart = ({ coinId, chartPeriod }) => {
         grid: {
           display: false,
           drawTicks: false,
+          drawBorder: false
         }
       },
       x: {
@@ -63,6 +65,7 @@ const LineChart = ({ coinId, chartPeriod }) => {
         grid: {
           display: false,
           drawTicks: false,
+          drawBorder: false
         }
       }
     },
