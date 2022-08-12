@@ -1,12 +1,12 @@
 import React from 'react';
 import useApi from '../utilities/useApi';
 import useHeaders from '../utilities/useHeaders';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
 
 const LineChart = () => {
-  ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend );
+  ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler );
   const { loading, data : coin } = useApi(`coin/${`Qwsogvtv82FCd`}/history?timePeriod=${`1y`}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
   
   if(loading) return;  
@@ -32,7 +32,7 @@ const LineChart = () => {
         // label: 'Price in USD',
         data: coinPrice,
         fill: true,
-        backgroundColor: 'rgb(0, 90, 226)',
+        backgroundColor: 'pink',
         borderColor: 'rgb(0, 90, 226)',
         // tension: ,
         // showLine: false,
@@ -50,7 +50,7 @@ const LineChart = () => {
       y: {
         // beginAtZero: true,
         ticks: {
-          // display: false,
+          display: false,
         },
         grid: {
           // display: false,
@@ -65,9 +65,9 @@ const LineChart = () => {
           display: false,
         },
         grid: {
-          display: false,
-          drawTicks: false,
-          drawBorder: false
+          // display: false,
+          // drawTicks: false,
+          // drawBorder: false
         }
       }
     },
