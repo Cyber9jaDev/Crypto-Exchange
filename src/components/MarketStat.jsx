@@ -1,21 +1,24 @@
-import React from 'react';
-
+import React, { useEffect } from 'react'
 
 const MarketStat = () => {
-  const {loading, data} = useApi('coin/Qwsogvtv82FCd/history?timePeriod=1y', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
-  if(loading) return;
 
-  const coinPrice =[];
-  const coinTimestamp = [];
-
+  useEffect(() => {
+   async function fetch(){
+      const res = await fetch ('https://data.messari.io/api/v1/assets/btc', {
+        header: {
+          'x-messari-api-key': 'a67dac3a0bb6433880752099ce23ae70'
+        }
+      });
+      const data = await res.json();
+      console.log(data)
+    }
   
+    fetch();
 
-  console.log(data?.history);
+  }, [])
 
   return (
-    <div>
-
-    </div>
+    <div>MarketStat</div>
   )
 }
 

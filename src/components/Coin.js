@@ -8,7 +8,7 @@ import useApi from '../utilities/useApi';
 import useHeaders from '../utilities/useHeaders';
 
 const Token = ({ coin, chartPeriod }) => {
-  const { loading, data : eachCoin} = useApi(`coin/${coin.uuid}/history?timePeriod=${chartPeriod}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
+  const { data : eachCoin} = useApi(`coin/${coin.uuid}/history?timePeriod=${chartPeriod}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
   // if(loading) return;
 
 
@@ -24,7 +24,9 @@ const Token = ({ coin, chartPeriod }) => {
                 <img src={coin?.iconUrl} alt="" className='coin-icon' />
               </div>
               <div className="coin-details">
-                <p className='coin-name'><Link className='coin' to='/'>{coin?.name}</Link></p>
+                <p className='coin-name'><Link className='coin' to='/coin/btc'>{coin?.name}</Link></p>
+                {/* <p className='coin-name'><Link className='coin' to={`/coin/${coinName}`}>{coin?.name}</Link></p> */}
+
                 <p className="coin-symbol">{coin?.symbol}</p>
               </div>
             </div>

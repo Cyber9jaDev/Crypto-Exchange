@@ -10,7 +10,6 @@ const LineChart = () => {
   const { loading, data : coin } = useApi(`coin/${`Qwsogvtv82FCd`}/history?timePeriod=${`1y`}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
   
   if(loading) return;  
-  console.log(coin);
 
 
   const coinPrice = [];
