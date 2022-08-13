@@ -1,11 +1,11 @@
 import React from 'react';
-import TopCryptoList from './TopCryptoList';
-import LatestNews from './LatestNews';
+import TopCoins from '../components/TopCoins';
+import LatestNews from '../components/LatestNews';
 
 const Main = () => {  
   return (
     <>
-      <TopCryptoList />
+      <TopCoins />
       <LatestNews />
     </>
   )

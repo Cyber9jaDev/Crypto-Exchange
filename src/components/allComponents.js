@@ -1,10 +1,10 @@
 export { default as Navbar  } from './Navbar';
-export { default as Homepage  } from './Homepage';
+export { default as Homepage  } from '../pages/Homepage';
 export { default as Exchanges  } from '../pages/Exchanges';
 export { default as Cryptocurrencies } from '../pages/Cryptocurrencies';
 export { default as News } from '../pages/News';
 export { default as Footer } from './Footer';
 export { default as Markets } from '../pages/Markets';
-export { default as Main } from './Main';
+export { default as Main } from '../pages/Main';
 export { default as Signup } from '../pages/Signup';
 export { default as SingleCurrency } from '../pages/SingleCurrency';

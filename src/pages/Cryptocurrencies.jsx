@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import '../components/styles/cryptolist.css';
+import '../components/styles/coins.css';
 import useApi from '../utilities/useApi';
 import useHeaders from '../utilities/useHeaders';
-import Token from '../components/Token';
+import Token from '../components/Coin';
 import SelectChartPeriod from '../components/selectChartPeriod';
 import ChartPeriodContext from '../components/contexts/ChartPeriodContext';
 
@@ -13,9 +13,9 @@ const Cryptocurrencies = () => {
   return (
     <section>
       <>
-        <h2 className="coins-list-header">Top 10 Cryptocurrency Price by Market Cap</h2>
+        <h2 className="coins-header-text">Top Coins</h2>
         
-        <div className="coins-list-container">
+        <div className="coins-details-container">
 
           <div className="coins-header-row">
               <div className='coins-row'>
@@ -40,6 +40,7 @@ const Cryptocurrencies = () => {
               />
             )}
           </div>
+
         </div>
       </>
     </section>

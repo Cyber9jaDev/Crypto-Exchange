@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import './styles/cryptolist.css';
+import './styles/coins.css';
 import { Link } from 'react-router-dom';
-import Token from './Token';
+import Coin from './Coin';
 import useApi from '../utilities/useApi';
 import useHeaders from '../utilities/useHeaders';
 import ChartPeriodContext from './contexts/ChartPeriodContext';
@@ -12,13 +12,12 @@ const Cryptos = () => {
   const { data, loading } = useApi('coins', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
 
   return (
-    <section> 
+    <section id='coins'> 
       <div className="container-fluid">
         {/* <CryptoTableHead /> */}
-        <h2 className="coins-list-header">Top 10 Cryptocurrency Price by Market Cap</h2>
+        <h2 className="coins-header-text">Top 10 Coins</h2>
         
-        <div className="coins-list-container">
-
+        <div className="coins-details-container">
           <div className="coins-header-row">
             <div className='coins-row'>
               <div className="all-coins">All Coins</div>
@@ -32,7 +31,6 @@ const Cryptos = () => {
               <SelectChartPeriod chartPeriod={chartPeriod} setChartPeriod={setChartPeriod} />
 
             </div>
-
           </div>
 
           <div className="coins-information-container">
@@ -40,7 +38,7 @@ const Cryptos = () => {
               loading ? null
                 :
               data?.coins.slice(0, 10).map(coin => 
-                <Token
+                <Coin
                   key={coin.uuid}
                   coin={coin}
                   loading={loading}

@@ -31,15 +31,15 @@ const LineChart = ({ coinId, chartPeriod }) => {
         // label: 'Price in USD',
         data: coinPrice,
         fill: true,
-        backgroundColor: 'rgb(190, 186, 186)',
-        borderColor: 'rgb(0, 90, 226)',
-        // tension: ,
-        // showLine: false,
-        color: 'black',
-        pointBorderWidth: 1,
+        backgroundColor: 'white',
+        borderColor: 'black',
+        // tension: 4,
+        // showLine: true,
+        // color: 'black',
+        // pointBorderWidth: 1,
         drawBorder: true,
         radius: 0,
-        borderWidth: 2,
+        borderWidth: 1.2,
       }
     ]
   }

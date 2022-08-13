@@ -5,9 +5,15 @@
   font-family: 'Inter', sans-serif;
 }
 
-.coins-list-container{
+.coins-details-container{
   width: 90%;
   margin: 0 auto;
+}
+.coins-header-text{
+  text-align: center;
+  margin: 40px 0;
+  line-height: 16px;
+  letter-spacing: .1em
 }
 
 .coins-row{
