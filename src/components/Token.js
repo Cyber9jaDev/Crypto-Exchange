@@ -4,8 +4,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { formatPrice } from '../utilities/formatNumber';
 import Chart from './Chart';
+import useApi from '../utilities/useApi';
+import useHeaders from '../utilities/useHeaders';
 
 const Token = ({ coin, chartPeriod }) => {
+  const { loading, data : eachCoin} = useApi(`coin/${coin.uuid}/history?timePeriod=${chartPeriod}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
+  // if(loading) return;
+
+
+  // Ensure token is defuined and has a value to avoid error
+  if( eachCoin?.change === undefined || eachCoin.change === null ) return;
   return (
       <div className='coins-row'>
             <div className="all-coins">
@@ -35,11 +43,11 @@ const Token = ({ coin, chartPeriod }) => {
                 className='change' 
                 style={
                   {
-                    backgroundColor: coin?.change >= 0 ? 'green': 'red', 
+                    backgroundColor: eachCoin?.change >= 0 ? 'green': 'red', 
                     color: 'white'
                   }
                 }
-                  >{`${coin?.change}%`}
+                  >{`${eachCoin?.change}%`}
               </p>
             </div>
           </div>

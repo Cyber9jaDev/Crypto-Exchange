@@ -7,14 +7,13 @@ import SelectChartPeriod from '../components/selectChartPeriod';
 import ChartPeriodContext from '../components/contexts/ChartPeriodContext';
 
 const Cryptocurrencies = () => {
-  const {data, loading} = useApi('coins', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
-  const { chartPeriod, setChartPeriod} = useContext(ChartPeriodContext);
+  const { data, loading } = useApi('coins', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
+  const { chartPeriod, setChartPeriod } = useContext(ChartPeriodContext);
 
   return (
     <section>
       <>
         <h2 className="coins-list-header">Top 10 Cryptocurrency Price by Market Cap</h2>
-        
         
         <div className="coins-list-container">
 

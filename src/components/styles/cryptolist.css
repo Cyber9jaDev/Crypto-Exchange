@@ -13,8 +13,9 @@
 .coins-row{
   display: grid;
   grid-template-columns: 30% 20% 20% 30%;
-  height: 80px;
+  height: auto;
   border-top: 1px solid #469B2C;
+  padding: auto 0;
 }
 
 .coins-header-row .favorite-icon, .coins-header-row .coin-icon {
@@ -73,21 +74,13 @@
 
 }
 .coins-information-container .change-wrapper .line-chart{
-  /* background-color: red; */
-  /* flex-basis: 50%; */
-  /* display: flex; */
-  /* align-items: center; */
   height: auto;
-
-  width: 40%;
+  padding: 3px 0;
+  width: 50%;
 }
 
 .coins-information-container .change-wrapper .change{
-  background-color: red;
-  padding-left: 10px;
-  /* flex-basis: 50%; */
-  width: 40%;
-  /* display: none; */
+  width: 45%;
 }
 
 .change-wrapper > p, .price-wrapper > p, .market-cap-wrapper > p{

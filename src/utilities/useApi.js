@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 
 const useApi = (endpoint, url, headers) => {
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState({})
+  const [data, setData] = useState({});
 
   const fetchApi = useCallback(async () => {
     try{
