@@ -10,6 +10,7 @@ const Cryptocurrencies = () => {
   const { data, loading } = useApi('coins', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
   const { chartPeriod, setChartPeriod } = useContext(ChartPeriodContext);
 
+
   return (
     <section>
       <>

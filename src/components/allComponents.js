@@ -7,4 +7,4 @@ export { default as Footer } from './Footer';
 export { default as Markets } from '../pages/Markets';
 export { default as Main } from '../pages/Main';
 export { default as Signup } from '../pages/Signup';
-export { default as SingleCoin } from '../pages/SingleCoin';
+export { default as Asset } from '../pages/Asset';

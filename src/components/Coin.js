@@ -11,9 +11,13 @@ const Token = ({ coin, chartPeriod }) => {
   const { data : eachCoin} = useApi(`coin/${coin.uuid}/history?timePeriod=${chartPeriod}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
   // if(loading) return;
 
+  // console.log(coin);
 
-  // Ensure token is defuined and has a value to avoid error
+
+  // Ensure token is defined and has a value to avoid error
   if( eachCoin?.change === undefined || eachCoin.change === null ) return;
+  // console.log((coin.symbol).toLowerCase());
+
   return (
       <div className='coins-row'>
             <div className="all-coins">
@@ -24,9 +28,7 @@ const Token = ({ coin, chartPeriod }) => {
                 <img src={coin?.iconUrl} alt="" className='coin-icon' />
               </div>
               <div className="coin-details">
-                <p className='coin-name'><Link className='coin' to='/coin/btc'>{coin?.name}</Link></p>
-                {/* <p className='coin-name'><Link className='coin' to={`/coin/${coinName}`}>{coin?.name}</Link></p> */}
-
+                <p className='coin-name'><Link className='coin' to={`/coin/${(coin?.symbol).toLowerCase()}`}>{coin?.name}</Link></p>
                 <p className="coin-symbol">{coin?.symbol}</p>
               </div>
             </div>
