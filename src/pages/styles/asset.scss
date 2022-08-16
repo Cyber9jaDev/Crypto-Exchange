@@ -7,8 +7,8 @@
     gap: 10px;
 
     & > .asset-header-wrapper{
-      grid-column: span 12;
-      padding: 20px 40px;
+      grid-column: 1 / span 12;
+      padding: 10px 20px;
       align-items: center;
       display: grid;
       grid-template-columns: 5% 85% 5% 5%;
@@ -69,10 +69,10 @@
       }
     }
 
-    & > .overview-wrapper{
-      background-color: rgb(191, 191, 201);
-      grid-column: span 12;
-      padding: 20px 40px;
+    & > .profile-links{
+      background-color: rgb(227, 226, 226);
+      grid-column: 1 / span 12;
+      padding: 10px 5px;
       color: white;
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -89,6 +89,56 @@
         color: #000;
         font-size: 0.9em;
         font-weight: 500;
+      }
+
+      & > p > .link.active{
+        border-bottom: 3px solid #000;
+        padding-bottom: 11px;
+      }
+    }
+
+    & > .overview{
+      background-color: #ffffff;
+      padding: 10px 20px;
+      grid-column: span 12;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-gap: 10px;
+
+      & > .key-metrics{
+        grid-column: span 3;
+        background-color: rgb(227, 226, 226);
+        display: flex;
+        align-items: center;
+
+        & > h6{
+          margin: auto 0;
+          // color: red;
+        }
+      }
+      
+      & > .charts{
+        grid-column: 4 / span 5;
+        display: flex;
+        align-items: center;
+
+        & > h6{
+          margin: auto 0;
+          // color: red;
+        }
+      }
+
+      & > .roi{
+        grid-column: span 3;
+        grid-column: span 3;
+        display: flex;
+        align-items: center;
+        background-color: red;
+
+        & > h6{
+          margin: auto 0;
+          // color: red;
+        }
       }
     }
   }
