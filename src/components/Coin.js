@@ -36,7 +36,7 @@ const Token = ({ coin, chartPeriod }) => {
               <p className='price'>{formatPrice(coin?.price)}</p>
             </div>
             <div className="market-cap-wrapper">
-              <p className='market-cap'>{formatPrice(coin?.marketCap)}</p>
+              <p className='market-cap'>{formatPrice(coin?.marketCap, 'compact')}</p>
             </div>
             
             <div className="change-wrapper">

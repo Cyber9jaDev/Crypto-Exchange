@@ -1,0 +1,25 @@
+#asset{
+
+  main{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 10px;
+
+    & > .asset-header{
+      background-color: red;
+      grid-column: span 12;
+      padding: 20px 40px;
+      align-items: center;
+      display: grid;
+      grid-template-columns: 10% 70% 10% 10%;
+
+      & > .asset-icon{
+        width: 70px;
+        height: 70px;
+        // grid-column: ;
+      }
+    }
+  }
+
+}
