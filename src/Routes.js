@@ -9,7 +9,7 @@ const RouterLink = () => {
       <Routes>
         <Route path='/' element={<Main />} />
         <Route path='cryptocurrencies' element={<Cryptocurrencies/>} />
-        <Route path='/coin/:symbol' element={<Asset/>} />
+        <Route path='/coin/:asset_symbol' element={<Asset/>} />
         <Route path='exchanges' element={<Exchanges/>} />
         <Route path='markets' element={<Markets/>} />
         <Route path='news' element={<News/>} />

@@ -6,7 +6,7 @@ export const formatPrice = (price, notation) => {
     style: 'currency',
     currency: 'USD',
     notation: notation ? 'compact' : 'standard',
-    maximumFractionDigits: 3
+    maximumFractionDigits: 2
   })
 
   return formatter.format(price)
