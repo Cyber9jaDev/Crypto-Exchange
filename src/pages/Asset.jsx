@@ -19,23 +19,18 @@ const SingleCoin = () => {
   const { data : profile } = useApi(`/v2/assets/${asset_symbol}/profile`, process.env.REACT_APP_MESSARI_URL, useHeaders().messariHeader);
   const { data : metrics } = useApi(`/v1/assets/${asset_symbol}/metrics`, process.env.REACT_APP_MESSARI_URL, useHeaders().messariHeader);
 
-  const activeLinkStyle = {
-    borderBottom: '3px solid #000',
-    paddingBottom: '11px'
-  }
-
   // console.log(profile);
-  // console.log(asset);
+  console.log(metrics);
+  // console.log(assetInformation);
 
-  const handleClick = (e) => {
-    setActive(() => e.target.name);
-  }
+  const handleClick = (e) => setActive(() => e.target.name);
+  // const getDate = (date) => new Date(date).toDateString();
 
   return (
     <section id="asset">
       <main>
         <div className="asset-header-wrapper">
-          <img className='asset-icon' src={`${iconUrls[asset_symbol]}`} alt="asset icon" />
+          <img className='asset-icon' src={assetInformation?.coin?.iconUrl} alt="asset icon" />
           <div className="asset-header-text">
             <p className="asset-name">{profile.name}</p>
             <p className="asset-symbol">{profile.symbol}</p>
@@ -61,6 +56,38 @@ const SingleCoin = () => {
         <div className="overview">
           <div className="key-metrics">
             <h6> KEY METRICS </h6>
+            <div className="key-metrics-details">
+              <p className="left">Price</p>
+              <p>{formatPrice(assetInformation?.coin?.price)}</p>
+              <p>Real Volume (24H)</p>
+              <p>{formatPrice(metrics?.market_data?.real_volume_last_24_hours, 'compact')}</p>
+              <p>Market Cap</p>
+              <p>{ metrics?.marketcap?.liquid_marketcap_usd === null ? 'N/A' : formatPrice(metrics?.marketcap?.liquid_marketcap_usd, 'compact') }</p>
+              <p>Y + 10 Market Cap</p>
+              <p> { metrics?.marketcap?.y_plus10_marketcap_usd === null ? 'N/A' : formatPrice(metrics?.marketcap?.y_plus10_marketcap_usd, 'compact') }</p>
+              <p>Y2050 Market Cap</p>
+              <p>{ metrics?.marketcap?.y_2050_marketcap_usd === null ? 'N/A' : formatPrice(metrics?.marketcap?.y_2050_marketcap_usd, 'compact')}</p>
+              <p>ATH</p>
+              <p>{formatPrice(metrics?.all_time_high?.price)}</p>
+              <p>ATH Date</p>
+              {/* <p>{getDate(metrics?.all_time_high?.at)}</p> */}
+              <p>{new Date(metrics?.all_time_high?.at).toDateString()}</p>
+              <p>% Down from ATH</p>
+              {/* <p style={{ color: Math.floor(metrics?.all_time_high?.percent_down) >= 0 ? 'red' : 'green' }}>{Math.floor(metrics?.all_time_high?.percent_down)}%</p> */}
+              {/* <p style={{ color: Math.floor(metrics?.all_time_high?.percent_down) >= 0 ? 'red' : 'green' }}>
+                { metrics?.all_time_high?.percent_down > 0 ? `-${Math.floor(metrics?.all_time_high?.percent_down)}` : `+${Math.floor(metrics?.all_time_high?.percent_down)}` }%
+              </p> */}
+              <p style={{ color: 'red' }}> -{ Math.floor(metrics?.all_time_high?.percent_down ) }% </p>
+              <p>Cycle Low</p>
+              <p>{formatPrice(metrics?.cycle_low?.price)}</p>
+              <p>Cycle Low Date</p>
+              <p>{new Date(metrics?.cycle_low?.at).toDateString()}</p>
+              <p>Up From Cycle Low</p>
+              {/* <p style={{ color: Math.floor(metrics?.cycle_low?.percent_up) >= 0 ? 'green' : 'green' }}>
+                { metrics?.cycle_low?.percent_up > 0 ? `+${Math.floor(metrics?.cycle_low?.percent_up)}` : `-${Math.floor(metrics?.cycle_low?.up)}` }%
+              </p> */}
+              <p style={{ color: 'green' }}> +{ Math.floor(metrics?.cycle_low?.percent_up) }% </p>
+            </div>
           </div>
           <div className="charts">
             <h6>CHARTS</h6>
