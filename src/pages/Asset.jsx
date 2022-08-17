@@ -70,27 +70,27 @@ const SingleCoin = () => {
               <p>ATH</p>
               <p>{formatPrice(metrics?.all_time_high?.price)}</p>
               <p>ATH Date</p>
-              {/* <p>{getDate(metrics?.all_time_high?.at)}</p> */}
               <p>{new Date(metrics?.all_time_high?.at).toDateString()}</p>
               <p>% Down from ATH</p>
-              {/* <p style={{ color: Math.floor(metrics?.all_time_high?.percent_down) >= 0 ? 'red' : 'green' }}>{Math.floor(metrics?.all_time_high?.percent_down)}%</p> */}
-              {/* <p style={{ color: Math.floor(metrics?.all_time_high?.percent_down) >= 0 ? 'red' : 'green' }}>
-                { metrics?.all_time_high?.percent_down > 0 ? `-${Math.floor(metrics?.all_time_high?.percent_down)}` : `+${Math.floor(metrics?.all_time_high?.percent_down)}` }%
-              </p> */}
               <p style={{ color: 'red' }}> -{ Math.floor(metrics?.all_time_high?.percent_down ) }% </p>
               <p>Cycle Low</p>
               <p>{formatPrice(metrics?.cycle_low?.price)}</p>
               <p>Cycle Low Date</p>
               <p>{new Date(metrics?.cycle_low?.at).toDateString()}</p>
               <p>Up From Cycle Low</p>
-              {/* <p style={{ color: Math.floor(metrics?.cycle_low?.percent_up) >= 0 ? 'green' : 'green' }}>
-                { metrics?.cycle_low?.percent_up > 0 ? `+${Math.floor(metrics?.cycle_low?.percent_up)}` : `-${Math.floor(metrics?.cycle_low?.up)}` }%
-              </p> */}
               <p style={{ color: 'green' }}> +{ Math.floor(metrics?.cycle_low?.percent_up) }% </p>
             </div>
           </div>
           <div className="charts">
-            <h6>CHARTS</h6>
+            <div className="charts-header">
+              <h6>CHARTS</h6>
+              <select name="" id="">
+                <option value="price">Price</option>
+                <option value="price">Price</option>
+                <option value="price">Price</option>
+                <option value="price">Price</option>
+              </select>
+            </div>
           </div>
           <div className="roi">
             <h6>ROI</h6>
