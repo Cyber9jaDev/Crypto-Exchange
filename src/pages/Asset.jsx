@@ -72,13 +72,13 @@ const SingleCoin = () => {
               <p>ATH Date</p>
               <p>{new Date(metrics?.all_time_high?.at).toDateString()}</p>
               <p>% Down from ATH</p>
-              <p style={{ color: 'red' }}> -{ Math.floor(metrics?.all_time_high?.percent_down ) }% </p>
+              <p style={{ color: 'red' }}> -{ metrics?.all_time_high?.percent_down.toFixed(2) }% </p>
               <p>Cycle Low</p>
               <p>{formatPrice(metrics?.cycle_low?.price)}</p>
               <p>Cycle Low Date</p>
               <p>{new Date(metrics?.cycle_low?.at).toDateString()}</p>
               <p>Up From Cycle Low</p>
-              <p style={{ color: 'green' }}> +{ Math.floor(metrics?.cycle_low?.percent_up) }% </p>
+              <p style={{ color: 'green' }}> +{ metrics?.cycle_low?.percent_up.toFixed(2) }% </p>
             </div>
           </div>
           <div className="charts">
@@ -109,27 +109,27 @@ const SingleCoin = () => {
               </div>
               <div className="roi-table-row">
                 <p>1W</p>
-                <p style={{color: metrics?.roi_data?.percent_change_last_1_week < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_last_1_week}</p>
-                <p>VS ETH</p>
-                <p>VS BTC</p>
+                <p style={{color: metrics?.roi_data?.percent_change_last_1_week < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_last_1_week.toFixed(2)}%</p>
+                <p style={{color: metrics?.roi_data?.percent_change_eth_last_1_week < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_eth_last_1_week.toFixed(2)}%</p>
+                <p style={{color: metrics?.roi_data?.percent_change_btc_last_1_week < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_btc_last_1_week.toFixed(2)}%</p>
               </div>
               <div className="roi-table-row">
                 <p>1M</p>
-                <p>VS USD</p>
-                <p>VS ETH</p>
-                <p>VS BTC</p>
+                <p style={{color: metrics?.roi_data?.percent_change_last_1_month < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_last_1_month.toFixed(2)}%</p>
+                <p style={{color: metrics?.roi_data?.percent_change_eth_last_1_month < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_eth_last_1_month.toFixed(2)}%</p>
+                <p style={{color: metrics?.roi_data?.percent_change_btc_last_1_month < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_btc_last_1_month.toFixed(2)}%</p>
               </div>
               <div className="roi-table-row">
                 <p>3M</p>
-                <p>VS USD</p>
-                <p>VS ETH</p>
-                <p>VS BTC</p>
+                <p style={{color: metrics?.roi_data?.percent_change_last_3_months < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_last_3_months.toFixed(2)}%</p>
+                <p style={{color: metrics?.roi_data?.percent_change_eth_last_3_months < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_eth_last_3_months.toFixed(2)}%</p>
+                <p style={{color: metrics?.roi_data?.percent_change_btc_last_3_months < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_btc_last_3_months.toFixed(2)}%</p>
               </div>
               <div className="roi-table-row">
                 <p>1Y</p>
-                <p>VS USD</p>
-                <p>VS ETH</p>
-                <p>VS BTC</p>
+                <p style={{color: metrics?.roi_data?.percent_change_last_1_year < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_last_1_year.toFixed(2)}%</p>
+                <p style={{color: metrics?.roi_data?.percent_change_eth_last_1_year < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_eth_last_1_year.toFixed(2)}%</p>
+                <p style={{color: metrics?.roi_data?.percent_change_btc_last_1_year < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_btc_last_1_year.toFixed(2)}%</p>
               </div>
 
             </div>
