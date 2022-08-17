@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faShareNodes } from "@fortawesome/free-solid-svg-icons";
 import ChartPeriodContext from '../components/contexts/ChartPeriodContext'
 import { formatPrice } from '../utilities/formatNumber';
+import AssetChart from '../components/Asset_Chart';
 // import { Link } from 'react-router-dom';
 
 
@@ -20,8 +21,9 @@ const SingleCoin = () => {
   const { data : metrics } = useApi(`/v1/assets/${asset_symbol}/metrics`, process.env.REACT_APP_MESSARI_URL, useHeaders().messariHeader);
 
   // console.log(profile);
-  console.log(metrics);
+  // console.log(metrics);
   // console.log(assetInformation);
+  // console.log(uuids[asset_symbol])
 
   const handleClick = (e) => setActive(() => e.target.name);
   // const getDate = (date) => new Date(date).toDateString();
@@ -91,6 +93,11 @@ const SingleCoin = () => {
                 <option value="price">Price</option>
               </select>
             </div>
+            {/* <div className="chart-wrapper"> */}
+              <AssetChart coinId={uuids[asset_symbol]} chartPeriod={chartPeriod} />
+            {/* </div> */}
+
+
           </div>
           <div className="roi">
             <h6>ROI</h6>
@@ -131,11 +138,12 @@ const SingleCoin = () => {
                 <p style={{color: metrics?.roi_data?.percent_change_eth_last_1_year < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_eth_last_1_year.toFixed(2)}%</p>
                 <p style={{color: metrics?.roi_data?.percent_change_btc_last_1_year < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_btc_last_1_year.toFixed(2)}%</p>
               </div>
-
             </div>
           </div>
         </div>
       </main>
+
+
     </section>
   )
 }
