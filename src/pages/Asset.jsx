@@ -94,6 +94,45 @@ const SingleCoin = () => {
           </div>
           <div className="roi">
             <h6>ROI</h6>
+            <div className="roi-table">
+              <div className="roi-table-row">
+                <p>PERIOD</p>
+                <p>VS USD</p>
+                <p>VS ETH</p>
+                <p>VS BTC</p>
+              </div>
+              <div className="roi-table-row">
+                <p>24H</p>
+                <p>---</p>
+                <p>---</p>
+                <p>---</p>
+              </div>
+              <div className="roi-table-row">
+                <p>1W</p>
+                <p style={{color: metrics?.roi_data?.percent_change_last_1_week < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_last_1_week}</p>
+                <p>VS ETH</p>
+                <p>VS BTC</p>
+              </div>
+              <div className="roi-table-row">
+                <p>1M</p>
+                <p>VS USD</p>
+                <p>VS ETH</p>
+                <p>VS BTC</p>
+              </div>
+              <div className="roi-table-row">
+                <p>3M</p>
+                <p>VS USD</p>
+                <p>VS ETH</p>
+                <p>VS BTC</p>
+              </div>
+              <div className="roi-table-row">
+                <p>1Y</p>
+                <p>VS USD</p>
+                <p>VS ETH</p>
+                <p>VS BTC</p>
+              </div>
+
+            </div>
           </div>
         </div>
       </main>
