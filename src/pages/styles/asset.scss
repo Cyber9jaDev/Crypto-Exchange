@@ -168,10 +168,24 @@
           }
         }
 
-        .chart-wrapper{
-          // background-color: red;
+        .chart-period-table{
+          display: flex;
+          margin: 5px  0;
+          justify-content: flex-end;
           width: 100%;
-          // color: rgb(35, 169, 231);
+
+          & > p{
+            cursor: pointer;
+            width: auto;
+            padding: 5px;
+            margin: 0 5px;
+            font-weight: 600;
+            font-size: 0.8em;
+            background: rgb(175, 190, 216);
+            border-radius: 5px;
+            color: #000;
+
+          }
         }
       }
 
