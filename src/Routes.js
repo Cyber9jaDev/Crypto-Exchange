@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom";
-import { Main, Cryptocurrencies, Exchanges, Markets,  News, Signup, Asset, Navbar, Footer } from './components/allComponents';
+import { Main, Cryptocurrencies, Exchanges, Markets,  News, Signup, Asset, Navbar, Footer } from './components/AllComponents';
 
 const RouterLink = () => {
   return (

@@ -10,9 +10,9 @@ const useApi = (endpoint, url, headers) => {
       const data =  await response.json();
       setLoading(false);
       setData(data?.data);
-    } catch(error){
+    } catch(err){
       setLoading(false);
-      return new Error(`Error: ${error}`)
+      return new Error(`Error: ${err}`);
     }},  [endpoint, headers, url] );
 
   useEffect(() => {

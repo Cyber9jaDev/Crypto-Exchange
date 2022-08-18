@@ -8,3 +8,11 @@ export { default as Markets } from '../pages/Markets';
 export { default as Main } from '../pages/Main';
 export { default as Signup } from '../pages/Signup';
 export { default as Asset } from '../pages/Asset';
+export { default as AssetChart } from './AssetChart';
+export { default as ROI } from './ROI'
+export { default as Summary } from './Summary';
+export { default as HistoricalData } from './HistoricalData';
+export { default as AssetError } from './AssetError';
+export { default as KeyMetrics } from './KeyMetrics';
+export { default as KeyInfo } from './KeyInfo';
+export { default as SingleAssetChart } from './SingleAssetChart';
