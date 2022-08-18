@@ -1,8 +1,8 @@
-// *{
-//   padding: 0;
-//   margin: 0;
-//   box-sizing: border-box;
-// }
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 #asset{
 
@@ -18,7 +18,6 @@
       align-items: center;
       display: grid;
       grid-template-columns: 5% 85% 5% 5%;
-      // background: rgba(231, 230, 230, 0.9);
 
       & > .asset-icon{
         width: 70px;
@@ -26,44 +25,46 @@
       }
 
       & > .asset-header-text{
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
+        display: flex;
+        flex-direction: column;
+        margin-left: 30px;
+        height: 100%;
 
-        & > p{
-          margin: auto 0;
-          font-weight: 600;
-          margin-left: 20px;
-        }
+        & > .asset-header-text-wrapper{
+          display: flex;
+          height: 70%;
 
-        & > .asset-name{
-          grid-column: span 2;
-          font-size: 1.5em;
-        }
+          & > p{
+            margin: auto 0;
+            font-weight: 600;
+            margin-left: 20px;
+          }
 
-        & > .asset-symbol{
-          grid-column: span 1;
-          font-size: 1.4em;
-          background: rgb(207, 206, 206);
-          text-align: center;
-          padding: 2px 5px;
-          border-radius: 5px;
-        }
+          & > .asset-name{
+            font-size: 1.5em;
+          }
 
-        & > .asset-price{
-          grid-column: span 1;
-          font-size: 1.3em;
-        }
-
-        & > .asset-change{
-          grid-column: span 1;
-          font-size: 1.3em;
+          & > .asset-symbol{
+            font-size: 1.4em;
+            background: rgb(207, 206, 206);
+            padding: 2px 5px;
+            border-radius: 5px;
+          }
+  
+          & > .asset-price{
+            font-size: 1.3em;
+          }
+  
+          & > .asset-change{
+            font-size: 1.3em;
+          }
         }
 
         & > .asset-tagline{
-          grid-column: 1 / span 12;
-          // margin-left: 20px;
+          margin-left: 20px;
+          font-style: italic;
+          font-weight: 500;
         }
-
       }
 
       & > .share-icon, .favorite-icon{

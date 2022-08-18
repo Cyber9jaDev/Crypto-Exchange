@@ -3,7 +3,6 @@ import useApi from '../utilities/useApi';
 import useHeaders from '../utilities/useHeaders';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { formatPrice, formatCoin } from '../utilities/formatNumber';
 
 const LineChart = ({ coinId, chartPeriod }) => {
   ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler );
@@ -16,7 +15,6 @@ const LineChart = ({ coinId, chartPeriod }) => {
 
   coin?.history.forEach(coin => {
     if(coin.price === null || coin.timestamp === null ) return;
-    console.log( formatCoin( coin?.price));
     coinPrice.push(coin?.price);
     coinTimestamp.push(new Date((coin.timestamp) * 1000).toLocaleDateString());
   });
@@ -24,8 +22,7 @@ const LineChart = ({ coinId, chartPeriod }) => {
   coinPrice.reverse();
   coinTimestamp.reverse();
 
-// 
-  // console.log(formatPrice(coin.price));
+  // console.log(coinId);
 
   const data = {
     labels: coinTimestamp,

@@ -19,16 +19,5 @@ export const formatChange = (change) => {
   if(change < 0) backgroundColor = 'red';
 
   return backgroundColor;
-};
 
-export const formatCoin = (coin) => {
-  coin = parseFloat(coin);
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    notation: 'standard',
-    // maximumFractionDigits: 2
-  })
-
-  return formatter.format(coin)
 }

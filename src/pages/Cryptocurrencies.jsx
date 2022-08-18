@@ -14,9 +14,9 @@ const Cryptocurrencies = () => {
 
   if(data?.coins === undefined ) return;
 
-  for(let i = 0; i < data?.coins.length; i++){
-    console.log((data?.coins[i]?.symbol).toLowerCase(), ':', `'${data?.coins[i]?.uuid}',`);
-  }
+  // for(let i = 0; i < data?.coins.length; i++){
+  //   console.log((data?.coins[i]?.symbol).toLowerCase(), ':', `'${data?.coins[i]?.uuid}',`);
+  // }
 
   
 
