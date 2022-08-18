@@ -9,7 +9,7 @@ const Market = () => {
         <p className="exchange">EXCHANGE</p>
         <p className="pair">PAIR</p>
         <p className="price">PRICE</p>
-        <p className="24h-volume">24H VOL</p>
+        <p className="24h-volume">VOLUME</p>
       </div>
 
       <div className="market-table-data">
@@ -17,7 +17,7 @@ const Market = () => {
           <img src="" alt="" />
           <p>Binance</p>
         </div>
-        <p>BTC</p>
+        <p><span>base</span> / <span>base</span></p>
         <p>$23,459.57</p>
         <p>$30.48m</p>
       </div>

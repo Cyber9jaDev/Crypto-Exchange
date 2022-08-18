@@ -20,14 +20,21 @@ const Asset = () => {
 
   const handleClick = (e) => setActive(() => e.target.name);
 
+  // console.log(metrics);
+  // console.log(profile);
+  // console.log(assetInformation)
+  console.log(iconUrls[asset_symbol]);
+  console.log(asset_symbol);
+
   return (
     <section id="asset">
       {
-        ( metrics === undefined || profile === undefined )  ? <AssetError /> 
+        ( metrics === undefined || profile === undefined || metrics === null || profile === null )  ? <AssetError /> 
           : 
           <main>
             <div className="asset-header-wrapper">
-              <img className='asset-icon' src={assetInformation?.coin?.iconUrl} alt="asset icon" />
+              {/* <img className='asset-icon' src={assetInformation?.coin?.iconUrl} alt="asset icon" /> */}
+              <img className='asset-icon' src={iconUrls[asset_symbol]} alt="asset icon" />
               <div className="asset-header-text">
                 <div className="asset-header-text-wrapper">
                   <p className="asset-name">{profile.name}</p>
@@ -60,7 +67,7 @@ const Asset = () => {
                 <SingleAssetChart chartPeriod={ chartPeriod } asset_symbol={asset_symbol} setChartPeriod={setChartPeriod} change={assetInformation?.coin?.change}/>
               </div>
               <div className="col-3">
-                <ROI metrics={metrics} />
+                <ROI metrics={metrics}  /> 
                 <Market />  
               </div>
             
