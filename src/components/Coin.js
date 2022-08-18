@@ -41,7 +41,7 @@ const Token = ({ coin, chartPeriod }) => {
             
             <div className="change-wrapper">
               <div className="line-chart">
-                { <Chart coinId={coin.uuid} chartPeriod={chartPeriod} /> }
+                { <Chart coinId={coin.uuid} chartPeriod={chartPeriod} change={eachCoin?.change} /> }
               </div>
               <p 
                 className='change' 

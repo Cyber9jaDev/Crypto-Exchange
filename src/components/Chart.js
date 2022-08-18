@@ -4,7 +4,7 @@ import useHeaders from '../utilities/useHeaders';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
-const LineChart = ({ coinId, chartPeriod }) => {
+const LineChart = ({ coinId, chartPeriod, change }) => {
   ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler );
   
   const { loading, data : coin } = useApi(`coin/${coinId}/history?timePeriod=${chartPeriod}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
@@ -31,8 +31,13 @@ const LineChart = ({ coinId, chartPeriod }) => {
         // label: 'Price in USD',
         data: coinPrice,
         fill: true,
-        backgroundColor: 'rgb(223, 229, 240)',
-        borderColor: 'rgb(35, 169, 231)',
+        backgroundColor: 'rgba(223, 229, 240, 0.3)',
+        // borderColor: 'rgb(35, 169, 231)',
+        // borderColor: `${change >= 0 ? 'green' : 'red'}`,
+        borderColor: () => {
+          if(change >= 0 ) return 'green'; 
+          else return 'red';
+        },
         // tension: 4,
         // showLine: true,
         // color: 'black',
