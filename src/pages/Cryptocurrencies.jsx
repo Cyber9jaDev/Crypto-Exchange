@@ -11,7 +11,7 @@ const Cryptocurrencies = () => {
   const { chartPeriod, setChartPeriod } = useContext(ChartPeriodContext);
 
   // console.log(data?.coins?.uuid, data?.coins?.symbol);
-  console.log(data?.coins)
+  console.log(data)
 
   if(data?.coins === undefined ) return;
 

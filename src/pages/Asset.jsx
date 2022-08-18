@@ -13,7 +13,7 @@ import { AssetError, SingleAssetChart, ROI, Summary, KeyMetrics, HistoricalData,
 const Asset = () => {
   const [active, setActive] = useState('overview');
   const { asset_symbol } = useParams();
-  const { chartPeriod, setChartPeriod, setChartPeriod } = useContext(ChartPeriodContext);
+  const { chartPeriod, setChartPeriod } = useContext(ChartPeriodContext);
   const { data : assetInformation } = useApi(`coin/${uuids[asset_symbol]}?timePeriod=${chartPeriod}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
   const { data : profile } = useApi(`/v2/assets/${asset_symbol}/profile`, process.env.REACT_APP_MESSARI_URL, useHeaders().messariHeader);
   const { data : metrics } = useApi(`/v1/assets/${asset_symbol}/metrics`, process.env.REACT_APP_MESSARI_URL, useHeaders().messariHeader);
@@ -24,7 +24,7 @@ const Asset = () => {
   // console.log(metrics);
   // console.log(profile);
   // console.log(assetInformation)
-  console.log(iconUrls[asset_symbol]);
+  // console.log(iconUrls[asset_symbol]);
   console.log(asset_symbol);
 
   return (
@@ -35,7 +35,8 @@ const Asset = () => {
           <main>
             <div className="asset-header-wrapper">
               {/* <img className='asset-icon' src={assetInformation?.coin?.iconUrl} alt="asset icon" /> */}
-              <img className='asset-icon' src={iconUrls[asset_symbol]} alt="asset icon" />
+              {/* <img className='asset-icon' src={iconUrls[asset_symbol]} alt="asset icon" /> */}
+              <img className='asset-icon' src={`${iconUrls[asset_symbol]}`} alt="asset icon" />
               <div className="asset-header-text">
                 <div className="asset-header-text-wrapper">
                   <p className="asset-name">{profile.name}</p>
