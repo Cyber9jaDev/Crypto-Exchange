@@ -12,7 +12,9 @@ import { AssetError, SingleAssetChart, ROI, Summary, KeyMetrics, HistoricalData,
 
 const Asset = () => {
   const [active, setActive] = useState('overview');
+  // Use asset symbol to get asset id
   const { asset_symbol } = useParams();
+
   const { chartPeriod, setChartPeriod } = useContext(ChartPeriodContext);
   const { data : assetInformation } = useApi(`coin/${uuids[asset_symbol]}?timePeriod=${chartPeriod}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
   const { data : profile } = useApi(`/v2/assets/${asset_symbol}/profile`, process.env.REACT_APP_MESSARI_URL, useHeaders().messariHeader);
@@ -61,7 +63,7 @@ const Asset = () => {
               </div>
               <div className="col-3">
                 <ROI metrics={metrics} />
-                <Market />  
+                <Market asset_symbol={asset_symbol}  />  
               </div>
             
             </div>

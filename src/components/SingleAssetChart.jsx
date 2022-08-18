@@ -5,7 +5,7 @@ import { uuids } from '../iconURLs';
 const SingleAssetChart = ( { asset_symbol, chartPeriod, setChartPeriod, change }) => {
 
   const handleClick = (e) => {
-    console.dir(e.target);
+    // console.dir(e.target);
     setChartPeriod(e.target.attributes.name.value);
   }
 

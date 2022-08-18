@@ -3,6 +3,7 @@ import useApi from '../utilities/useApi';
 import useHeaders from '../utilities/useHeaders';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import { formatPrice } from '../utilities/formatNumber';
 
 const LineChart = ({ coinId, chartPeriod, change }) => {
   ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler );
@@ -48,6 +49,8 @@ const LineChart = ({ coinId, chartPeriod, change }) => {
       y: {
         ticks: {
           display: true,
+          // Include a dollar sign in the ticks
+          callback: (value) => formatPrice(value)
         },
         grid: {
           display: false,
@@ -58,7 +61,6 @@ const LineChart = ({ coinId, chartPeriod, change }) => {
       x: {
         ticks: {
           display: false,
-          align: 'end'
         },
         grid: {
           display: false,

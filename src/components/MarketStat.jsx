@@ -5,12 +5,12 @@ const MarketStat = () => {
     async function exchanges(){
 
       try {
-        const res = await fetch('https://api.coingecko.com/api/v3/exchanges');
+        const res = await fetch('https://api.coingecko.com/api/v3/coins');
         const data = await res.json();
-        console.log(data);
+        // console.log(data);
 
         // data.forEach(d => {
-        //   console.log(`${d.id}: '${d.image}',`)
+        //   console.log(`${d.symbol}: '${d.id}',`)
         // });
 
         // data.forEach(d => {
@@ -24,7 +24,6 @@ const MarketStat = () => {
     }
 
     exchanges();
-  
 
   }, [])
   
