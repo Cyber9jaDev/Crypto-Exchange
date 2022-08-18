@@ -8,7 +8,6 @@ const LineChart = ({ coinId, chartPeriod, change }) => {
   ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler );
   
   const { loading, data : coin } = useApi(`coin/${coinId}/history?timePeriod=${chartPeriod}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
-  // console.log(coin);
   
   if(loading) return;  
 
@@ -28,20 +27,14 @@ const LineChart = ({ coinId, chartPeriod, change }) => {
     labels: coinTimestamp,
     datasets: [
       {
-        // label: 'Price in USD',
         data: coinPrice,
         fill: true,
         backgroundColor: 'rgba(223, 229, 240, 0.3)',
-        // borderColor: 'rgb(35, 169, 231)',
-        // borderColor: `${change >= 0 ? 'green' : 'red'}`,
         borderColor: () => {
           if(change >= 0 ) return 'green'; 
           else return 'red';
         },
-        // tension: 4,
-        // showLine: true,
-        // color: 'black',
-        // pointBorderWidth: 1,
+
         drawBorder: true,
         radius: 0,
         borderWidth: 1.2,
@@ -53,7 +46,6 @@ const LineChart = ({ coinId, chartPeriod, change }) => {
     responsive: true,
     scales: {
       y: {
-        // beginAtZero: true,
         ticks: {
           display: false,
         },
@@ -64,7 +56,6 @@ const LineChart = ({ coinId, chartPeriod, change }) => {
         }
       },
       x: {
-        // beginAtZero: true,
         ticks: {
           display: false,
         },

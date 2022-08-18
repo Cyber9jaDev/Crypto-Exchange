@@ -6,13 +6,10 @@ import { formatPrice } from '../utilities/formatNumber';
 import Chart from './Chart';
 import useApi from '../utilities/useApi';
 import useHeaders from '../utilities/useHeaders';
+// import { coinGeckoHeader , coinrankingHeader} from '../utilities/useHeaders';
 
 const Token = ({ coin, chartPeriod }) => {
   const { data : eachCoin} = useApi(`coin/${coin.uuid}/history?timePeriod=${chartPeriod}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
-  // if(loading) return;
-
-  // console.log(coin);
-
 
   // Ensure token is defined and has a value to avoid error
   if( eachCoin?.change === undefined || eachCoin.change === null ) return;

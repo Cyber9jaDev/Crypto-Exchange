@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faShareNodes } from "@fortawesome/free-solid-svg-icons";
 import ChartPeriodContext from '../components/contexts/ChartPeriodContext'
 import { formatPrice } from '../utilities/formatNumber';
-import { AssetError, SingleAssetChart, ROI, Summary, KeyMetrics, HistoricalData, KeyInfo } from '../components/AllComponents';
+import { AssetError, SingleAssetChart, ROI, Summary, KeyMetrics, HistoricalData, KeyInfo, Market } from '../components/AllComponents';
 
 const Asset = () => {
   const [active, setActive] = useState('overview');
@@ -53,9 +53,17 @@ const Asset = () => {
             </div>
 
             <div className="overview">
-              <KeyMetrics assetInformation={ assetInformation} metrics={metrics} />
-              <SingleAssetChart chartPeriod={ chartPeriod } asset_symbol={asset_symbol} setChartPeriod={setChartPeriod}/>
-              <ROI metrics={metrics} />
+              <div className="col-1">
+                <KeyMetrics assetInformation={ assetInformation} metrics={metrics} />
+              </div>
+              <div className="col-2">
+                <SingleAssetChart chartPeriod={ chartPeriod } asset_symbol={asset_symbol} setChartPeriod={setChartPeriod} change={assetInformation?.coin?.change}/>
+              </div>
+              <div className="col-3">
+                <ROI metrics={metrics} />
+                <Market />  
+              </div>
+            
             </div>
           </main>
       }

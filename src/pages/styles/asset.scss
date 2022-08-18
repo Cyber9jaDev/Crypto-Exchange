@@ -106,122 +106,194 @@
     & > .overview{
       background-color: #ffffff;
       padding: 10px 20px;
-      grid-column: span 12;
+      grid-column: 1 / span 12;
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       grid-gap: 10px;
 
-      & > .key-metrics{
+      & > .col-1{
         grid-column: span 3;
-        display: flex;
-        flex-direction: column;
-        & > h6{
-          background-color: rgb(0, 0, 0);
-          color: white;
-          font-size: 1em;
-          padding: 5px;
-        }
-        & > .key-metrics-details{
-          display: grid;
-          grid-template-columns: repeat(12, 1fr);
-          & > p{
-            grid-column: span 6;
-            font-size: 0.75em;
-            background-color: rgb(251, 248, 248);
-          }
-          & > p:nth-child(odd){
-            font-weight: 500;
-          }
-          & > p:nth-child(even){
-            font-weight: 600;
-            text-align: end ;
-          }
-        }
-      }
-      
-      & > .charts{
-        grid-column: 4 / span 6;
-        display: flex;
-        flex-direction: column;
+        // background-color: red;
         width: 100%;
 
-        & .charts-header{
-          background-color: rgb(0, 0, 0);
-          display: flex;
-          align-items: center;
-          height: 30px;
+        // display: flex;
+        // flex-direction: column;
 
-          & > h6{
-            color: white;
-            font-size: 1em;
-            padding: 0 10px 0 5px;
-            margin: auto 0;
-            border-right: 1px solid #fff;
-          }
-
-          & select{
-            margin-left: 10px;
-            border: none;
-            outline: none;
-            border-radius: 2px;
-            width: 80px;
-          }
-        }
-
-        .chart-period-table{
-          display: flex;
-          margin: 5px  0;
-          justify-content: flex-end;
-          width: 100%;
-
-          & > p{
-            cursor: pointer;
-            width: auto;
-            padding: 5px;
-            margin: 0 5px;
-            font-weight: 600;
-            font-size: 0.8em;
-            background: rgb(175, 190, 216);
-            border-radius: 5px;
-            color: #000;
-
-          }
-        }
-      }
-
-      & > .roi{
-        grid-column: span 3;
-        display: flex;
-        flex-direction: column;
-        h6{
-          background-color: rgb(0, 0, 0);
-          color: white;
-          font-size: 1em;
-          padding: 5px;
-        }
-        .roi-table{
+        & > .key-metrics{
+          // grid-column: span 3;
           display: flex;
           flex-direction: column;
-
-          .roi-table-row{
-            display: flex;
-
-            p{
-              flex-basis: 25%;
-              font-size: 0.8em;
+          & > h6{
+            background-color: rgb(0, 0, 0);
+            color: white;
+            font-size: 1em;
+            padding: 5px;
+          }
+          & > .key-metrics-details{
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            & > p{
+              grid-column: span 6;
+              font-size: 0.75em;
+              background-color: rgb(251, 248, 248);
+            }
+            & > p:nth-child(odd){
+              font-weight: 500;
+            }
+            & > p:nth-child(even){
               font-weight: 600;
-
-              &:nth-child(2), &:nth-child(3){
-                text-align: center;
-              }
-              &:last-child{
-                text-align: end
-              }
+              text-align: end ;
             }
           }
         }
       }
-      
+
+      & > .col-2{
+        grid-column: span 6;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        & > .charts{
+          // grid-column: 4 / span 6;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+  
+          & .charts-header{
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            align-items: center;
+            height: 30px;
+  
+            & > h6{
+              color: white;
+              font-size: 1em;
+              padding: 0 10px 0 5px;
+              margin: auto 0;
+              border-right: 1px solid #fff;
+            }
+  
+            & select{
+              margin-left: 10px;
+              border: none;
+              outline: none;
+              border-radius: 2px;
+              width: 80px;
+            }
+          }
+  
+          .chart-period-table{
+            display: flex;
+            margin: 5px  0;
+            justify-content: flex-end;
+            width: 100%;
+  
+            & > p{
+              cursor: pointer;
+              width: auto;
+              padding: 5px;
+              margin: 0 5px;
+              font-weight: 600;
+              font-size: 0.8em;
+              background: rgb(175, 190, 216);
+              border-radius: 5px;
+              color: #000;
+  
+            }
+          }
+        }
+      }
+
+      & > .col-3{
+        grid-column: span 3;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        & > .roi{
+          grid-column: span 3;
+          display: flex;
+          flex-direction: column;
+          h6{
+            background-color: rgb(0, 0, 0);
+            color: white;
+            font-size: 1em;
+            padding: 5px;
+          }
+          & > .roi-table{
+            display: flex;
+            flex-direction: column;
+  
+            & > .roi-table-row{
+              display: flex;
+  
+              & > p{
+                flex-basis: 25%;
+                font-size: 0.8em;
+                font-weight: 600;
+  
+                &:nth-child(2), &:nth-child(3){
+                  text-align: center;
+                }
+                &:last-child{
+                  text-align: end
+                }
+              }
+            }
+          }
+        }
+
+        & > .market{
+          margin: 10px 0;
+          display: flex;
+          flex-direction: column;
+          
+          h6{
+            background-color: rgb(0, 0, 0);
+            color: white;
+            font-size: 1em;
+            padding: 5px;
+          }
+
+          .market-table-header{
+            display: grid;
+            grid-template-columns: 30% 20% 30% 20%;
+            // background-color: rgb(219, 217, 217);
+            // align-items: center;
+            // height: 100%;
+
+            p:nth-child(2), p:nth-child(3){
+              text-align: center;
+            }
+
+            p{
+              padding: 5px;
+              font-size: 0.8em;
+              margin: auto 0;
+              font-weight: 600;
+            }
+          }
+          
+          .market-table-data{
+            display: grid;
+            grid-template-columns: 30% 20% 35% 15%;
+
+            & > div{
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            p{
+              // padding: 2px;
+              font-size: 0.8em;
+              margin: auto 0;
+              font-weight: 600;
+            }
+          }
+        }
+      }
     }
   }
 

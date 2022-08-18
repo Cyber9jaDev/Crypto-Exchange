@@ -14,10 +14,17 @@ const useHeaders = () => {
     headers: {
       'x-messari-api-key': `${process.env.REACT_APP_MESSARI_API_KEY}`
     }
+  }), []);
+
+  const coinGeckoHeader = useMemo(() => ({
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    }
   }), [])
 
 
-  return { coinrankingHeader, messariHeader }
+  return { coinrankingHeader, messariHeader, coinGeckoHeader }
 }
 
 export default useHeaders;

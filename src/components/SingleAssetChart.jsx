@@ -2,7 +2,7 @@ import React from 'react';
 import { AssetChart } from './AllComponents';
 import { uuids } from '../iconURLs';
 
-const SingleAssetChart = ( { asset_symbol, chartPeriod, setChartPeriod }) => {
+const SingleAssetChart = ( { asset_symbol, chartPeriod, setChartPeriod, change }) => {
 
   const handleClick = (e) => {
     console.dir(e.target);
@@ -32,7 +32,7 @@ const SingleAssetChart = ( { asset_symbol, chartPeriod, setChartPeriod }) => {
         <p onClick={handleClick} name='3y'>3Y</p>
         <p onClick={handleClick} name='5y'>5Y</p>
       </div>
-      <AssetChart coinId={uuids[asset_symbol]} chartPeriod={chartPeriod} />
+      <AssetChart coinId={uuids[asset_symbol]} chartPeriod={chartPeriod} change={change} />
     </div>
   )
 }

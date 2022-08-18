@@ -16,3 +16,4 @@ export { default as AssetError } from './AssetError';
 export { default as KeyMetrics } from './KeyMetrics';
 export { default as KeyInfo } from './KeyInfo';
 export { default as SingleAssetChart } from './SingleAssetChart';
+export { default as Market } from './Asset/Market';
