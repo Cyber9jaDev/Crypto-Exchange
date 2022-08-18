@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const ROI = ( { metrics } ) => {
   return (
@@ -37,9 +37,9 @@ const ROI = ( { metrics } ) => {
         </div>
         <div className="roi-table-row">
           <p>1Y</p>
-          <p style={{color: metrics?.roi_data?.percent_change_last_1_year < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_last_1_year.toFixed(2)}%</p>
-          <p style={{color: metrics?.roi_data?.percent_change_eth_last_1_year < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_eth_last_1_year.toFixed(2)}%</p>
-          <p style={{color: metrics?.roi_data?.percent_change_btc_last_1_year < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_btc_last_1_year.toFixed(2)}%</p>
+          <p style={{color: metrics?.roi_data?.percent_change_last_1_year < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_last_1_year !== null ? `${metrics?.roi_data?.percent_change_last_1_year.toFixed(2)}%` : '---'}</p>
+          <p style={{color: metrics?.roi_data?.percent_change_eth_last_1_year < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_eth_last_1_year !== null ? `${metrics?.roi_data?.percent_change_eth_last_1_year.toFixed(2)}%` : '---' }</p>
+          <p style={{color: metrics?.roi_data?.percent_change_btc_last_1_year < 0 ? 'red' : 'green'}}>{metrics?.roi_data?.percent_change_btc_last_1_year !== null ? `${metrics?.roi_data?.percent_change_btc_last_1_year.toFixed(2)}%` : '---'}</p>
         </div>
       </div>
     </div> 

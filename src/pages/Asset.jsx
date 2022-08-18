@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { iconUrls, uuids} from '../iconURLs';
+import { uuids} from '../iconURLs';
 import useApi from '../utilities/useApi';
 import useHeaders from '../utilities/useHeaders';
 import './styles/asset.scss';
