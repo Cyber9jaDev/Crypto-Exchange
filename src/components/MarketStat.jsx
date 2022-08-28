@@ -3,10 +3,10 @@ import React, { useEffect } from 'react'
 const MarketStat = () => {
   useEffect(() => {
     async function exchanges(){
-
       try {
-        const res = await fetch('https://api.coingecko.com/api/v3/coins');
+        const res = await fetch('https://api.coingecko.com/api/v3/exchanges');
         const data = await res.json();
+        // console.log(data)
         // console.log(data);
 
         // data.forEach(d => {

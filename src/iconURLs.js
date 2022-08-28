@@ -711,6 +711,14 @@ export const exchange_id = {
 }
 
 export const exchange_icon = {
+  // liquid: 
+  btcmarkets: "https://assets.coingecko.com/markets/images/237/small/btcmarkets-exchange.jpg?1536726060",
+  txbit: "https://assets.coingecko.com/markets/images/366/small/kamyliB.png?1551871576",
+  coinfield: "https://assets.coingecko.com/markets/images/188/small/coinfield.jpg?1529816716",
+  bitbns: "https://assets.coingecko.com/markets/images/541/small/HS7eNJdt_400x400.jpg?1592294824",
+  indodax: "https://assets.coingecko.com/markets/images/3/small/logogram-Indodax-new-_JPG_format.jpg?1580974378",
+  cointiger: 'https://assets.coingecko.com/markets/images/204/small/cointiger.png?1588935091',
+  dcoin: 'https://assets.coingecko.com/markets/images/319/small/%E8%B5%84%E6%BA%90_4_3x_2.png?1590117049',
   binance: 'https://assets.coingecko.com/markets/images/52/small/binance.jpg?1519353250',
   gdax: 'https://assets.coingecko.com/markets/images/23/small/Coinbase_Coin_Primary.png?1621471875',
   ftx_spot: 'https://assets.coingecko.com/markets/images/451/small/F.png?1609051590',

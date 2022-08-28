@@ -6,7 +6,8 @@ const useApi = (endpoint, url, headers) => {
 
   const fetchApi = useCallback(async () => {
     try{
-      const response = await fetch(`${process.env.REACT_APP_CORS_API_HOST}${url}${endpoint}`, headers); 
+      // const response = await fetch(`${process.env.REACT_APP_CORS_API_HOST}${url}${endpoint}`, headers); 
+      const response = await fetch(`${url}${endpoint}`, headers); 
       const data =  await response.json();
       setLoading(false);
       setData(data?.data);
