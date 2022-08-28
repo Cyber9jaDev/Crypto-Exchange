@@ -14,15 +14,13 @@ const Market = ( { asset_symbol } ) => {
         setLoading(false)
       }
       catch (err) {
-        return new Error(err);
         setLoading(false);
+        return new Error(err);
       }
       
     }
     asset();
   }, []);
-
-  console.log(market);
 
   
   return (
