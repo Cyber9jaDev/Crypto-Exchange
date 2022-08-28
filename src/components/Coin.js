@@ -11,7 +11,7 @@ import useHeaders from '../utilities/useHeaders';
 const Token = ({ coin, chartPeriod }) => {
 
   // const { data : eachCoin} = useApi(`coin/${coin.uuid}/history?timePeriod=${chartPeriod}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
-  const { loading, data : coinNED } = useApi('/coins/bitcoin/market_chart?vs_currency=usd&days=14', process.env.REACT_APP_COINGECKO_API_URL, useHeaders().coinGeckoHeader);
+  // const { loading, data : coinNED } = useApi('/coins/bitcoin/market_chart?vs_currency=usd&days=14', process.env.REACT_APP_COINGECKO_API_URL, useHeaders().coinGeckoHeader);
 
   // Ensure token is defined and has a value to avoid error
   // if( eachCoin?.change === undefined || eachCoin.change === null ) return;
@@ -28,7 +28,7 @@ const Token = ({ coin, chartPeriod }) => {
               </div>
               <div className="coin-details">
                 <p className='coin-name'><Link className='coin' to={`/coin/${(coin?.symbol).toLowerCase()}`}>{coin?.name}</Link></p>
-                <p className="coin-symbol">{coin?.symbol}</p>
+                <p className="coin-symbol">{coin?.symbol.toUpperCase()}</p>
               </div>
             </div>
             <div className="price-wrapper">
@@ -39,9 +39,6 @@ const Token = ({ coin, chartPeriod }) => {
             </div>
             
             <div className="change-wrapper">
-              {/* <div className="line-chart">
-                { <Chart coinId={coin.uuid} chartPeriod={chartPeriod} change={eachCoin?.change} /> }
-              </div> */}
               <div className="line-chart">
                 { <Chart chartPeriod={chartPeriod} change={coin?.market_data?.price_change_percentage_24h} /> }
               </div>
@@ -53,7 +50,7 @@ const Token = ({ coin, chartPeriod }) => {
                     color: 'white'
                   }
                 }
-                  >{`${coin?.market_data?.price_change_percentage_24h}%`}
+                  >{`${(coin?.market_data?.price_change_percentage_24h).toFixed(2)}%`}
               </p>
             </div>
           </div>

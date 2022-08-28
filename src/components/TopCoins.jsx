@@ -7,11 +7,11 @@ import useHeaders from '../utilities/useHeaders';
 import ChartPeriodContext from './contexts/ChartPeriodContext';
 import SelectChartPeriod from './selectChartPeriod';
 
-const Cryptos = () => {
-  // const { chartPeriod, setChartPeriod } = useContext(ChartPeriodContext);
+const TopCoins = () => {
+  const { chartPeriod, setChartPeriod } = useContext(ChartPeriodContext);
   const { data, loading } = useApi('/coins', process.env.REACT_APP_COINGECKO_API_URL, useHeaders().coinGeckoHeader);
-  const chartPeriod = 24;
-  // console.log(data);
+  // const chartPeriod = 24;
+  console.log(data);
 
   return (
     <section id='coins'> 
@@ -30,8 +30,7 @@ const Cryptos = () => {
                 <p className='market-cap'>Market Cap </p>
               </div>
             
-              {/* <SelectChartPeriod chartPeriod={chartPeriod} setChartPeriod={setChartPeriod} /> */}
-              {/* <SelectChartPeriod chartPeriod={chartPeriod} setChartPeriod={setChartPeriod} /> */}
+              <SelectChartPeriod chartPeriod={chartPeriod} setChartPeriod={setChartPeriod} />
 
             </div>
           </div>
@@ -63,4 +62,4 @@ const Cryptos = () => {
   )
 }
 
-export default Cryptos;
+export default TopCoins;
