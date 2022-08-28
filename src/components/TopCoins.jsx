@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import './styles/coins.css';
 import { Link } from 'react-router-dom';
 import Coin from './Coin';
@@ -10,7 +10,6 @@ import SelectChartPeriod from './selectChartPeriod';
 const TopCoins = () => {
   const { chartPeriod, setChartPeriod } = useContext(ChartPeriodContext);
   const { data, loading } = useApi('/coins', process.env.REACT_APP_COINGECKO_API_URL, useHeaders().coinGeckoHeader);
-  // const chartPeriod = 24;
   console.log(data);
 
   return (
@@ -39,9 +38,10 @@ const TopCoins = () => {
             {
               loading ? null
                 :
-              data?.slice(0, 10).map(coin => 
+              data?.slice(0, 10).map((coin, index) => 
                 <Coin
-                  key={coin.uuid}
+                  // key={coin.uuid}
+                  key={index}
                   coin={coin}
                   loading={loading}
                   chartPeriod={chartPeriod}

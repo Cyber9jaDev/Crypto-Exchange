@@ -7,24 +7,12 @@ import { Line } from 'react-chartjs-2';
 const LineChart = ({ coinId, chartPeriod, change }) => {
   ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler );
   
-  // const { loading, data : coin } = useApi(`coin/${coinId}/history?timePeriod=${chartPeriod}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
   const { loading, data : coin } = useApi(`/coins/bitcoin/market_chart?vs_currency=usd&days=${chartPeriod}`, process.env.REACT_APP_COINGECKO_API_URL, useHeaders().coinGeckoHeader);
   
   if(loading) return;  
 
-
-
-  // console.log(coin.prices);
-
-
   const coinPrice = [];
   const coinTimestamp = [];
-
-  // coin?.prices.forEach(coin => {
-  //   if(coin.price === null || coin.timestamp === null ) return;
-  //   coinPrice.push(coin.price);
-  //   coinTimestamp.push(new Date((coin.timestamp) * 1000).toLocaleDateString());
-  // });
   
   for (let i= 0; i < coin?.prices.length; i++){
     coinTimestamp.push(new Date(coin.prices[i][0]).toLocaleDateString());

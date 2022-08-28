@@ -14,9 +14,9 @@ const SelectChartPeriod = ({ chartPeriod, setChartPeriod }) => {
         <option value="0.041667">1H</option>
         <option value="1">1D</option>
         <option value="7">1W</option>
+        <option value="14">2W</option>
         <option value="30">1M</option>
         <option value="60">2M</option>
-        <option value="90">3M</option>
         <option value="365">1Y</option>
       </select>
     </div>

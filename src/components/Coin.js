@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
@@ -10,12 +10,39 @@ import useHeaders from '../utilities/useHeaders';
 
 const Token = ({ coin, chartPeriod }) => {
 
-  // const { data : eachCoin} = useApi(`coin/${coin.uuid}/history?timePeriod=${chartPeriod}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
-  // const { loading, data : coinNED } = useApi('/coins/bitcoin/market_chart?vs_currency=usd&days=14', process.env.REACT_APP_COINGECKO_API_URL, useHeaders().coinGeckoHeader);
+  const reducer = (state, action) => {
+    switch (action.type){
+      case '1':
+        return {changePercentage: 'price_change_percentage_24h'} 
+      case '7': 
+        return { changePercentage: 'price_change_percentage_7d'}
+      case '14':
+        return { changePercentage: 'price_change_percentage_14d'}
+      case '30':
+        return { changePercentage: 'price_change_percentage_30d'}
+      case '60':
+        return { changePercentage: 'price_change_percentage_60d'}
+      case '365':
+        return { changePercentage: 'price_change_percentage_1y'}
+      default:
+        return state
+    }
+  }
 
-  // Ensure token is defined and has a value to avoid error
-  // if( eachCoin?.change === undefined || eachCoin.change === null ) return;
-  // console.log((coin.symbol).toLowerCase());
+  const [state, dispatch] = useReducer(reducer, {changePercentage : ''})
+
+  const priceChange = {
+    '1': 'price_change_percentage_24h',
+    '7': 'price_change_percentage_7d',
+    '14': 'price_change_percentage_14d',
+    '30': 'price_change_percentage_30d',
+    '60': 'price_change_percentage_60d',
+    '365': 'price_change_percentage_1y',
+  }
+
+
+  // console.log(chartPeriod);
+  console.log(priceChange[chartPeriod])
 
   return (
       <div className='coins-row'>
@@ -47,11 +74,22 @@ const Token = ({ coin, chartPeriod }) => {
                 style={
                   {
                     backgroundColor: coin?.market_data?.price_change_percentage_24h >= 0 ? 'green': 'red', 
+                    // backgroundColor: coin?.market_data?.priceChange[chartPeriod] >= 0 ? 'green': 'red', 
                     color: 'white'
                   }
                 }
                   >{`${(coin?.market_data?.price_change_percentage_24h).toFixed(2)}%`}
               </p>
+              {/* <p 
+                className='change' 
+                style={
+                  {
+                    backgroundColor: coin?.market_data?.price_change_percentage_24h >= 0 ? 'green': 'red', 
+                    color: 'white'
+                  }
+                }
+                  >{`${(coin?.market_data?.price_change_percentage_24h).toFixed(2)}%`}
+              </p> */}
             </div>
           </div>
   )
