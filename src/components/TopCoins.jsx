@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './styles/coins.css';
 import { Link } from 'react-router-dom';
 import Coin from './Coin';
@@ -8,8 +8,10 @@ import ChartPeriodContext from './contexts/ChartPeriodContext';
 import SelectChartPeriod from './selectChartPeriod';
 
 const Cryptos = () => {
-  const { chartPeriod, setChartPeriod } = useContext(ChartPeriodContext);
-  const { data, loading } = useApi('coins', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
+  // const { chartPeriod, setChartPeriod } = useContext(ChartPeriodContext);
+  const { data, loading } = useApi('/coins', process.env.REACT_APP_COINGECKO_API_URL, useHeaders().coinGeckoHeader);
+  const chartPeriod = 24;
+  // console.log(data);
 
   return (
     <section id='coins'> 
@@ -28,7 +30,8 @@ const Cryptos = () => {
                 <p className='market-cap'>Market Cap </p>
               </div>
             
-              <SelectChartPeriod chartPeriod={chartPeriod} setChartPeriod={setChartPeriod} />
+              {/* <SelectChartPeriod chartPeriod={chartPeriod} setChartPeriod={setChartPeriod} /> */}
+              {/* <SelectChartPeriod chartPeriod={chartPeriod} setChartPeriod={setChartPeriod} /> */}
 
             </div>
           </div>
@@ -37,7 +40,7 @@ const Cryptos = () => {
             {
               loading ? null
                 :
-              data?.coins.slice(0, 10).map(coin => 
+              data?.slice(0, 10).map(coin => 
                 <Coin
                   key={coin.uuid}
                   coin={coin}

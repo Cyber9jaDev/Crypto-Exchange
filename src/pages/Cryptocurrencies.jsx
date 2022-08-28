@@ -40,7 +40,7 @@ const Cryptocurrencies = () => {
               
             </div>
           </div>
-          <div className="coins-information-container">
+          {/* <div className="coins-information-container">
             { !loading && data?.coins.map(coin => 
               <Token
                 key={coin.uuid} 
@@ -49,7 +49,7 @@ const Cryptocurrencies = () => {
                 chartPeriod={chartPeriod}
               />
             )}
-          </div>
+          </div> */}
 
         </div>
       </>
