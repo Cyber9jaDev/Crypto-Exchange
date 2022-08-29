@@ -7,7 +7,8 @@ import { Line } from 'react-chartjs-2';
 const LineChart = ({ coinId, chartPeriod, change }) => {
   ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler );
   const { loading, data : coin } = useApi(`/coins/${coinId}/market_chart?vs_currency=usd&days=${chartPeriod}`, process.env.REACT_APP_COINGECKO_API_URL, useHeaders().coinGeckoHeader);
-  if(loading) return;  
+  
+  if(loading) return;  // Ensure it is  not loading to prevent an undefined situation 
 
   const coinPrice = [];
   const coinTimestamp = [];
