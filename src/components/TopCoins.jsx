@@ -10,6 +10,7 @@ import SelectChartPeriod from './selectChartPeriod';
 const TopCoins = () => {
   const { chartPeriod, setChartPeriod } = useContext(ChartPeriodContext);
   const { data, loading, error } = useApi('/coins', process.env.REACT_APP_COINGECKO_API_URL, useHeaders().coinGeckoHeader);
+  console.log(data)
   if(error) return;
   if(loading) return;
 
