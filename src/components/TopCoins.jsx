@@ -9,10 +9,14 @@ import SelectChartPeriod from './selectChartPeriod';
 
 const TopCoins = () => {
   const { chartPeriod, setChartPeriod } = useContext(ChartPeriodContext);
-  const { data, loading } = useApi('/coins', process.env.REACT_APP_COINGECKO_API_URL, useHeaders().coinGeckoHeader);
-  // console.log(data);
+  const { data, loading, error } = useApi('/coins', process.env.REACT_APP_COINGECKO_API_URL, useHeaders().coinGeckoHeader);
+  if(error) return;
+  if(loading) return;
 
   return (
+    <>
+    { (error) ? null: 
+
     <section id='coins'> 
       <div className="container-fluid">
         {/* <CryptoTableHead /> */}
@@ -36,7 +40,7 @@ const TopCoins = () => {
 
           <div className="coins-information-container">
             {
-              loading ? null
+              error || loading ? null
                 :
               data?.slice(0, 10).map(coin => 
                 <Coin
@@ -58,6 +62,9 @@ const TopCoins = () => {
       
       </div>
     </section>
+    }
+
+    </>
   )
 }
 

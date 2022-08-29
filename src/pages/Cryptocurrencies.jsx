@@ -13,14 +13,11 @@ const Cryptocurrencies = () => {
   console.log(data);
 
   // console.log(data?.coins?.uuid, data?.coins?.symbol);
-
   // if(data?.coins === undefined ) return;
-
   // for(let i = 0; i < data?.coins.length; i++){
   //   console.log((data?.coins[i]?.symbol).toLowerCase(), ':', `'${data?.coins[i]?.uuid}',`);
   // }
 
-  
 
   return (
     <section>

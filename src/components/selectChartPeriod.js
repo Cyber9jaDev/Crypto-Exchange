@@ -11,7 +11,6 @@ const SelectChartPeriod = ({ chartPeriod, setChartPeriod }) => {
   return (
     <div className="chart-wrapper">
       <select onChange={changeChartPeriod} value= {chartPeriod} name="chartPeriod" >
-        <option value="0.041667">1H</option>
         <option value="1">24H</option>
         <option value="7">1W</option>
         <option value="14">2W</option>

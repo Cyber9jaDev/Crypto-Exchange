@@ -6,20 +6,22 @@ import { Line } from 'react-chartjs-2';
 
 const LineChart = ({ coinId, chartPeriod, change }) => {
   ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler );
-  const { loading, data : coin } = useApi(`/coins/${coinId}/market_chart?vs_currency=usd&days=${chartPeriod}`, process.env.REACT_APP_COINGECKO_API_URL, useHeaders().coinGeckoHeader);
-  
-  if(loading) return;  // Ensure it is  not loading to prevent an undefined situation 
+  const { loading, data : coin, error } = useApi(`/coins/${coinId}/market_chart?vs_currency=usd&days=${chartPeriod}`, process.env.REACT_APP_COINGECKO_API_URL, useHeaders().coinGeckoHeader);
+  console.log(error)
+  if(loading) return;  // Ensure it is  not loading to prevent an undefined situation
+  if(error) return; 
 
   const coinPrice = [];
   const coinTimestamp = [];
-  
-  for (let i= 0; i < coin?.prices.length; i++){
-    coinTimestamp.push(new Date(coin.prices[i][0]).toLocaleDateString());
-    coinPrice.push(coin.prices[i][1])
-  }
 
-  coinPrice.reverse();
-  coinTimestamp.reverse();
+  if(!error && !loading){
+    for (let i= 0; i < coin?.prices.length; i++){
+      coinTimestamp.push(new Date(coin.prices[i][0]).toLocaleDateString());
+      coinPrice.push(coin.prices[i][1])
+    }
+    coinPrice.reverse();
+    coinTimestamp.reverse();
+  }
 
   const data = {
     labels: coinTimestamp,
@@ -73,7 +75,8 @@ const LineChart = ({ coinId, chartPeriod, change }) => {
 
   return (
     <div>
-      { !loading && <Line options={ options } data={ data }  />}
+      { error || loading ? null : <Line options={ options } data={ data }  />}
+
     </div>
   )
 }
