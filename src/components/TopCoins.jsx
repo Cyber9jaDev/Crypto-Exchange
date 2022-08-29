@@ -38,7 +38,7 @@ const TopCoins = () => {
             {
               loading ? null
                 :
-              data?.slice(0, 20).map((coin, index) => 
+              data?.slice(0, 10).map((coin, index) => 
                 <Coin
                   // key={coin.uuid}
                   key={index}

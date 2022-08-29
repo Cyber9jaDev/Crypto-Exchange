@@ -6,9 +6,7 @@ import { Line } from 'react-chartjs-2';
 
 const LineChart = ({ coinId, chartPeriod, change }) => {
   ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler );
-  
-  const { loading, data : coin } = useApi(`/coins/bitcoin/market_chart?vs_currency=usd&days=${chartPeriod}`, process.env.REACT_APP_COINGECKO_API_URL, useHeaders().coinGeckoHeader);
-  
+  const { loading, data : coin } = useApi(`/coins/${coinId}/market_chart?vs_currency=usd&days=${chartPeriod}`, process.env.REACT_APP_COINGECKO_API_URL, useHeaders().coinGeckoHeader);
   if(loading) return;  
 
   const coinPrice = [];
@@ -74,7 +72,7 @@ const LineChart = ({ coinId, chartPeriod, change }) => {
 
   return (
     <div>
-      <Line options={ options } data={ data }  />
+      { !loading && <Line options={ options } data={ data }  />}
     </div>
   )
 }

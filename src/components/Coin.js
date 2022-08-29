@@ -59,7 +59,7 @@ const Token = ({ coin, chartPeriod }) => {
   // }
 
   // console.log(chartPeriod);
-  console.log(percentageChange)
+  // console.log(percentageChange)
   
   return (
       <div className='coins-row'>
@@ -84,31 +84,18 @@ const Token = ({ coin, chartPeriod }) => {
             
             <div className="change-wrapper">
               <div className="line-chart">
-                { <Chart chartPeriod={chartPeriod} change={coin?.market_data?.price_change_percentage_24h} /> }
+                { <Chart chartPeriod={chartPeriod} change={percentageChange} coinId={coin?.id} /> }
               </div>
               <p 
                 className='change' 
                 style={
                   {
                     backgroundColor: percentageChange >= 0 ? 'green': 'red', 
-                    // backgroundColor: coin?.market_data?.priceChange[chartPeriod] >= 0 ? 'green': 'red', 
                     color: 'white'
                   }
                 }
-                  // >{`${(coin?.market_data?.price_change_percentage_24h).toFixed(2)}%`}
                   >{`${(percentageChange).toFixed(2)}%`}
-                  
               </p>
-              {/* <p 
-                className='change' 
-                style={
-                  {
-                    backgroundColor: coin?.market_data?.price_change_percentage_24h >= 0 ? 'green': 'red', 
-                    color: 'white'
-                  }
-                }
-                  >{`${(coin?.market_data?.price_change_percentage_24h).toFixed(2)}%`}
-              </p> */}
             </div>
           </div>
   )
