@@ -10,7 +10,7 @@ import SelectChartPeriod from './selectChartPeriod';
 const TopCoins = () => {
   const { chartPeriod, setChartPeriod } = useContext(ChartPeriodContext);
   const { data, loading } = useApi('/coins', process.env.REACT_APP_COINGECKO_API_URL, useHeaders().coinGeckoHeader);
-  console.log(data);
+  // console.log(data);
 
   return (
     <section id='coins'> 
@@ -38,7 +38,7 @@ const TopCoins = () => {
             {
               loading ? null
                 :
-              data?.slice(0, 10).map((coin, index) => 
+              data?.slice(0, 20).map((coin, index) => 
                 <Coin
                   // key={coin.uuid}
                   key={index}

@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
@@ -29,21 +29,38 @@ const Token = ({ coin, chartPeriod }) => {
     }
   }
 
-  const [state, dispatch] = useReducer(reducer, {changePercentage : ''})
+  const [state, dispatch] = useReducer(reducer, {changePercentage : '1'});
+  const [percentageChange, setPercentageChange ] = useState(coin?.market_data?.price_change_percentage_1h_in_currency?.usd)  // Initial state of 1hour 
 
-  const priceChange = {
-    '1': 'price_change_percentage_24h',
-    '7': 'price_change_percentage_7d',
-    '14': 'price_change_percentage_14d',
-    '30': 'price_change_percentage_30d',
-    '60': 'price_change_percentage_60d',
-    '365': 'price_change_percentage_1y',
-  }
+  useEffect(() => {
+    const resolve = () => {
+      if(chartPeriod ===  '1') setPercentageChange(coin?.market_data?.price_change_percentage_24h);   // 1 day or 24hours
+      else if(chartPeriod === '7') setPercentageChange(coin?.market_data?.price_change_percentage_7d)
+      else if(chartPeriod === '14') setPercentageChange(coin?.market_data?.price_change_percentage_14d)
+      else if(chartPeriod === '30') setPercentageChange(coin?.market_data?.price_change_percentage_30d)
+      else if(chartPeriod === '60') setPercentageChange(coin?.market_data?.price_change_percentage_60d)
+      else if(chartPeriod === '365') setPercentageChange(coin?.market_data?.price_change_percentage_1y)
+      else {
+        setPercentageChange(coin?.market_data?.price_change_percentage_1h_in_currency?.usd)
+      }
+    }
+  
+    return () =>  resolve() ;
 
+  }, [chartPeriod])
+  
+  // const priceChange = {
+  //   '1': 'price_change_percentage_24h',
+  //   '7': 'price_change_percentage_7d',
+  //   '14': 'price_change_percentage_14d',
+  //   '30': 'price_change_percentage_30d',
+  //   '60': 'price_change_percentage_60d',
+  //   '365': 'price_change_percentage_1y',
+  // }
 
   // console.log(chartPeriod);
-  console.log(priceChange[chartPeriod])
-
+  console.log(percentageChange)
+  
   return (
       <div className='coins-row'>
             <div className="all-coins">
@@ -73,12 +90,14 @@ const Token = ({ coin, chartPeriod }) => {
                 className='change' 
                 style={
                   {
-                    backgroundColor: coin?.market_data?.price_change_percentage_24h >= 0 ? 'green': 'red', 
+                    backgroundColor: percentageChange >= 0 ? 'green': 'red', 
                     // backgroundColor: coin?.market_data?.priceChange[chartPeriod] >= 0 ? 'green': 'red', 
                     color: 'white'
                   }
                 }
-                  >{`${(coin?.market_data?.price_change_percentage_24h).toFixed(2)}%`}
+                  // >{`${(coin?.market_data?.price_change_percentage_24h).toFixed(2)}%`}
+                  >{`${(percentageChange).toFixed(2)}%`}
+                  
               </p>
               {/* <p 
                 className='change' 
