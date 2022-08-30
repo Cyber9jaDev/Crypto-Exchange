@@ -7,9 +7,13 @@ import useHeaders from '../utilities/useHeaders';
 import ChartPeriodContext from './contexts/ChartPeriodContext';
 import SelectChartPeriod from './selectChartPeriod';
 
+
 const Cryptos = () => {
   const { chartPeriod, setChartPeriod } = useContext(ChartPeriodContext);
   const { data, loading } = useApi('coins', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
+  const { data : token, loading : load } = useApi('/v2/assets?limit=5', process.env.REACT_APP_MESSARI_URL, useHeaders().messariHeader);
+  console.log(token)
+
 
   return (
     <section id='coins'> 

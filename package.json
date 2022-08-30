@@ -15,6 +15,7 @@
     "chart.js": "^3.9.1",
     "coingecko-api": "^1.0.10",
     "cors-anywhere": "^0.4.4",
+    "cryptocurrency-icons": "^0.18.1",
     "dotenv": "^16.0.1",
     "firebase": "^9.9.3",
     "millify": "^5.0.0",
