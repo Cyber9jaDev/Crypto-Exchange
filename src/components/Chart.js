@@ -6,11 +6,8 @@ import { Line } from 'react-chartjs-2';
 
 const LineChart = ({ coinId, chartPeriod, change }) => {
   ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler );
-  const { data: token, loading } = useApi('/v1/assets/bitcoin/metrics/exch.flow.in.usd.incl/time-series?after=2020-01-01&interval=1d', process.env.REACT_APP_MESSARI_URL, useHeaders().messariHeader);
-  const { data: toke, loading: lod } = useApi('https://data.messari.io/api/v1/assets/metrics', process.env.REACT_APP_MESSARI_URL, useHeaders().messariHeader);
-  
-  console.log(toke);
-  
+  const { data: token, loading } = useApi('/v1/assets/ethereum/metrics/price/time-series?after=2020-01-01&interval=1d', process.env.REACT_APP_MESSARI_URL, useHeaders().messariHeader);
+    
   if(loading) return;  
 
   const coinPrice = [];
@@ -30,8 +27,8 @@ const LineChart = ({ coinId, chartPeriod, change }) => {
 
   token?.values.forEach(coin => {
     if(coin.price === null || coin.timestamp === null ) return;
-    // console.log(coin[0])
-    // console.log(coin[5])
+    console.log(coin[0])
+    console.log(coin[5])
   });
 
   coinPrice.reverse();
