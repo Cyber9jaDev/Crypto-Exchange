@@ -4,7 +4,7 @@ import './App.css';
 import ChartPeriodContext from "./components/contexts/ChartPeriodContext";
 
 function App() {
-  const [chartPeriod, setChartPeriod] = useState('12h');   // set chart period to 12h 
+  const [chartPeriod, setChartPeriod] = useState('1d');   // set chart period to 12h 
 
   return (
     <>

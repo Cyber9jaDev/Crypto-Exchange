@@ -7,12 +7,11 @@ import useHeaders from '../utilities/useHeaders';
 import ChartPeriodContext from './contexts/ChartPeriodContext';
 import SelectChartPeriod from './selectChartPeriod';
 
-
 const Cryptos = () => {
   const { chartPeriod, setChartPeriod } = useContext(ChartPeriodContext);
-  const { data, loading } = useApi('coins', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
-  const { data : token, loading : load } = useApi('/v2/assets?limit=5', process.env.REACT_APP_MESSARI_URL, useHeaders().messariHeader);
-  console.log(token)
+  // const { data, loading } = useApi('coins', process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
+  const { data, loading } = useApi('/v2/assets?limit=5', process.env.REACT_APP_MESSARI_URL, useHeaders().messariHeader);
+  // const { data : token, loading : load } = useApi('/v1/assets/ethereum/metrics', process.env.REACT_APP_MESSARI_URL, useHeaders().messariHeader);
 
 
   return (
@@ -41,9 +40,9 @@ const Cryptos = () => {
             {
               loading ? null
                 :
-              data?.coins.slice(0, 10).map(coin => 
+              data?.map(coin => 
                 <Coin
-                  key={coin.uuid}
+                  key={coin.id}
                   coin={coin}
                   loading={loading}
                   chartPeriod={chartPeriod}

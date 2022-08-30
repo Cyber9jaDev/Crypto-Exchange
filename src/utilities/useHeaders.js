@@ -7,7 +7,6 @@ const useHeaders = () => {
       headers: {
         'x-access-token': `${process.env.REACT_APP_COINRANKING_API_KEY}`,
 		    'Access-Control-Allow-Origin': '*',
-		    // 'Access-Control-Allow-Origin': 'http://localhost:3000',
         'Content-Type': 'application/json',
       }
     }), []);

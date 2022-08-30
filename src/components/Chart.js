@@ -6,18 +6,32 @@ import { Line } from 'react-chartjs-2';
 
 const LineChart = ({ coinId, chartPeriod, change }) => {
   ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler );
+  const { data: token, loading } = useApi('/v1/assets/bitcoin/metrics/exch.flow.in.usd.incl/time-series?after=2020-01-01&interval=1d', process.env.REACT_APP_MESSARI_URL, useHeaders().messariHeader);
+  const { data: toke, loading: lod } = useApi('https://data.messari.io/api/v1/assets/metrics', process.env.REACT_APP_MESSARI_URL, useHeaders().messariHeader);
   
-  const { loading, data : coin } = useApi(`coin/${coinId}/history?timePeriod=${chartPeriod}`, process.env.REACT_APP_COINRANKING_URL, useHeaders().coinrankingHeader);
+  console.log(toke);
   
   if(loading) return;  
 
   const coinPrice = [];
   const coinTimestamp = [];
 
-  coin?.history.forEach(coin => {
+  // coin?.history.forEach(coin => {
+  //   if(coin.price === null || coin.timestamp === null ) return;
+  //   coinPrice.push(coin.price);
+  //   coinTimestamp.push(new Date((coin.timestamp) * 1000).toLocaleDateString());
+  // });
+
+  // coin?.values.forEach(coin => {
+  //   if(coin.price === null || coin.timestamp === null ) return;
+  //   coinPrice.push(coin.price);
+  //   coinTimestamp.push(new Date((coin.timestamp) * 1000).toLocaleDateString());
+  // });
+
+  token?.values.forEach(coin => {
     if(coin.price === null || coin.timestamp === null ) return;
-    coinPrice.push(coin.price);
-    coinTimestamp.push(new Date((coin.timestamp) * 1000).toLocaleDateString());
+    // console.log(coin[0])
+    // console.log(coin[5])
   });
 
   coinPrice.reverse();
@@ -75,7 +89,8 @@ const LineChart = ({ coinId, chartPeriod, change }) => {
 
   return (
     <div>
-      <Line options={ options } data={ data }  />
+      op
+      {/* <Line options={ options } data={ data }  /> */}
     </div>
   )
 }
